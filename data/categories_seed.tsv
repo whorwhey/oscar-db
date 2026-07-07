@@ -1,0 +1,67 @@
+source_name	award_group	class
+ACTOR IN A LEADING ROLE	Actor -- Leading Role	Acting
+ACTOR IN A SUPPORTING ROLE	Actor -- Supporting Role	Acting
+ACTRESS IN A LEADING ROLE	Actress -- Leading Role	Acting
+ACTRESS IN A SUPPORTING ROLE	Actress -- Supporting Role	Acting
+DIRECTING	Directing	Directing
+DIRECTING (Comedy Picture)	Directing	Directing
+DIRECTING (Dramatic Picture)	Directing	Directing
+ASSISTANT DIRECTOR	Assistant Director	Directing
+MUSIC (Original Score)	Music (Scoring)	Music
+MUSIC (Original Song Score or Adaptation Score)	Music (Scoring)	Music
+MUSIC (Original Song)	Music (Song)	Music
+DANCE DIRECTION	Dance Direction	Music
+ART DIRECTION	Production Design	Production
+ART DIRECTION (Black-and-White)	Production Design	Production
+ART DIRECTION (Color)	Production Design	Production
+CASTING	Casting	Production
+CINEMATOGRAPHY	Cinematography	Production
+CINEMATOGRAPHY (Black-and-White)	Cinematography	Production
+CINEMATOGRAPHY (Color)	Cinematography	Production
+COSTUME DESIGN	Costume Design	Production
+COSTUME DESIGN (Black-and-White)	Costume Design	Production
+COSTUME DESIGN (Color)	Costume Design	Production
+FILM EDITING	Film Editing	Production
+MAKEUP AND HAIRSTYLING	Makeup and Hairstyling	Production
+SOUND EDITING	Sound Editing	Production
+SOUND MIXING	Sound Mixing	Production
+SOUND RECORDING	Sound Mixing	Production
+VISUAL EFFECTS	Visual Effects	Production
+WRITING (Adapted Screenplay)	Writing	Writing
+WRITING (Original Screenplay)	Writing	Writing
+WRITING (Original Story)	Writing	Writing
+WRITING (Title Writing)	Writing	Writing
+BEST PICTURE	Best Picture	Film
+UNIQUE AND ARTISTIC PICTURE	Unique and Artistic Picture	Film
+ANIMATED FEATURE FILM	Animated Feature Film	Film
+INTERNATIONAL FEATURE FILM	International Feature Film	Film
+DOCUMENTARY (Feature)	Documentary Feature Film	Film
+DOCUMENTARY (Short Subject)	Documentary Short Film	Film
+SHORT FILM (Animated)	Animated Short Film	Film
+SHORT FILM (Live Action)	Live Action Short Film	Film
+SHORT SUBJECT (Color)	Live Action Short Film	Film
+SHORT SUBJECT (Comedy)	Live Action Short Film	Film
+SHORT SUBJECT (Novelty)	Live Action Short Film	Film
+SHORT SUBJECT (One-reel)	Live Action Short Film	Film
+SHORT SUBJECT (Two-reel)	Live Action Short Film	Film
+SCIENTIFIC AND TECHNICAL AWARD (Academy Award of Merit)	Scientific and Technical (Academy Award of Merit)	SciTech
+SCIENTIFIC OR TECHNICAL AWARD (Class I)	Scientific and Technical (Academy Award of Merit)	SciTech
+SCIENTIFIC AND TECHNICAL AWARD (Scientific and Engineering Award)	Scientific and Technical (Scientific and Engineering Award)	SciTech
+SCIENTIFIC OR TECHNICAL AWARD (Class II)	Scientific and Technical (Scientific and Engineering Award)	SciTech
+SCIENTIFIC AND TECHNICAL AWARD (Technical Achievement Award)	Scientific and Technical (Technical Achievement Award)	SciTech
+SCIENTIFIC OR TECHNICAL AWARD (Class III)	Scientific and Technical (Technical Achievement Award)	SciTech
+SCIENTIFIC AND TECHNICAL AWARD (Special Award)	Scientific and Technical (Special Awards)	SciTech
+GORDON E. SAWYER AWARD	Scientific and Technical (Gordon E. Sawyer Award)	SciTech
+JOHN A. BONNER MEDAL OF COMMENDATION	Scientific and Technical (Bonner Medal)	SciTech
+MEDAL OF COMMENDATION	Scientific and Technical (Bonner Medal)	SciTech
+AWARD OF COMMENDATION	Scientific and Technical (Bonner Medal)	SciTech
+HONORARY AWARD	Honorary Award	Special
+SPECIAL AWARD	Honorary Award	Special
+SPECIAL FOREIGN LANGUAGE FILM AWARD	Honorary Award	Special
+SPECIAL ACHIEVEMENT AWARD	Special Achievement Award	Special
+SPECIAL ACHIEVEMENT AWARD (Sound Editing)	Special Achievement Award	Special
+SPECIAL ACHIEVEMENT AWARD (Sound Effects Editing)	Special Achievement Award	Special
+SPECIAL ACHIEVEMENT AWARD (Sound Effects)	Special Achievement Award	Special
+SPECIAL ACHIEVEMENT AWARD (Visual Effects)	Special Achievement Award	Special
+JEAN HERSHOLT HUMANITARIAN AWARD	Jean Hersholt Humanitarian Award	Special
+IRVING G. THALBERG MEMORIAL AWARD	Irving G. Thalberg Memorial Award	Special
