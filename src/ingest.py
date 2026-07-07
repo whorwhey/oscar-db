@@ -2,6 +2,7 @@
 # See schema.md / data_notes.md for the design this follows.
 
 import sqlite3
+import sys
 from pathlib import Path
 
 
@@ -120,11 +121,43 @@ def load_categories(cursor, seed_path="data/categories_seed.tsv") -> dict[str, i
     return category_by_name
 
 
+def has_enrichment_data(db_path) -> bool:
+    """True if an existing db already has hand-entered enrichment values.
+
+    oscars.db is persisted state, not a disposable build artifact (see
+    "Enrichment persistence" in CLAUDE.md) -- rerunning ingest.py wipes it,
+    so this is the check that stops an accidental wipe.
+    """
+    if not Path(db_path).exists():
+        return False
+    conn = sqlite3.connect(db_path)
+    try:
+        checks = [
+            "SELECT 1 FROM films WHERE title_zh IS NOT NULL "
+            "OR douban_id IS NOT NULL OR release_year IS NOT NULL LIMIT 1",
+            "SELECT 1 FROM people WHERE name_zh IS NOT NULL "
+            "OR douban_id IS NOT NULL LIMIT 1",
+            "SELECT 1 FROM film_countries LIMIT 1",
+            "SELECT 1 FROM person_countries LIMIT 1",
+        ]
+        return any(conn.execute(sql).fetchone() for sql in checks)
+    finally:
+        conn.close()
+
+
 def main(
     tsv_path="data/oscars.tsv",
     db_path="data/oscars.db",
     schema_path="schema.sql",
+    force=False,
 ):
+    if not force and has_enrichment_data(db_path):
+        raise RuntimeError(
+            f"{db_path} already has enrichment data (title_zh/name_zh/"
+            "douban_id/release_year/countries) -- refusing to wipe it. "
+            "Back it up, then rerun with force=True (or --force) once "
+            "you've confirmed you can reapply the enrichment afterward."
+        )
     Path(db_path).unlink(missing_ok=True)
     conn = sqlite3.connect(db_path)
     try:
@@ -229,5 +262,5 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    main(force="--force" in sys.argv)
 

@@ -9,8 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-# Build artifacts
-data/oscars.db
-
 # OS
 .DS_Store
