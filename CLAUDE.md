@@ -41,3 +41,21 @@ uv on macOS. Always `uv run ...` — never bare `python`.
 The rebuild-on-every-run design is only safe while the db holds nothing
 non-regenerable. Once enrichment adds hand-entered data (`title_zh`,
 etc.), this must be revisited — a destructive rebuild would wipe it.
+
+## Status & roadmap (2026-07-07)
+
+Done: schema, ingestion, category seed, verification queries, initial
+commit (695d70d). Not pushed — README and db quality confirmation first.
+
+Next, in order:
+1. Correctness test script (src/verify.py, `uv run`): structural checks,
+   known-fact spot checks, aggregate sanity, TSV round-trip sample.
+   Also explain the 30 filmless Directing/Production/Writing nominations.
+2. Decide rebuild-safety for enrichment (likely: enrichment lives in
+   seed files like categories_seed.tsv; db stays a pure build artifact).
+   Blocks all enrichment work.
+3. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
+   GUI = VS Code SQLite Viewer extension.
+4. Enrichment: title_zh/name_zh, release_year (IMDb), douban_id,
+   countries, film_directors junction (schema discussion needed).
+5. README, then push.
