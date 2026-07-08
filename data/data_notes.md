@@ -1,12 +1,14 @@
 # Data Notes (Sources & Data Dictionary)
 
-The database draws on three sources with distinct authority boundaries:
+The database draws on two sources with distinct authority boundaries:
 
 1. **DLu's TSV** (`data/oscars.tsv`): which ceremonies/nominations/films/
    people exist and how they connect. Bootstrap-only.
 2. **IMDb non-commercial datasets** (`data/title.basics.tsv.gz`): film
    titles, original titles, release years, runtimes. Re-runnable sync.
-3. **Us**: the categories seed and hand fixes where neither source is right.
+
+Categories are not sourced at all — we author them (see "Categories:
+curated by us" below).
 
 Working rules and the authority summary live in CLAUDE.md; schema rationale
 in schema.md. This file is the deeper reference on each source.
@@ -98,22 +100,22 @@ Coverage: all 5,264 films with an imdb_id match a title.basics row; 12 have
 no runtimeMinutes at IMDb. Film 764 ("Letter from Livingston") has no
 imdb_id at all — release_year 1943 hand-set, IMDb columns NULL.
 
-## Source 3: our curation
+Hand fixes: individual corrections where neither source is right (stale
+imdb_id, missing release_year, …) — the running list is "Resolved data
+quirks" in CLAUDE.md.
 
-- **Categories seed** (`data/categories_seed.tsv`): facts (nominations,
-  films, people: thousands of rows) are parsed from the dataset — it is the
-  authority. Dimensions (categories: 66 rows we make editorial decisions
-  about) are curated seed data — we are the authority. Ingestion therefore
-  VALIDATES categories rather than creating them: an unknown
-  CanonicalCategory crashes the run (KeyError) so a human classifies it.
-  Trade-off accepted: the seed is coupled to DLu's exact spellings, and an
-  upstream rename breaks ingestion loudly — which beats silent
-  misclassification. Hierarchy: raw_category → source_name (66) →
-  award_group (37, official-site facets) → class (8). Judgment calls in the
-  mapping are documented in schema.md.
-- **Hand fixes**: individual corrections where neither source is right
-  (stale imdb_id, missing release_year, …) — the running list is
-  "Resolved data quirks" in CLAUDE.md.
+## Categories: curated by us
+
+`data/categories_seed.tsv`: facts (nominations, films, people: thousands
+of rows) are parsed from the dataset — it is the authority. Dimensions
+(categories: 66 rows we make editorial decisions about) are curated seed
+data — we are the authority. Ingestion therefore VALIDATES categories
+rather than creating them: an unknown CanonicalCategory crashes the run
+(KeyError) so a human classifies it. Trade-off accepted: the seed is
+coupled to DLu's exact spellings, and an upstream rename breaks ingestion
+loudly — which beats silent misclassification. Hierarchy: raw_category →
+source_name (66) → award_group (37, official-site facets) → class (8).
+Judgment calls in the mapping are documented in schema.md.
 
 ## Design decisions (schema-level)
 
