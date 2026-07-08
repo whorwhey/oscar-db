@@ -86,12 +86,7 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 ## Roadmap
 
-1. Heavy rewrite of data/data_notes.md: sources are now TSV + IMDb, not
-   TSV only (deferred 2026-07-08; uncommitted stub bullet sits in the
-   working tree). Include the original_title <> title nuance: it
-   matches 716 films, not 625, since ~91 titles differ from
-   primaryTitle only in case/whitespace (title sync compared
-   casefolded). README should gain a db-structure subsection.
+1. README: add a db-structure subsection.
 2. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
    GUI = VS Code SQLite Viewer extension. Respect the Titanic
    disambiguation rule above.
@@ -99,4 +94,5 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
    film_directors junction (schema discussion needed).
 
 Done 2026-07-08: original_title + runtime_minutes columns, enriched
-from IMDb (enrich_release_year.py generalized into enrich_imdb.py).
+from IMDb (enrich_release_year.py generalized into enrich_imdb.py);
+data_notes.md rewritten around the three sources.
