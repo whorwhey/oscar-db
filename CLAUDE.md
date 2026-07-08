@@ -26,7 +26,8 @@ data dictionary). Read both before schema or data work.
   exist and how they connect. Bootstrap-only; never routinely reloaded.
 - IMDb non-commercial datasets (title.basics.tsv.gz, gitignored,
   re-downloadable from datasets.imdbws.com): authority for film titles
-  (primaryTitle) and release_year. Joined on imdb_id.
+  (primaryTitle), original_title, release_year, runtime_minutes. Joined
+  on imdb_id.
 - Us: categories seed (66 rows, data/categories_seed.tsv), hand fixes
   for cases neither source gets right (see "Resolved data quirks").
 - All enrichment/corrections keyed on imdb_id (external, stable) — NOT
@@ -57,8 +58,10 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 - src/ingest.py is bootstrap-only and destructive (drops the db). It
   refuses to run if the db holds non-null enrichment data; --force
   overrides. Never run it casually — the db contains hand-entered work.
-- src/enrich_release_year.py: re-runnable IMDb sync; also reports (not
-  writes) title mismatches against primaryTitle. Currently 0 mismatches.
+- src/enrich_imdb.py: re-runnable IMDb sync (release_year,
+  original_title, runtime_minutes; never overwrites db values with IMDb
+  NULLs); also reports (not writes) title mismatches against
+  primaryTitle. Currently 0 mismatches.
 
 ## Resolved data quirks (reference, all handled)
 
@@ -83,12 +86,17 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 ## Roadmap
 
-1. Commit current state (title sync + docs), push.
-2. IMDb follow-ups: originalTitle (restores original-language titles
-   dropped by the primaryTitle sync — recoverable anytime via imdb_id)
-   and runtimeMinutes. Needs schema discussion (new columns).
-3. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
+1. Heavy rewrite of data/data_notes.md: sources are now TSV + IMDb, not
+   TSV only (deferred 2026-07-08; uncommitted stub bullet sits in the
+   working tree). Include the original_title <> title nuance: it
+   matches 716 films, not 625, since ~91 titles differ from
+   primaryTitle only in case/whitespace (title sync compared
+   casefolded). README should gain a db-structure subsection.
+2. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
    GUI = VS Code SQLite Viewer extension. Respect the Titanic
    disambiguation rule above.
-4. Remaining enrichment: title_zh/name_zh, douban_id, countries,
+3. Remaining enrichment: title_zh/name_zh, douban_id, countries,
    film_directors junction (schema discussion needed).
+
+Done 2026-07-08: original_title + runtime_minutes columns, enriched
+from IMDb (enrich_release_year.py generalized into enrich_imdb.py).

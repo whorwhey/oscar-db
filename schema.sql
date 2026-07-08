@@ -26,7 +26,9 @@ CREATE TABLE films (
     title_zh TEXT,                  -- zh-Hans; enrichment later e.g. "瞬息全宇宙"
     imdb_id TEXT UNIQUE,            -- e.g. "tt1630029"
     douban_id TEXT UNIQUE,          -- enrichment later e.g. "34978685"
-    release_year INTEGER            -- enrichment later e.g. 2022
+    release_year INTEGER,           -- IMDb startYear e.g. 2022
+    original_title TEXT,            -- IMDb originalTitle, verbatim; NULL = unknown
+    runtime_minutes INTEGER         -- IMDb runtimeMinutes; NULL = unknown
 );
 
 CREATE TABLE people (

@@ -1,6 +1,7 @@
 # Schema (settled design — implemented in schema.sql)
 
 Status: design final as of 2026-07-06; schema.sql and ingest.py implement it.
+2026-07-08: films gains original_title + runtime_minutes (IMDb enrichment).
 Categories redesigned 2026-07-06: curated seed data, no longer discovered
 from the source file (see "Category hierarchy" below).
 
@@ -9,10 +10,13 @@ from the source file (see "Category hierarchy" below).
 films
   film_id        PK (integer, surrogate)
   imdb_id        nullable, unique        -- 'tt...'; '?' in source → NULL
-  title          text, required
+  title          text, required          -- follows IMDb primaryTitle
   title_zh       nullable                -- Simplified Chinese (zh-Hans)
   douban_id      nullable
-  release_year   nullable integer        -- not in source; IMDb enrichment later
+  release_year   nullable integer        -- IMDb startYear
+  original_title nullable                -- IMDb originalTitle, verbatim; see
+                                         -- data_notes.md
+  runtime_minutes nullable integer       -- IMDb runtimeMinutes
 
 people                                    -- includes companies (see kind)
   person_id      PK

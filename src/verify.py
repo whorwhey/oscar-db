@@ -1,8 +1,8 @@
 # Correctness checks for data/oscars.db.
 # Run: uv run src/verify.py
-# Sections: structural integrity, aggregate sanity, known-fact spot checks,
-# TSV round-trip sample. Prints one line per check; exits nonzero on any
-# failure (see EXPECTED_FILMLESS docstring below for the ceremony-6 quirk).
+# Sections: structural integrity, aggregate sanity, IMDb enrichment,
+# known-fact spot checks, TSV round-trip sample. Prints one line per check;
+# exits nonzero on any failure.
 
 import sqlite3
 import sys
@@ -121,6 +121,42 @@ def aggregate(cur):
     check("Acting class has zero filmless nominations", filmless_acting == 0)
 
 
+def imdb_enrichment(cur):
+    section("IMDb enrichment")
+
+    # Coverage: every film with an imdb_id (5,264) matched title.basics on the
+    # 2026-07 snapshot; 12 of them have no runtimeMinutes at IMDb. Film 764
+    # ("Letter from Livingston") has no imdb_id: release_year 1943 hand-set
+    # from the ceremony year, both IMDb columns legitimately NULL.
+    coverage = cur.execute("""
+        SELECT COUNT(release_year), COUNT(original_title), COUNT(runtime_minutes)
+        FROM films
+    """).fetchone()
+    check("enrichment coverage: 5265 release_year / 5264 original_title / 5252 runtime",
+          coverage == (5265, 5264, 5252), coverage)
+
+    no_original = cur.execute(
+        "SELECT film_id, imdb_id, release_year FROM films WHERE original_title IS NULL"
+    ).fetchall()
+    check("only film 764 (no imdb_id, hand-set year 1943) lacks original_title",
+          no_original == [(764, None, 1943)], no_original)
+
+    # Values confirmed against the title.basics snapshot by hand.
+    spot = cur.execute("""
+        SELECT imdb_id, original_title, runtime_minutes FROM films
+        WHERE imdb_id IN ('tt6751668', 'tt0028950', 'tt0031381', 'tt0120338')
+        ORDER BY imdb_id
+    """).fetchall()
+    expected = [
+        ("tt0028950", "La grande illusion", 113),   # Grand Illusion
+        ("tt0031381", "Gone with the Wind", 238),   # original = primary case
+        ("tt0120338", "Titanic", 194),              # the 1997 one
+        ("tt6751668", "Gisaengchung", 132),         # Parasite
+    ]
+    check("original_title/runtime spot checks (Parasite, Grand Illusion, GWTW, Titanic)",
+          spot == expected, spot)
+
+
 def spot_checks(cur):
     section("known-fact spot checks")
 
@@ -218,6 +254,7 @@ def main():
 
     structural(cur)
     aggregate(cur)
+    imdb_enrichment(cur)
     spot_checks(cur)
     round_trip(cur)
 
