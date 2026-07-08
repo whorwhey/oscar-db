@@ -12,5 +12,8 @@ wheels/
 # Claude Code local settings
 .claude/
 
+# Downloaded third-party datasets (large, re-downloadable)
+data/title.basics.tsv.gz
+
 # OS
 .DS_Store

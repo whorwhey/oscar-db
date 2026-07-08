@@ -1,19 +1,44 @@
 # oscar-db
 
-Learning project: SQLite Oscar database built from a community-parsed
-scrape of the Academy Awards site (`data/oscars.tsv`). I'm new to SQL/
-databases — explain reasoning, go step by step, let me attempt things
-first.
+Curated SQLite Oscar-nominations database. Bootstrapped once from a
+community scrape (`data/oscars.tsv`, DLu/oscar_data), now corrected and
+enriched in place against IMDb's datasets; `data/oscars.db` is the
+maintained, git-tracked artifact. Repo: github.com/whorwhey/oscar-db.
+
+I'm learning SQL/databases — explain reasoning, go step by step, let me
+attempt things first. Before nontrivial edits, tell me the plan first.
 
 Design docs: schema.md (schema rationale), data/data_notes.md (source
 data dictionary). Read both before schema or data work.
 
+## Scope (agreed 2026-07-07)
+
+- Personal learning project, but README/repo kept complete enough for a
+  stranger to clone and query.
+- The db is the product; interfaces (canned queries, small CLI,
+  text-to-SQL LLM demo) are learning demos on top, not products.
+- Chinese-language layer (title_zh/name_zh, douban_id) is one planned
+  enrichment among several, not a headline goal.
+
+## Data authority
+
+- DLu's TSV: authority for which ceremonies/nominations/films/people
+  exist and how they connect. Bootstrap-only; never routinely reloaded.
+- IMDb non-commercial datasets (title.basics.tsv.gz, gitignored,
+  re-downloadable from datasets.imdbws.com): authority for film titles
+  (primaryTitle) and release_year. Joined on imdb_id.
+- Us: categories seed (66 rows, data/categories_seed.tsv), hand fixes
+  for cases neither source gets right (see "Resolved data quirks").
+- All enrichment/corrections keyed on imdb_id (external, stable) — NOT
+  the surrogate integer ids, which are stable only by accident of
+  insertion order. If a rebuild is ever needed, enrichment must be
+  reapplied by imdb_id; no merge script exists yet (build when needed).
+
 ## Schema
 
-schema.sql is settled — don't change without discussing. Core design:
-fact tables (nominations, films, people — parsed from the source, which
-is the authority) vs. dimension data (categories — 66 rows we make
-editorial calls about, seeded from data/categories_seed.tsv).
+schema.sql is settled — don't change without discussing. Fact tables
+(nominations, films, people) vs. curated dimension data (categories).
+films.title now follows IMDb primaryTitle, not DLu's spelling.
 
 Category hierarchy, finest to coarsest:
 ```
@@ -21,66 +46,49 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   → award_group (37, official-site facets) → class (8 coarse groups)
 ```
 
-## Ingestion (src/ingest.py)
+## Working on the repo
 
-- Self-contained and destructive: deletes `data/oscars.db`, re-applies
-  schema.sql, and re-ingests from `data/oscars.tsv`.
-- Rare/manual now, not routine: `data/oscars.db` is persisted state
-  (git-tracked), not a disposable build artifact, once enrichment data
-  lives in it. Rerun only to bootstrap from scratch or after a real
-  schema/source change — never casually. Guarded: refuses to run if the
-  existing db already has non-null enrichment data, to stop an
-  accidental wipe of hand-entered work (see decision below).
-- Must run `PRAGMA foreign_keys = ON` per connection.
-- Categories are validated, not discovered: an unknown CanonicalCategory
-  in the source data, or an unused seed row, crashes the run by design.
-- Smoke test (only meaningful pre-enrichment, or on a scratch copy): run
-  ingestion twice back-to-back; row counts must match both times.
+- Env: uv on macOS. Always `uv run ...` — never bare `python`.
+- Every sqlite connection: `PRAGMA foreign_keys = ON`.
+- After any db change: `uv run src/verify.py` (structural checks,
+  aggregate sanity, known-fact spot checks, TSV round-trip sample —
+  round-trip checks linkage counts, not title text, since titles are
+  legitimately enriched away from the TSV).
+- src/ingest.py is bootstrap-only and destructive (drops the db). It
+  refuses to run if the db holds non-null enrichment data; --force
+  overrides. Never run it casually — the db contains hand-entered work.
+- src/enrich_release_year.py: re-runnable IMDb sync; also reports (not
+  writes) title mismatches against primaryTitle. Currently 0 mismatches.
 
-## Env
+## Resolved data quirks (reference, all handled)
 
-uv on macOS. Always `uv run ...` — never bare `python`.
+- film_id 764 "Letter from Livingston": only film with no imdb_id
+  (obscure 1943 army short, absent from DLu's IMDb matching);
+  release_year 1943 set by hand from ceremony year.
+- film_id 5030 Summer of Soul: DLu had stale imdb_id tt11422728
+  (retired/merged on IMDb's side); hand-corrected to tt7378922.
+- film_id 1826: was mistitled "A Place in the Sun" — actually a 1960
+  Czech animated short ("O místo na slunci"), not the 1951 Stevens
+  film; fixed via primaryTitle sync.
+- 422 title divergences from primaryTitle reviewed in three batches
+  (formatting; creator-possessives like "Bram Stoker's Dracula";
+  alternate/reissue titles) — all synced to IMDb by decision 2026-07-07.
+- 30 filmless Directing/Production/Writing nominations are pre-1933
+  discontinued categories crediting a person/department, not a film.
+  SciTech/Special filmless nominations (994 + 256) are citation-based
+  awards, expected by design.
+- Title text is not unique: two films named "Titanic" (1953 tt0046435,
+  1997 tt0120338). Any title-lookup interface must disambiguate/ask,
+  never silently pick or merge.
 
-## Enrichment persistence (decided 2026-07-07)
+## Roadmap
 
-`data/oscars.tsv` was only ever needed to originally generate
-`data/oscars.db`; historical Oscar data essentially never changes, so
-reloading it is not routine. Decision: `oscars.db` becomes the persisted
-source of truth going forward, hand-enrichment (`title_zh`, `release_year`,
-etc.) is edited directly in it, and the db is git-tracked (no longer
-gitignored).
-
-Consequence: ingest.py is no longer safe to rerun blindly (see guard
-above). If a real rebuild is ever needed (schema change, corrected
-source data), enrichment columns must be reapplied afterward keyed on
-`imdb_id` (external, stable) — NOT the surrogate integer id, which is
-only stable by accident of deterministic insertion order, not by
-contract. No merge script exists yet; build one when a rebuild is
-actually needed.
-
-## Status & roadmap (2026-07-07)
-
-Done: schema, ingestion, category seed, verification queries, initial
-commit (695d70d), correctness test script (src/verify.py — all checks
-pass). Not pushed — README first.
-
-The 30 filmless Directing/Production/Writing nominations are explained:
-all pre-1933 (ceremony <= 6), discontinued categories that credited a
-person/department, not a film — ASSISTANT DIRECTOR (18), SOUND RECORDING
-studio-department awards (8), ENGINEERING EFFECTS (2), WRITING (Title
-Writing) (2). SciTech/Special filmless nominations (994 + 256) are
-separately expected — citation-based awards by design.
-
-Next, in order:
-1. Finish rebuild-safety for enrichment: guard in ingest.py against
-   wiping non-null enrichment data (see "Enrichment persistence" above).
-2. README, then push.
-3. Enrichment: release_year (IMDb) first — simplest field, one value per
-   film, no schema discussion needed.
-4. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
-   GUI = VS Code SQLite Viewer extension. Design note: title text is not
-   unique (e.g. two films named "Titanic", 1953 tt0046435 and 1997
-   tt0120338 — found via verify.py spot check); a title-only query
-   interface should disambiguate/ask, not silently pick or merge matches.
-5. Remaining enrichment: title_zh/name_zh, douban_id, countries,
+1. Commit current state (title sync + docs), push.
+2. IMDb follow-ups: originalTitle (restores original-language titles
+   dropped by the primaryTitle sync — recoverable anytime via imdb_id)
+   and runtimeMinutes. Needs schema discussion (new columns).
+3. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
+   GUI = VS Code SQLite Viewer extension. Respect the Titanic
+   disambiguation rule above.
+4. Remaining enrichment: title_zh/name_zh, douban_id, countries,
    film_directors junction (schema discussion needed).

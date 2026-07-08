@@ -198,15 +198,17 @@ def round_trip(cur, sample_stride=1000):
         check(f"line {i + 2}: nomination fields round-trip", db_row == expected,
               (db_row, expected))
 
+        # film_id linkage (count), not title text: enrichment now legitimately
+        # rewrites some titles to match IMDb's primaryTitle (see
+        # data/title_review_*.txt / CLAUDE.md), so exact text fidelity to the
+        # TSV is no longer the invariant post-enrichment -- only linkage is.
         film_names = split_pipe(row["Film"])
         if film_names:
-            db_titles = {t for (t,) in cur.execute("""
-                SELECT f.title FROM nomination_films nf
-                JOIN films f ON f.film_id = nf.film_id
-                WHERE nf.nomination_id = ?
-            """, (nomination_id,))}
-            check(f"line {i + 2}: film titles round-trip", db_titles == set(film_names),
-                  (db_titles, film_names))
+            (linked_count,) = cur.execute("""
+                SELECT COUNT(*) FROM nomination_films WHERE nomination_id = ?
+            """, (nomination_id,)).fetchone()
+            check(f"line {i + 2}: film count round-trip", linked_count == len(film_names),
+                  (linked_count, len(film_names)))
 
 
 def main():
