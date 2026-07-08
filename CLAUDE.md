@@ -86,13 +86,13 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 ## Roadmap
 
-1. README: add a db-structure subsection.
-2. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
+1. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
    GUI = VS Code SQLite Viewer extension. Respect the Titanic
    disambiguation rule above.
-3. Remaining enrichment: title_zh/name_zh, douban_id, countries,
+2. Remaining enrichment: title_zh/name_zh, douban_id, countries,
    film_directors junction (schema discussion needed).
 
 Done 2026-07-08: original_title + runtime_minutes columns, enriched
 from IMDb (enrich_release_year.py generalized into enrich_imdb.py);
-data_notes.md rewritten around the three sources.
+data_notes.md rewritten around the sources; README db-structure
+subsection.
