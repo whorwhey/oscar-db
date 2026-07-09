@@ -18,6 +18,10 @@ Current data quality: all 5,265 films have `release_year`; all but one
 (an obscure 1943 army short) have an `imdb_id` and `original_title`;
 99.8% have `runtime_minutes` (the rest are missing at IMDb); film
 titles match IMDb's primaryTitle, with divergences reviewed by hand.
+Of the 9,337 persons, 92% have an `imdb_id` (the rest — mostly early
+Sci-Tech honorees — have no IMDb record); names match IMDb's
+primaryName; 5,620 have `birth_year` and 3,369 `death_year`, the
+remainder missing at IMDb.
 
 ### Database structure
 
@@ -37,9 +41,13 @@ in `schema.md`, per-source details in `data/data_notes.md`):
   `original_title` (IMDb's originalTitle, verbatim), `release_year`,
   `runtime_minutes`, `imdb_id`; `title_zh` and `douban_id` are
   reserved for planned enrichment.
-- **`people`** (9,663) — nominees; `kind` distinguishes persons from
-  companies (early Best Picture went to studios, Sci-Tech awards go to
-  firms). `name_zh` and `douban_id` reserved.
+- **`people`** (9,638 = 9,337 persons + 301 companies) — nominees;
+  `kind` distinguishes persons from companies and other organizations
+  (early Best Picture went to studios; Sci-Tech awards go to firms;
+  wartime documentaries credited government agencies). `name` follows
+  IMDb's primaryName; `birth_year`/`death_year` from IMDb (`NULL`
+  death year means unknown *or* still alive). `name_zh` and
+  `douban_id` reserved.
 - **`nominations`** (12,137) — one row per nomination, with
   `is_winner`, category links, and verbatim `detail`/`note`/`citation`
   text. Honorary and Sci-Tech awards are citation-based and often link
@@ -110,12 +118,13 @@ semantics. Snapshot downloaded 2026-07-05 (covers through the 98th
 ceremony, 2025).
 
 Corrections and enrichment (film titles, `original_title`,
-`release_year`, `runtime_minutes`) come from
+`release_year`, `runtime_minutes`; people names, `birth_year`,
+`death_year`) come from
 [IMDb's non-commercial datasets](https://datasets.imdbws.com/)
-(`title.basics.tsv.gz`), joined on `imdb_id`. Snapshot downloaded
-2026-07-07; the file is refreshed daily by IMDb and is not committed to
-this repo, so a fresh download may differ slightly from what the
-enrichment was run against.
+(`title.basics.tsv.gz`, `name.basics.tsv.gz`), joined on `imdb_id`.
+Snapshots downloaded 2026-07-07/08; the files are refreshed daily by
+IMDb and are not committed to this repo, so a fresh download may differ
+slightly from what the enrichment was run against.
 
 ## License
 
