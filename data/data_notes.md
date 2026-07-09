@@ -4,8 +4,9 @@ The database draws on two sources with distinct authority boundaries:
 
 1. **DLu's TSV** (`data/oscars.tsv`): which ceremonies/nominations/films/
    people exist and how they connect. Bootstrap-only.
-2. **IMDb non-commercial datasets** (`data/title.basics.tsv.gz`): film
-   titles, original titles, release years, runtimes. Re-runnable sync.
+2. **IMDb non-commercial datasets** (`data/title.basics.tsv.gz`,
+   `data/name.basics.tsv.gz`): film titles, original titles, release years,
+   runtimes; people names, birth/death years. Re-runnable sync.
 
 Categories are not sourced at all — we author them (see "Categories:
 curated by us" below).
@@ -62,7 +63,16 @@ enrichment (ingest.py refuses to run on an enriched db without --force).
 - **Companies as nominees**: some nominee IDs are IMDb company IDs (`co...`
   vs `nm...` for persons), e.g. Best Picture went to studios early on
   (Wings → Paramount Famous Lasky), and Sci-Tech awards go to firms.
-  `people.kind` is derived from the ID prefix.
+  `people.kind` is derived from the ID prefix; ID-less nominees defaulted
+  to 'person', and 230 of those were organizations — reclassified to
+  'company' by award-context review 2026-07-09, so kind is no longer
+  purely prefix-derived.
+- **Duplicate person rows**: DLu lacks IMDb IDs for many recent SciTech
+  honorees, so the same engineer could enter once with an ID and once
+  without (ingest dedupes ID-less nominees by name only among themselves,
+  case-sensitively, and never across the ID boundary — deliberately, to
+  avoid fusing real namesakes). 25 such duplicates were verified by award
+  context and merged 2026-07-09.
 - **Film titles in the TSV are no longer authoritative**: `films.title` was
   synced to IMDb's primaryTitle (2026-07-07). verify.py's round-trip
   therefore checks film *linkage* counts, not title text.
@@ -104,6 +114,35 @@ Hand fixes: individual corrections where neither source is right (stale
 imdb_id, missing release_year, …) — the running list is "Resolved data
 quirks" in CLAUDE.md.
 
+## Source 3: IMDb name.basics (enrichment)
+
+`name.basics.tsv.gz` from datasets.imdbws.com, ~292MB, gitignored,
+re-downloadable; current snapshot 2026-07. One row per name record
+(`nconst`); `\N` sentinel as in title.basics.
+
+Fields we use, joined on `nconst` = `people.imdb_id`, `kind = 'person'`
+only (companies carry `co...` IDs and are absent from name.basics by
+design):
+
+- **primaryName** → `people.name` (one-off sync 2026-07-09, same decision
+  as film titles; since then `src/enrich_imdb.py` only reports divergence,
+  currently 0). The Academy's display text is not lost — it stays verbatim
+  on `nominations.official_name`.
+- **birthYear** → `people.birth_year`.
+- **deathYear** → `people.death_year`. NULL is ambiguous by design: IMDb
+  has `\N` both for the living and for unknown deaths.
+
+Sync semantics: identical to title.basics (keyed on imdb_id, re-runnable,
+an IMDb `\N` never overwrites a db value).
+
+Coverage: 8,588 of 9,337 persons have an imdb_id, every one matching a
+name.basics row; 5,620 have birth_year, 3,369 death_year. The 749 ID-less
+persons — mostly pre-1960s SciTech honorees with no IMDb record — are
+ranked for review in `data/people_no_imdb_id.txt` (regenerate:
+`uv run src/people_id_review.py`; ~180 IDs were recovered 2026-07-09 by
+exact-name matching verified against knownForTitles, and are now regular
+enriched rows).
+
 ## Categories: curated by us
 
 `data/categories_seed.tsv`: facts (nominations, films, people: thousands
@@ -143,7 +182,9 @@ Judgment calls in the mapping are documented in schema.md.
 ## Scale (actual)
 
 ceremonies 98 · categories 66 (seeded) · nominations 12,137 · films 5,265 ·
-people 9,663 · nomination_films 10,879 · nomination_people 18,823.
-Enrichment coverage on films: imdb_id 5,264 · release_year 5,265 ·
-original_title 5,264 · runtime_minutes 5,252.
+people 9,638 (9,337 persons + 301 companies) · nomination_films 10,879 ·
+nomination_people 18,823.
+Films enrichment: imdb_id 5,264 · release_year 5,265 · original_title
+5,264 · runtime_minutes 5,252. People enrichment: imdb_id 8,588 persons
+(+71 company `co` IDs) · birth_year 5,620 · death_year 3,369.
 Total ~57k rows, a few MB — trivial for SQLite.

@@ -44,7 +44,7 @@ def structural(cur):
     }
     expected = {
         "ceremonies": 98, "categories": 66, "nominations": 12137,
-        "films": 5265, "people": 9663, "nomination_films": 10879,
+        "films": 5265, "people": 9638, "nomination_films": 10879,
         "nomination_people": 18823,
     }
     check("row counts match data_notes.md scale", counts == expected, counts)
@@ -155,6 +155,34 @@ def imdb_enrichment(cur):
     ]
     check("original_title/runtime spot checks (Parasite, Grand Illusion, GWTW, Titanic)",
           spot == expected, spot)
+
+    # People enrichment (name.basics, 2026-07 snapshot). Companies are absent
+    # from name.basics by design: no imdb 'nm' id, no birth/death years.
+    people_cov = cur.execute("""
+        SELECT kind, COUNT(*), COUNT(imdb_id), COUNT(birth_year), COUNT(death_year)
+        FROM people GROUP BY kind ORDER BY kind
+    """).fetchall()
+    check("people coverage: persons 9337/8588 id/5620 birth/3369 death; companies 301/71/0/0",
+          people_cov == [("company", 301, 71, 0, 0), ("person", 9337, 8588, 5620, 3369)],
+          people_cov)
+
+    bad_years = cur.execute(
+        "SELECT COUNT(*) FROM people WHERE death_year < birth_year"
+    ).fetchone()[0]
+    check("no death_year before birth_year", bad_years == 0, bad_years)
+
+    people_spot = cur.execute("""
+        SELECT imdb_id, name, birth_year, death_year FROM people
+        WHERE imdb_id IN ('nm0000031', 'nm4869190', 'nm2353419')
+        ORDER BY imdb_id
+    """).fetchall()
+    expected_people = [
+        ("nm0000031", "Katharine Hepburn", 1907, 2003),
+        ("nm2353419", "Al Mayer Jr.", 1966, None),   # id swap fix, see CLAUDE.md
+        ("nm4869190", "Al Mayer Sr.", 1936, 2018),
+    ]
+    check("birth/death spot checks (Hepburn, Al Mayer Sr./Jr.)",
+          people_spot == expected_people, people_spot)
 
 
 def spot_checks(cur):

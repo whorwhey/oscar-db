@@ -21,10 +21,15 @@ films
 people                                    -- includes companies (see kind)
   person_id      PK
   imdb_id        nullable, unique        -- 'nm...' person / 'co...' company
-  name           text, required
+  name           text, required          -- follows IMDb primaryName; see
+                                         -- data_notes.md
   name_zh        nullable                -- zh-Hans
   douban_id      nullable
-  kind           'person' | 'company'    -- derived from ID prefix at ingestion
+  kind           'person' | 'company'    -- ID prefix at ingestion + hand
+                                         -- review of ID-less rows
+  birth_year     nullable integer        -- IMDb birthYear
+  death_year     nullable integer        -- IMDb deathYear; NULL = unknown
+                                         -- or alive
 
 categories                                -- CURATED seed data, not parsed
   category_id    PK

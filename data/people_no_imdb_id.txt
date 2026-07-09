@@ -1,0 +1,754 @@
+person_id	name	imdb_id_candidate	match_basis
+# --- name-match candidates: 0 ---
+# --- ambiguous name matches: 132 ---
+626	WILLIAM RUDOLPH		ambiguous:5
+718	DANIEL CLARK		ambiguous:55
+720	CHARLES MILLER		ambiguous:77
+813	Ray Wilkinson		ambiguous:2
+814	Paramount		ambiguous:2
+1071	Russell Brown		ambiguous:46
+1211	MARTY MARTIN		ambiguous:17
+1282	Kurt Singer		ambiguous:4
+1340	Marty Martin		ambiguous:17
+1484	Floyd Campbell		ambiguous:2
+1755	ROLAND MILLER		ambiguous:4
+1760	FRED WILSON		ambiguous:20
+1844	DAVE ANDERSON		ambiguous:103
+1845	Charles West		ambiguous:20
+1927	John Pond		ambiguous:4
+1928	William Wade		ambiguous:13
+1980	WILLIAM B. SMITH		ambiguous:2
+2091	WILLIAM EVANS		ambiguous:38
+2181	Anthony Paglia		ambiguous:2
+2251	James Dale		ambiguous:24
+2330	Ralph Chapman		ambiguous:4
+2775	HERBERT MEYER		ambiguous:3
+3402	Roger Banks		ambiguous:4
+3574	John Jurgens		ambiguous:2
+3785	PAUL KAUFMAN		ambiguous:6
+3878	CHARLES VAUGHN		ambiguous:5
+4071	ED PHILLIPS		ambiguous:8
+4169	Douglas Fries		ambiguous:2
+4170	John Lacey		ambiguous:10
+4270	RUBEN AVILA		ambiguous:4
+4272	Ruben Avila		ambiguous:4
+4275	KENNETH RICHTER		ambiguous:2
+4400	David W. Spencer		ambiguous:2
+4734	Bill Holland		ambiguous:11
+4922	JIM GRAVES		ambiguous:2
+4932	Peter Baldwin		ambiguous:18
+5166	Arnold Richter		ambiguous:4
+5265	Wally Mills		ambiguous:2
+5266	Gary Stadler		ambiguous:2
+5366	DAN CAMERON		ambiguous:12
+5373	GLENN KENNEL		ambiguous:2
+5385	Arthur Wright		ambiguous:7
+5386	Neil Harris		ambiguous:22
+5387	DUNCAN MacLEAN		ambiguous:4
+5405	RICHARD LARSON		ambiguous:8
+5415	Jack C. Smith		ambiguous:3
+5419	CHRIS HUNTLEY		ambiguous:4
+5537	Colin Mossman		ambiguous:2
+5542	David Gilmartin		ambiguous:2
+5565	Dan Cameron		ambiguous:12
+5771	Roy Hall		ambiguous:9
+5776	Dave Springer		ambiguous:2
+5777	Dominique Boisvert		ambiguous:4
+5789	John Neary		ambiguous:2
+5805	Larry Jacobson		ambiguous:10
+5810	Kim Davidson		ambiguous:8
+5816	Pete Clark		ambiguous:13
+5912	John Scott		ambiguous:168
+5926	Ronan Carroll		ambiguous:2
+5938	Bob Webber		ambiguous:3
+5949	Remy Smith		ambiguous:4
+5958	JIM MEYER		ambiguous:25
+5959	STAN MILLER		ambiguous:11
+6068	James Moultrie		ambiguous:2
+6069	Mike Salter		ambiguous:9
+6164	Brian Dang		ambiguous:2
+6171	George Johnson		ambiguous:71
+6173	David Pringle		ambiguous:9
+6322	CARL LUDWIG		ambiguous:2
+6430	GLENN SANDERS		ambiguous:2
+6648	KEITH EDWARDS		ambiguous:26
+6649	Lindsay Arnold		ambiguous:6
+6652	Charlie Lawrence		ambiguous:6
+6656	Anthony Seaman		ambiguous:2
+6659	Dave Betts		ambiguous:2
+6661	Michael Birch		ambiguous:7
+6663	Paul Tate		ambiguous:7
+6667	William Hayes		ambiguous:38
+6776	Frank Fletcher		ambiguous:10
+6777	Dave Sherwin		ambiguous:2
+6778	Michael Sorensen		ambiguous:8
+6789	John Platt		ambiguous:11
+6796	Bill Hogue		ambiguous:3
+6797	Tim Reynolds		ambiguous:19
+6902	Simon Robinson		ambiguous:26
+6922	Peter Litwinowicz		ambiguous:2
+6928	Shawn Jones		ambiguous:45
+6931	Martin Richards		ambiguous:16
+7034	Martin Werner		ambiguous:3
+7131	Timo Müller		ambiguous:4
+7258	Theo Brown		ambiguous:14
+7268	Brad Walker		ambiguous:19
+7284	Brett Allen		ambiguous:27
+7522	Michael Lewis		ambiguous:167
+7523	Greg Marsden		ambiguous:3
+7537	Hiroshi Hirano		ambiguous:3
+7651	Theodore Kim		ambiguous:2
+7654	Doug James		ambiguous:15
+8119	Steve Smith		ambiguous:352
+8122	Trevor Davies		ambiguous:13
+8126	Matthew Robinson		ambiguous:84
+8135	Mark Kirk		ambiguous:3
+8137	Steve Linn		ambiguous:2
+8138	Brian Green		ambiguous:54
+8268	Sony		ambiguous:13
+8287	Mark Rappaport		ambiguous:10
+8291	Glenn Sanders		ambiguous:2
+8293	David Thomas		ambiguous:218
+8563	David Simons		ambiguous:10
+8564	Daniel Wilk		ambiguous:2
+8568	Thomas Knoll		ambiguous:3
+8579	Marco Paolini		ambiguous:6
+8683	Greg Smokler		ambiguous:3
+8687	Jeff Bloom		ambiguous:9
+8689	Nick Rose		ambiguous:22
+8690	John Ellwood		ambiguous:2
+8697	Alejandro Arango		ambiguous:8
+8698	Gary Martinez		ambiguous:6
+8703	Ian Kelly		ambiguous:48
+8712	John Anderson		ambiguous:212
+8725	Chris Countryman		ambiguous:3
+8732	Isaac Reuben		ambiguous:3
+9284	Steve Read		ambiguous:8
+9286	Peter Janssens		ambiguous:5
+9289	Michael Perkins		ambiguous:26
+9298	Bill Beck		ambiguous:9
+9467	David Adler		ambiguous:20
+9480	James Jacobs		ambiguous:24
+9496	John Ellison		ambiguous:9
+9497	Steve Webb		ambiguous:21
+9642	Brent Bell		ambiguous:3
+9648	Jonathan Moulin		ambiguous:4
+# --- no match: 610 ---
+142	Rko Radio Pictures		
+212	SIDNEY SANDERS		
+380	E. C. Wente		
+460	JOSEPH E. ROBBINS		
+461	PARAMOUNT PICTURES		
+628	EMERY HUSE		
+631	A. J. TONDREAU		
+643	DON MUSGRAVE		
+721	ROBERT W. STEVENS.		
+815	Wilbur Silvertooth		
+816	Paramount Pictures		
+906	F. Thomas Thompson		
+982	Earle Morgan		
+983	Barton Thompson		
+986	Willard H. Turner		
+987	Rko Radio		
+1072	Ray Hinsdale		
+1073	Joseph E. Robbins		
+1074	Paul Zeff		
+1075	S. J. TWINING		
+1153	Charles R. Daily		
+1154	Michael S. Leshing		
+1155	BENJAMIN C. ROBINSON		
+1156	ARTHUR B. CHATELAIN		
+1158	JOHN G. CAPSTAFF		
+1203	Harlan L. Baumbach		
+1204	Herbert E. Britt		
+1205	Burton F. Miller		
+1208	Arthur F. Blinn		
+1212	HAL ADKINS		
+1275	Thomas Armat		
+1277	C. C. Davis		
+1278	C. R. Daily		
+1279	Hal Corl		
+1280	H. G. Cartwright		
+1281	FRED PONEDEL		
+1336	Victor Caccialanza		
+1342	A. J. Moran		
+1415	Bruce H. Denney		
+1418	Andre Coutant		
+1419	Jacques Mathot		
+1485	L. W. Russell		
+1550	S. L. Stancliffe		
+1551	OLIN L. DUPY		
+1552	Richard M. Haff		
+1553	Frank P. Herrnfeld		
+1554	Garland C. Misener		
+1556	Fred Ponedel		
+1620	John G. Frayne		
+1621	R. R. Scoville		
+1624	Gustav Jirouch		
+1687	EARL SPONABLE		
+1689	HERBERT BRAGG		
+1752	J.W. Stafford		
+1753	K.M. Frierson		
+1756	MAX GOEPPINGER		
+1758	G.M. Sprague		
+1759	Metro-Goldwyn-Mayer		
+1761	P.C. YOUNG		
+1837	the NATIONAL CARBON CO.		
+1838	the EASTMAN KODAK CO.		
+1841	the BAUSCH & LOMB CO.		
+1842	Walter Jolley		
+1843	Steve Krilanovich		
+1846	Henry Fracker		
+1920	RICHARD H. RANGER		
+1922	CARL HAUGE		
+1923	EDWARD REICHARD		
+1925	ROY C. STEWART AND SONS		
+1926	DR. C.R. DAILY		
+1975	SOCIÉTÉ D'OPTIQUE ET DE MECANIQUE DE HAUTE PRECISION		
+1976	LORAND WARGO		
+1977	HOWARD M. LITTLE		
+1979	Charles E. Sutter		
+2022	Don W. Prideaux		
+2023	LEROY G. LEIGHTON		
+2026	WILLY BORBERG		
+2027	CONRAD BOYE		
+2088	ROBERT E. GOTTSCHALK		
+2090	Wadsworth E. Pohl		
+2093	S.E. HOWSE		
+2094	THOMAS P. DIXON		
+2097	JACK ALFORD		
+2099	JOSEPH SCHMIT		
+2101	AL LOFQUIST		
+2102	Dr. Howard S. Coleman		
+2103	DR. A. FRANCIS TURNER		
+2104	HAROLD H. SCHROEDER		
+2105	JAMES R. BENFORD		
+2106	HAROLD E. ROSENBERGER		
+2107	ROBERT P. GUTTERMAN		
+2110	E.L. Stones		
+2179	Arthur Holcomb		
+2183	Carl Hauge		
+2184	ROBERT GRUBEL		
+2249	Fred L. Metzler		
+2252	S. WILSON		
+2253	H.E. RICE		
+2254	JOHN RUDE		
+2256	WADSWORTH E. POHL		
+2257	H. PEASGOOD		
+2258	E.I. Sponable		
+2259	Herbert E. Bragg		
+2261	F.D. Leslie		
+2262	R.D. Whitmore		
+2263	A.A. Alden		
+2264	Endel Pool		
+2331	Albert S. Pratt		
+2332	JAMES L. WASSELL		
+2335	WILLIAM BRYSON SMITH		
+2336	LOUIS C. KENNELL		
+2338	LOUIS G. MacKENZIE		
+2480	EDWARD H. REICHARD		
+2481	CARL W. HAUGE		
+2482	JOB SANDERSON		
+2483	Pierre Angenieux		
+2485	RICHARD B. GLICKMAN		
+2486	DANIEL J. PEARLMAN		
+2488	Edward H. Reichard		
+2489	LEONARD L. SOKOLOW		
+2556	ARTHUR J. HATCH		
+2639	Arnold & Richter Kg		
+2709	FRED R. WILSON		
+2774	PHILIP V. PALMQUIST		
+2777	Donald W. Norwood		
+2780	NIELS G. PETERSEN		
+2781	NORMAN S. HUGHES		
+2783	Todd-Ao		
+2785	E. MICHAEL MEAHL		
+2786	ROY J. RIDENOUR		
+2868	OTTO POPELKA		
+2870	ROBERT M. FLYNN		
+2871	RUSSELL HESSEY		
+2962	LEONARD SOKOLOW		
+2964	B. J. Losmandy		
+3043	JOHN N. WILKINSON		
+3044	Thomas Jefferson Hutchinson		
+3045	James R. Rochester		
+3047	Robert D. Auguste		
+3133	Howard T. La Zare		
+3134	Edward Efron		
+3137	Ramtronics		
+3138	David Degenkolb		
+3139	HARRY LARSON		
+3140	MANFRED MICHELSON		
+3142	JIRO MUKAI		
+3143	RYUSHO HIROSE		
+3145	LEONARD L. OLSON		
+3146	FRANK P. CLARK		
+3147	E. H. GEISSLER		
+3148	G. M. BERGGREN		
+3217	JOACHIM GERB		
+3220	WILLIAM W. VALLIANT		
+3222	CLIFFORD H. ELLIS		
+3223	ROGER W. BANKS		
+3225	RICHARD H. VETTER		
+3304	Robert J. Leonard		
+3306	LOUIS AMI		
+3399	CHADWELL O'CONNOR		
+3400	WILLIAM F. MINER		
+3403	DAVID J. DEGENKOLB		
+3408	Bell & Howell		
+3481	MANFRED G. MICHELSON		
+3482	GEOFFREY F. NORMAN		
+3483	SIEGFRIED SEIBERT		
+3484	FRED BARTSCHER		
+3485	GLENN BERGGREN		
+3486	HIROSHI SUZUKAWA		
+3577	BARRY K. HENLEY		
+3578	HAMMOND H. HOLT		
+3585	ERNST NETTMANN		
+3587	DR. BERNHARD KÜHL		
+3588	WERNER BLOCK		
+3673	Robert E. Gottschalk		
+3679	KARL MACHER		
+3680	GLENN M. BERGGREN		
+3681	David J. Degenkolb		
+3682	ARTHUR L. FORD		
+3683	FRED J. SCOBEY		
+3684	KIICHI SEKIGUCHI		
+3687	ROBERT STINDT		
+3778	Mark Serrurier		
+3781	Michael V. Chewey		
+3782	WALTER G. EGGERS		
+3783	ALLEN HECHT		
+3787	James S. Stanfield		
+3788	Paul W. Trester		
+3872	Samuelson Film Service Limited		
+3873	EDWARD B. KRAUSE		
+3877	ANDRÉ DeBRIE		
+3879	EUGENE NOTTINGHAM		
+3880	John W. Lang		
+3881	WALTER HRASTNIK		
+3882	CHARLES J. WATSON		
+3883	WORTH BAIRD		
+3964	Leonard Sokolow		
+3965	HOWARD T. LaZARE		
+3967	EDWARD J. BLASKO		
+3968	RODERICK T. RYAN		
+3972	JOHN DeMUTH		
+3973	ERNST F. NETTMANN		
+3976	Dr. Louis Stankiewicz		
+3977	H. L. Blachford		
+4060	COLIN F. MOSSMAN		
+4062	SANTE ZELLI		
+4063	SALVATORE ZELLI		
+4064	DR. MOHAMMAD S. NOZARI		
+4066	DONALD SCHISLER		
+4067	Jacobus L. Dimmers		
+4158	Dr. John G. Frayne		
+4159	DR. KURT LARCHE		
+4163	Gunnar P. Michelson		
+4164	WILLIAM G. KROKAUGGER		
+4165	Charles J. Watson		
+4166	Larry L. Langrehr		
+4167	John H. Steiner		
+4168	ELIZABETH D. DE LA MARE		
+4171	Michael Sigrist		
+4267	DONALD A. ANDERSON		
+4268	DIANA REINERS		
+4269	Barry M. Stultz		
+4271	WES KENNEDY		
+4273	Wes Kennedy		
+4280	NAT TIFFEN		
+4284	ROBERT BEALMEAR		
+4397	JOE P. CROOKHAM		
+4398	JIM DROST		
+4504	ANTHONY D. BRUNO		
+4505	JOHN L. BAPTISTA		
+4506	BRUCE W. KELLER		
+4510	ALFRED THUMIM		
+4511	ELAN LIPSCHITZ		
+4512	DARRYL A. ARMOUR		
+4513	FRITZ SENNHEISER		
+4522	CARL HOLMES		
+4525	William B. Pollard		
+4526	E. M. (Al) Lewis		
+4608	Bernhard Kühl		
+4609	Werner Block		
+4611	Willi Burth		
+4614	Ronald C. Barker		
+4615	Chester L. Schuler		
+4616	Colin F. Mossman		
+4617	Rank Film Development Group		
+4623	Geoffrey H. Williamson		
+4628	DAN C. NORRIS		
+4722	Gordon Henry Cook		
+4723	Roy W. Edwards		
+4725	Arnold & Richter		
+4726	Otto Blaschek		
+4736	GRANT LOUCKS		
+4737	GEOFFREY H. WILLIAMSON		
+4738	Michael V. Chewey III		
+4740	DR. ANTAL LISZIEWICZ		
+4741	James K. Branch		
+4743	Nasir J. Zaidi		
+4748	EMANUEL TRILLING		
+4749	Paul A. Roos		
+4834	J. Noxon Leavitt		
+4835	J. L. FISHER		
+4836	Klaus Resch		
+4838	Fgv Schmidle & Fitz		
+4913	BRUCE WILTON		
+4914	CARLOS ICINKOFF		
+4918	Takuo Miyagishima		
+4921	HARVEY HUBERT JR.		
+4923	Bengt O. Orhall		
+4924	KENNETH LUND		
+4925	BJORN SELIN		
+4926	KJELL HOGBERG		
+4930	Dr. Fred Kolb Jr.		
+4931	Paul Preo		
+4933	Paul Kiankhooy		
+4936	Roderick T. Ryan		
+5022	Albert Saiki		
+5024	HEINZ FEIERLEIN		
+5025	SACHTLER AG		
+5026	Harry J. Baker		
+5028	Richard Keeney		
+5029	Richard J. Lundell		
+5035	Mario Celso		
+5048	Robert W. Stoker Jr.		
+5051	Steve Hamerski		
+5053	Ken Robings		
+5055	Century Precision Optics		
+5058	Donald Hagans		
+5155	Claus Wiedemann		
+5156	Robert Orban		
+5159	Al Mayer		
+5160	George Kraemer		
+5161	Hans Spirawski		
+5162	Bill Eslick		
+5165	Edmund M. Di Giulio		
+5169	ROBERT R. BURTON		
+5170	Kaz Fudano		
+5267	Gustave Parada		
+5268	Gary Nuzzi		
+5269	David Johnsrud		
+5270	William Blethen		
+5271	Michael Dorrough		
+5368	GARY STARKWEATHER		
+5375	Al Saiki		
+5376	Panavision International		
+5377	William J. Warner		
+5378	Eric C. Peters		
+5380	Tom A. Ohanian		
+5381	Patrick D. O'Connor		
+5382	Joe H. Rice		
+5388	George Sauve		
+5389	Arpag Dadourian		
+5391	B. RUSSELL HESSEY		
+5396	Dr. Joe Zhou		
+5397	Don Northrop		
+5398	EMMANUEL PREVINAIRE		
+5399	JACQUES SAX		
+5407	COLIN BROAD		
+5409	David A. Addleman		
+5410	Lloyd A. Addleman		
+5411	Mark R. Schneider		
+5412	Herbert R. Jones		
+5413	Christopher D. Conover		
+5414	John R.B. Brown		
+5420	ART FRITZEN		
+5528	Arnold And Richter Cine Technik		
+5531	Howard Flemming		
+5532	Ronald Uhlig		
+5538	Joe Wary		
+5539	Hans Leisinger		
+5540	Gerald Painter		
+5543	JOHANNES BORGGREBE		
+5544	JEAN-PIERRE GAGNON		
+5545	FRANK RICOTTA		
+5548	Eric Dubberke		
+5552	Pascal Chedeville		
+5555	Al Jensen		
+5556	CHUCK HEADLEY		
+5557	JEAN MESSNER		
+5558	HAZEM NABULSI		
+5561	Yan Zhong Fang		
+5570	Institut National Polytechnique De Toulouse		
+5571	Kodak Pathe Ctp Cine		
+5665	Kay Beving Erland		
+5666	Perry Kivolowitz		
+5667	Dr. Garth A. Dickie		
+5671	Grant Loucks		
+5674	James Kajiya		
+5675	Timothy Kay		
+5680	Richard A. Prey		
+5681	William N. Masten		
+5774	Milan Novacek		
+5775	Glen Ozymok		
+5778	Réjean		
+5780	Richard Laperriere		
+5785	Kirk Handley		
+5786	Ray Meluch		
+5788	Wilson H. Allen		
+5790	JOEL W. JOHNSON		
+5791	Clark F. Crites		
+5792	Dan Leimeter		
+5796	DOUGLAS W. NISHIMURA		
+5797	MONIQUE C. FISCHER		
+5799	James F. Foley		
+5800	Charles E. Converse		
+5801	F. Edward Gardner		
+5804	Roger Hibbard		
+5812	Paul H. Breslin		
+5904	Thomas G. Stockham Jr.		
+5906	James A. Moorer		
+5907	STEPHEN J. KAY		
+5908	Gary Tregaskis		
+5913	Mohamed Ken T. Husain		
+5914	Cameron Shearer		
+5915	Roy B. Ference		
+5916	Steven R. Schmidt		
+5917	Richard J. Federico		
+5918	Rockwell Yarid		
+5919	MICHAEL E. McCRACKAN		
+5920	HANS LEISINGER		
+5921	GEORGE JOHN ROWLAND		
+5922	Arnold & Richter Cine Technik		
+5923	Arnold Richter Cine Technik		
+5924	DEREK C. LIGHTBODY		
+5932	Ronald E. Uhlig		
+5933	THOMAS F. POWERS		
+5934	FRED M. FUSS		
+5940	Bala S. Manian		
+5953	Manfred N. Klemme		
+5954	Donald E. Wetzel		
+5960	A. Tulsi Ram		
+5961	RICHARD C. SEHLIN		
+5962	CARL F. HOLTZ		
+5963	DAVID F. KOPPERL		
+5964	TAKUO MIYAGISHIMA		
+5965	ALBERT K. SAIKI		
+5966	EDMUND M. DI GIULIO		
+5967	JAMES BARTELL		
+5969	ED ZWANEVELD		
+5972	DALE BRUBACHER-CRESSMAN		
+6066	Karl Lynch		
+6067	Mark V. Crabtree		
+6070	Mark Craig Gerchman		
+6071	Marlowe A. Pichel		
+6073	Vivienne Dyer		
+6075	Leslie Drever		
+6076	Richard C. Sehlin		
+6077	MITCHELL J. BOGDANOWICZ		
+6078	MARY L. SCHMOEGER		
+6079	JOHN C. BREWER		
+6165	Akai Digital		
+6166	Fairlight		
+6170	Ashot Nalbandyan		
+6175	PHILIP GREENSTREET		
+6176	Udo Schauss		
+6177	Hildegard Ebbesmeier		
+6178	Karl Lenhardt		
+6179	Ralf Linn		
+6180	Norbert Brinker		
+6181	Glenn M. Berggren		
+6182	Horst Linge		
+6183	Wolfgang Reinecke		
+6185	Venkat Krishnamurthy		
+6189	John P. Pytlak		
+6190	Robin Bransbury		
+6293	John M. Eargle		
+6294	D.B. Keele		
+6295	Mark E. Engebretson		
+6297	Johannes Steurer		
+6298	Wolfgang Riedel		
+6301	Joseph A. Olivier		
+6303	Makoto Tsukada		
+6304	Steven Gerlach		
+6307	Paul J. Constantine		
+6308	Peter M. Constantine		
+6310	Bernard M. Werner		
+6311	William Gelow		
+6315	Thomas Major Barron		
+6323	JOHN M. CONSTANTINE		
+6328	Dr. Lance J. Williams		
+6329	Dr. Uwe Sassenberg		
+6427	Alias/Wavefront		
+6428	ARNOLD & RICHTER CINE TECHNIK		
+6433	Dr. Leslie Gutierrez		
+6434	Diane E. Kestner		
+6436	David Niklewicz		
+6437	Dr. Depu Jin		
+6438	Franz Petters		
+6440	Thomas Driemeyer		
+6441	Mental Images		
+6449	ROBERT W. JEFFS		
+6451	Richard B. Glickman		
+6533	Digidesign		
+6535	Kenneth L. Tingler		
+6536	CHARLES C. ANDERSON		
+6537	DIANE E. KESTNER		
+6538	BRIAN A. SCHELL		
+6541	Michael C. Carlos		
+6546	Kish Sadhvani		
+6548	Carl Pernicone		
+6550	Stephen R. Marschner		
+6647	GYULA MESTER		
+6658	Dr. Christopher Hicks		
+6660	Dr. Julian Morris		
+6662	Dr. Paul Smyth		
+6664	Dr. John O.B. Greaves		
+6665	Ned Phipps		
+6666	Antonie J. Van Den Bogert		
+6668	Dr. Nels Madsen		
+6767	Yuriy Popovsky		
+6779	J. Walt Adamczyk		
+6790	Demetri Terzopoulos		
+6793	Harold Rattray		
+6798	Nicole Wemken		
+6904	Dr. Anil Kokaram		
+6910	Albert Ridilla		
+6911	Papken Shahbazian		
+6912	Ronald Belknap		
+6913	JAY McGARRIGLE		
+6915	Josef Handler		
+6916	Thomas Smidek		
+6917	Marc Shipman Mueller		
+6919	Ernst Tschida		
+6921	MARTIN WAITZ		
+6924	J. Wayne Anderson		
+6930	Dr. Alan Masson		
+6932	Frank Ricotta		
+7021	JÖRG PÖHLER		
+7022	RÜDIGER KLEINKE		
+7024	ANDREAS DASSER		
+7030	Dr. Jeroen Molemaker		
+7033	Julia Pakalns		
+7129	Erwin Melzner		
+7130	Volker Schumacher		
+7133	Alexandre Leuchter		
+7134	Bruno Coumert		
+7135	Jacques Debize		
+7136	Dominique Chervin		
+7137	Christophe Reboulet		
+7138	STEVE HYLÉN		
+7248	Michael Bunnell		
+7249	Dr. Richard Kirk		
+7251	Markus Hasenzahl		
+7252	Dr. Klaus Anderle		
+7253	Andreas Loew		
+7254	Michael Cieslinski		
+7255	Dr. Reimar Lenz		
+7256	Bernd Brauner		
+7259	Tony Sedivy		
+7260	Dr. John Quartel		
+7264	Dr. James Logie		
+7267	Tamas Perlaki		
+7273	Ryoji Nishimura		
+7275	Youichi Hosoya		
+7280	Mark Wolforth		
+7281	Christian Baeker		
+7282	Frank Billasch		
+7520	Dr. Jürgen Noffke		
+7521	Uwe Weber		
+7524	Raigo Alas		
+7525	Michael Vellekoop		
+7527	Michael Sayovitz		
+7528	Brad Fritzel		
+7531	Ian Cavén		
+7536	Dr. Katsuhisa Oozeki		
+7538	Andrew Clinton		
+7631	Cooke Optics Limited		
+7635	DR. PHILIP McLAUCHLAN		
+7636	Allan Jaenicke		
+7637	John-Paul Smith		
+7639	Joe Murtha		
+7640	WILLIAM FREDERICK		
+7641	JIM MARKLAND		
+7653	Dr. Markus Gross		
+8117	Michael John Keesling		
+8121	Michael Kirilenko		
+8124	Jon Scott Miller		
+8140	J Robert Ray		
+8267	Red Digital Cinema		
+8272	Thiago Ize		
+8278	JOSHUA BARRATT		
+8280	ARCHIE TE		
+8281	Thomson Grass Valley		
+8289	Jeff Cruts		
+8294	Lawrence E. Fisher		
+8416	Side Effects Software		
+8565	James Acquavella		
+8567	David M. Cotter		
+8571	Edwin Catmull		
+8574	Erik Bielefeldt		
+8577	Per-Anders Arvid Edwards		
+8586	Charles Teorell Loop		
+8678	Dr. Zvi Reznic		
+8679	Professor Meir Feder		
+8680	Guy Dorman		
+8681	Ron Yogev		
+8682	Nicolaas Verheem		
+8684	Ilya Issenin		
+8685	ALEXEY LUKIN		
+8688	GUY McNALLY		
+8691	Jonathan Newland		
+8693	Masato Nakashima		
+8694	Koichi Ueno		
+8695	Junji Sakuda		
+8696	Junro Yonemitsu		
+8699	Robert Derry		
+8702	Scott Robitille		
+8705	SVEN WOOP		
+8706	CARSTEN BENTHIN		
+8707	ATTILA T. Á FRA		
+8709	INGO WALD		
+8713	Andrew Witkin		
+8715	Kelly Ward Hammel		
+8723	Jens-Jørn Stokholm		
+8726	Omer T. Inan		
+8727	Fredrik Limsäter		
+8729	Mattias Lagergren		
+8731	Matt Daw		
+9280	Charles Q. Robinson		
+9281	Nicolas Tsingos		
+9282	Christophe Chabanne		
+9285	Barry Silverstein		
+9287	Goran Stojmenovik		
+9290	Gerwin Damberg		
+9291	Martin J. Richards		
+9292	Jaden Oh		
+9299	Gregory T. Niven		
+9300	Yoshitaka Nakatsu		
+9301	Yoji Nagao		
+9302	Tsuyoshi Hirao		
+9303	Tomonori Morizumi		
+9304	Kazuma Kozuru		
+9312	Nicholas Avramoussis		
+9465	Thijs Vogels		
+9466	Fabrice Rousselle		
+9468	Gerhard Röthlin		
+9470	Yair Chuchem		
+9472	Curt Schaller		
+9473	Dr. Roman Foltyn		
+9479	Essex Edwards		
+9483	Andrew Van Straten		
+9486	Neeme Vaino		
+9489	Attila T. Áfra		
+9492	Su Tie		
+9493	Bei Shimen		
+9494	Zhao Yanchong		
+9643	Josef Köhler		
+9644	Ian Medwell		
+9651	Bret St.Clair		
+9652	Marc-André Davignon		
+9653	Pav Grochola		
+9654	Edmond Boulet Gilly		
+# --- no match, company-looking: 7 ---
+1974	The Motion Picture Research Council		company-looking (kind still 'person')
+2178	Ampex Professional Products Co.		company-looking (kind still 'person')
+3046	Photo Research		company-looking (kind still 'person')
+5054	Clairmont Camera		company-looking (kind still 'person')
+5392	Vincent T. Kelton		company-looking (kind still 'person')
+6169	Leonard Pincus		company-looking (kind still 'person')
+9288	Wouter D’Oosterlinck		company-looking (kind still 'person')

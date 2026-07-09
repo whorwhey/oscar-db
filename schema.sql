@@ -37,7 +37,9 @@ CREATE TABLE people (
     name_zh TEXT,                    -- zh-Hans; enrichment later e.g. "杨紫琼"
     imdb_id TEXT UNIQUE,             -- e.g. "nm0941777"
     douban_id TEXT UNIQUE,           -- enrichment later e.g. "1048021"
-    kind TEXT NOT NULL CHECK (kind IN ('person', 'company'))
+    kind TEXT NOT NULL CHECK (kind IN ('person', 'company')),
+    birth_year INTEGER,              -- IMDb birthYear; NULL = unknown
+    death_year INTEGER               -- IMDb deathYear; NULL = unknown or alive
 );
 
 CREATE TABLE nominations (
