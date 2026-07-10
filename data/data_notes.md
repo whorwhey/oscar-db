@@ -164,10 +164,16 @@ Sync semantics (`src/enrich_imdb.py`, `sync_film_directors`, run after
 builds): keyed on imdb_id throughout; re-runnable (`INSERT OR IGNORE` on
 the junction).
 
-Coverage: of 5,264 films with an imdb_id, 4 aren't in the title.crew
-snapshot at all and a further 74 are matched but list no directors (IMDb's
-own gaps, all pre-1960s titles) — 5,186 films end up with >=1 director
-linked, 6,397 links across 3,213 distinct directors.
+Coverage: of 5,264 films with an imdb_id, 4 weren't in the title.crew
+snapshot at all — confirmed via `zgrep`, not just an unfilled field — and a
+further 74 are matched but list no directors. Spot-checking a range of the
+74 on imdb.com directly confirmed IMDb itself doesn't know (mostly obscure
+shorts/newsreels/documentaries, 1930-1989); for the 4 fully-missing titles,
+3 were hand-verified online and fixed directly (San Francisco → W.S. Van
+Dyke, Mrs. Miniver → William Wyler, 7 Faces of Dr. Lao → George Pal, all
+already `people` rows from their own nominations — see CLAUDE.md "Resolved
+data quirks"); Wings (tt0018578) remains unresolved. 5,189 films end up
+with >=1 director linked, 6,400 links across 3,213 distinct directors.
 
 ## Categories: curated by us
 
@@ -209,7 +215,7 @@ Judgment calls in the mapping are documented in schema.md.
 
 ceremonies 98 · categories 66 (seeded) · nominations 12,137 · films 5,265 ·
 people 11,146 (10,845 persons + 301 companies) · nomination_films 10,879 ·
-nomination_people 18,823 · film_directors 6,397.
+nomination_people 18,823 · film_directors 6,400.
 Films enrichment: imdb_id 5,264 · release_year 5,265 · original_title
 5,264 · runtime_minutes 5,252. People enrichment: imdb_id 10,096 persons
 (+71 company `co` IDs) · birth_year 6,785 · death_year 4,087 — persons

@@ -34,8 +34,8 @@ data dictionary). Read both before schema or data work.
   for cases neither source gets right (see "Resolved data quirks").
 - All enrichment/corrections keyed on imdb_id (external, stable) — NOT
   the surrogate integer ids, which are stable only by accident of
-  insertion order. If a rebuild is ever needed, enrichment must be
-  reapplied by imdb_id; no merge script exists yet (build when needed).
+  insertion order. The db itself is the durable artifact going forward;
+  no rebuild-from-TSV path is planned (agreed 2026-07-09).
 
 ## Schema
 
@@ -108,15 +108,42 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   as titles, 1,101 rows synced); Academy display text preserved on
   nominations.official_name. ~180 missing ids recovered by exact-name
   matching verified via knownForTitles overlap.
+- 4 films (imdb_id confirmed present in title.basics) are entirely absent
+  from the title.crew.tsv.gz snapshot (verified via zgrep, not just an
+  unfilled field) — an IMDb export gap. 3 hand-fixed 2026-07-09 after
+  online verification: San Francisco (tt0028216) → W.S. Van Dyke
+  nm0886754, Mrs. Miniver (tt0035093) → William Wyler nm0943758, 7 Faces
+  of Dr. Lao (tt0057812) → George Pal nm0657162 (all pre-existing people
+  rows, nominated in their own right). Wings (tt0018578) unresolved.
+  Separately, 74 more films are matched in title.crew but list no
+  directors (`\N`); spot-checking a spread of these on imdb.com directly
+  confirmed IMDb itself doesn't have the data (mostly obscure
+  shorts/newsreels/documentaries) — not pursuing title.principals.tsv.gz
+  for these, low yield for the size/effort.
 
 ## Roadmap
 
-1. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
-   GUI = VS Code SQLite Viewer extension. Respect the Titanic
-   disambiguation rule above.
-2. Remaining enrichment: title_zh/name_zh, douban_id, countries.
-   Open people-id review: data/people_no_imdb_id.txt (132 ambiguous,
-   617 no-match).
+1. Finalize data/people_no_imdb_id.txt (next chat): 132 ambiguous name
+   matches + 617 no-match (610 + 7 company-looking) still open.
+2. Interface demos (chat after that): canned queries, small CLI,
+   text-to-SQL LLM demo. GUI = VS Code SQLite Viewer extension. Respect
+   the Titanic disambiguation rule above. User wants this framed as a
+   lecture + demo, not just a code drop.
+3. Remaining enrichment: title_zh/name_zh, douban_id, countries. For
+   countries specifically, agreed approach (2026-07-09): use
+   title.akas.tsv.gz, the row per title with isOriginalTitle=1, to get
+   both region and language in one shot — but check empirically first
+   whether that row actually carries non-null region/language (may
+   instead be null there, with real values only on the *localized*
+   akas rows). Validate against the small ground-truth set we already
+   have for free: International Feature Film nominees, where the
+   official "nominee" is the country itself (data_notes.md).
+
+Rebuild/merge tooling (previously a possible future item): dropped by
+agreement 2026-07-09 — the db itself is the durable artifact going
+forward, not the ingest pipeline; next new data (e.g. a future
+ceremony) will be added directly against the live db, not via a fresh
+TSV rebuild.
 
 Done 2026-07-08: original_title + runtime_minutes columns, enriched
 from IMDb (enrich_release_year.py generalized into enrich_imdb.py);
@@ -130,7 +157,10 @@ sync_films/sync_people; name follows primaryName; ~180 ids recovered,
 ids hand-fixed; src/people_id_review.py added.
 
 Done 2026-07-09: film_directors junction (film_id, person_id), from
-title.crew.tsv.gz via enrich_imdb.py's new sync_film_directors — 6,397
-links, 5,186 films, 3,213 directors; 1,508 directors never personally
+title.crew.tsv.gz via enrich_imdb.py's new sync_film_directors — 6,400
+links, 5,189 films, 3,213 directors; 1,508 directors never personally
 nominated INSERTed into people (kind='person', named/dated from
-name.basics); pinned counts in verify.py/data_notes/README updated.
+name.basics); pinned counts in verify.py/data_notes/README updated. 3
+of 4 IMDb crew-file gaps hand-fixed (see "Resolved data quirks"); 74
+films with a genuinely-unknown-to-IMDb director confirmed by spot-check,
+left as-is.

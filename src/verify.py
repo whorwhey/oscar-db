@@ -45,7 +45,7 @@ def structural(cur):
     expected = {
         "ceremonies": 98, "categories": 66, "nominations": 12137,
         "films": 5265, "people": 11146, "nomination_films": 10879,
-        "nomination_people": 18823, "film_directors": 6397,
+        "nomination_people": 18823, "film_directors": 6400,
     }
     check("row counts match data_notes.md scale", counts == expected, counts)
 
@@ -191,18 +191,20 @@ def imdb_enrichment(cur):
 def film_directors_checks(cur):
     section("film_directors (title.crew)")
 
-    # Coverage: 5,264 films have an imdb_id; 4 aren't in the 2026-07
-    # title.crew snapshot at all, and a further 74 are matched but list no
-    # directors (IMDb \N) -- both are gaps in IMDb's own data, not ours.
+    # Coverage: 5,264 films have an imdb_id; 4 were missing from the 2026-07
+    # title.crew snapshot entirely (3 hand-fixed after online verification,
+    # see CLAUDE.md "Resolved data quirks"; Wings unresolved) and a further
+    # 74 are matched but list no directors (IMDb \N, confirmed genuinely
+    # unknown to IMDb, not an export gap) -- both are gaps in IMDb's data.
     coverage = cur.execute("""
         SELECT COUNT(*), COUNT(DISTINCT person_id) FROM film_directors
     """).fetchone()
-    check("6397 links across 3213 distinct directors", coverage == (6397, 3213), coverage)
+    check("6400 links across 3213 distinct directors", coverage == (6400, 3213), coverage)
 
     (linked_films,) = cur.execute(
         "SELECT COUNT(DISTINCT film_id) FROM film_directors"
     ).fetchone()
-    check("5186 distinct films have >=1 director linked", linked_films == 5186, linked_films)
+    check("5189 distinct films have >=1 director linked", linked_films == 5189, linked_films)
 
     (non_person,) = cur.execute("""
         SELECT COUNT(*) FROM film_directors fd

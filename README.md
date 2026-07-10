@@ -57,7 +57,7 @@ in `schema.md`, per-source details in `data/data_notes.md`):
   to no film — that's by design, not missing data.
 - **Junctions** — `nomination_films` and `nomination_people` (a
   nomination can span several films/people and vice versa);
-  `film_directors` (5,186 films → 3,213 directors, from IMDb crew data,
+  `film_directors` (5,189 films → 3,213 directors, from IMDb crew data,
   independent of nomination history); `film_countries`/`person_countries`
   exist but are empty pending enrichment.
 
@@ -87,7 +87,6 @@ LIMIT 5;
   countries
 - Query interfaces, built as learning demos: canned queries, small CLI,
   text-to-SQL LLM demo
-- Rebuild/merge tooling for reapplying enrichment after a schema change
 
 ## Installation
 
