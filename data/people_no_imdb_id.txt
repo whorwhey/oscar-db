@@ -1,754 +1,750 @@
-person_id	name	imdb_id_candidate	match_basis
+person_id	name	imdb_id_candidate	match_basis	narrowed_count	candidates
 # --- name-match candidates: 0 ---
 # --- ambiguous name matches: 132 ---
-626	WILLIAM RUDOLPH		ambiguous:5
-718	DANIEL CLARK		ambiguous:55
-720	CHARLES MILLER		ambiguous:77
-813	Ray Wilkinson		ambiguous:2
-814	Paramount		ambiguous:2
-1071	Russell Brown		ambiguous:46
-1211	MARTY MARTIN		ambiguous:17
-1282	Kurt Singer		ambiguous:4
-1340	Marty Martin		ambiguous:17
-1484	Floyd Campbell		ambiguous:2
-1755	ROLAND MILLER		ambiguous:4
-1760	FRED WILSON		ambiguous:20
-1844	DAVE ANDERSON		ambiguous:103
-1845	Charles West		ambiguous:20
-1927	John Pond		ambiguous:4
-1928	William Wade		ambiguous:13
-1980	WILLIAM B. SMITH		ambiguous:2
-2091	WILLIAM EVANS		ambiguous:38
-2181	Anthony Paglia		ambiguous:2
-2251	James Dale		ambiguous:24
-2330	Ralph Chapman		ambiguous:4
-2775	HERBERT MEYER		ambiguous:3
-3402	Roger Banks		ambiguous:4
-3574	John Jurgens		ambiguous:2
-3785	PAUL KAUFMAN		ambiguous:6
-3878	CHARLES VAUGHN		ambiguous:5
-4071	ED PHILLIPS		ambiguous:8
-4169	Douglas Fries		ambiguous:2
-4170	John Lacey		ambiguous:10
-4270	RUBEN AVILA		ambiguous:4
-4272	Ruben Avila		ambiguous:4
-4275	KENNETH RICHTER		ambiguous:2
-4400	David W. Spencer		ambiguous:2
-4734	Bill Holland		ambiguous:11
-4922	JIM GRAVES		ambiguous:2
-4932	Peter Baldwin		ambiguous:18
-5166	Arnold Richter		ambiguous:4
-5265	Wally Mills		ambiguous:2
-5266	Gary Stadler		ambiguous:2
-5366	DAN CAMERON		ambiguous:12
-5373	GLENN KENNEL		ambiguous:2
-5385	Arthur Wright		ambiguous:7
-5386	Neil Harris		ambiguous:22
-5387	DUNCAN MacLEAN		ambiguous:4
-5405	RICHARD LARSON		ambiguous:8
-5415	Jack C. Smith		ambiguous:3
-5419	CHRIS HUNTLEY		ambiguous:4
-5537	Colin Mossman		ambiguous:2
-5542	David Gilmartin		ambiguous:2
-5565	Dan Cameron		ambiguous:12
-5771	Roy Hall		ambiguous:9
-5776	Dave Springer		ambiguous:2
-5777	Dominique Boisvert		ambiguous:4
-5789	John Neary		ambiguous:2
-5805	Larry Jacobson		ambiguous:10
-5810	Kim Davidson		ambiguous:8
-5816	Pete Clark		ambiguous:13
-5912	John Scott		ambiguous:168
-5926	Ronan Carroll		ambiguous:2
-5938	Bob Webber		ambiguous:3
-5949	Remy Smith		ambiguous:4
-5958	JIM MEYER		ambiguous:25
-5959	STAN MILLER		ambiguous:11
-6068	James Moultrie		ambiguous:2
-6069	Mike Salter		ambiguous:9
-6164	Brian Dang		ambiguous:2
-6171	George Johnson		ambiguous:71
-6173	David Pringle		ambiguous:9
-6322	CARL LUDWIG		ambiguous:2
-6430	GLENN SANDERS		ambiguous:2
-6648	KEITH EDWARDS		ambiguous:26
-6649	Lindsay Arnold		ambiguous:6
-6652	Charlie Lawrence		ambiguous:6
-6656	Anthony Seaman		ambiguous:2
-6659	Dave Betts		ambiguous:2
-6661	Michael Birch		ambiguous:7
-6663	Paul Tate		ambiguous:7
-6667	William Hayes		ambiguous:38
-6776	Frank Fletcher		ambiguous:10
-6777	Dave Sherwin		ambiguous:2
-6778	Michael Sorensen		ambiguous:8
-6789	John Platt		ambiguous:11
-6796	Bill Hogue		ambiguous:3
-6797	Tim Reynolds		ambiguous:19
-6902	Simon Robinson		ambiguous:26
-6922	Peter Litwinowicz		ambiguous:2
-6928	Shawn Jones		ambiguous:45
-6931	Martin Richards		ambiguous:16
-7034	Martin Werner		ambiguous:3
-7131	Timo Müller		ambiguous:4
-7258	Theo Brown		ambiguous:14
-7268	Brad Walker		ambiguous:19
-7284	Brett Allen		ambiguous:27
-7522	Michael Lewis		ambiguous:167
-7523	Greg Marsden		ambiguous:3
-7537	Hiroshi Hirano		ambiguous:3
-7651	Theodore Kim		ambiguous:2
-7654	Doug James		ambiguous:15
-8119	Steve Smith		ambiguous:352
-8122	Trevor Davies		ambiguous:13
-8126	Matthew Robinson		ambiguous:84
-8135	Mark Kirk		ambiguous:3
-8137	Steve Linn		ambiguous:2
-8138	Brian Green		ambiguous:54
-8268	Sony		ambiguous:13
-8287	Mark Rappaport		ambiguous:10
-8291	Glenn Sanders		ambiguous:2
-8293	David Thomas		ambiguous:218
-8563	David Simons		ambiguous:10
-8564	Daniel Wilk		ambiguous:2
-8568	Thomas Knoll		ambiguous:3
-8579	Marco Paolini		ambiguous:6
-8683	Greg Smokler		ambiguous:3
-8687	Jeff Bloom		ambiguous:9
-8689	Nick Rose		ambiguous:22
-8690	John Ellwood		ambiguous:2
-8697	Alejandro Arango		ambiguous:8
-8698	Gary Martinez		ambiguous:6
-8703	Ian Kelly		ambiguous:48
-8712	John Anderson		ambiguous:212
-8725	Chris Countryman		ambiguous:3
-8732	Isaac Reuben		ambiguous:3
-9284	Steve Read		ambiguous:8
-9286	Peter Janssens		ambiguous:5
-9289	Michael Perkins		ambiguous:26
-9298	Bill Beck		ambiguous:9
-9467	David Adler		ambiguous:20
-9480	James Jacobs		ambiguous:24
-9496	John Ellison		ambiguous:9
-9497	Steve Webb		ambiguous:21
-9642	Brent Bell		ambiguous:3
-9648	Jonathan Moulin		ambiguous:4
-# --- no match: 610 ---
-142	Rko Radio Pictures		
-212	SIDNEY SANDERS		
-380	E. C. Wente		
-460	JOSEPH E. ROBBINS		
-461	PARAMOUNT PICTURES		
-628	EMERY HUSE		
-631	A. J. TONDREAU		
-643	DON MUSGRAVE		
-721	ROBERT W. STEVENS.		
-815	Wilbur Silvertooth		
-816	Paramount Pictures		
-906	F. Thomas Thompson		
-982	Earle Morgan		
-983	Barton Thompson		
-986	Willard H. Turner		
-987	Rko Radio		
-1072	Ray Hinsdale		
-1073	Joseph E. Robbins		
-1074	Paul Zeff		
-1075	S. J. TWINING		
-1153	Charles R. Daily		
-1154	Michael S. Leshing		
-1155	BENJAMIN C. ROBINSON		
-1156	ARTHUR B. CHATELAIN		
-1158	JOHN G. CAPSTAFF		
-1203	Harlan L. Baumbach		
-1204	Herbert E. Britt		
-1205	Burton F. Miller		
-1208	Arthur F. Blinn		
-1212	HAL ADKINS		
-1275	Thomas Armat		
-1277	C. C. Davis		
-1278	C. R. Daily		
-1279	Hal Corl		
-1280	H. G. Cartwright		
-1281	FRED PONEDEL		
-1336	Victor Caccialanza		
-1342	A. J. Moran		
-1415	Bruce H. Denney		
-1418	Andre Coutant		
-1419	Jacques Mathot		
-1485	L. W. Russell		
-1550	S. L. Stancliffe		
-1551	OLIN L. DUPY		
-1552	Richard M. Haff		
-1553	Frank P. Herrnfeld		
-1554	Garland C. Misener		
-1556	Fred Ponedel		
-1620	John G. Frayne		
-1621	R. R. Scoville		
-1624	Gustav Jirouch		
-1687	EARL SPONABLE		
-1689	HERBERT BRAGG		
-1752	J.W. Stafford		
-1753	K.M. Frierson		
-1756	MAX GOEPPINGER		
-1758	G.M. Sprague		
-1759	Metro-Goldwyn-Mayer		
-1761	P.C. YOUNG		
-1837	the NATIONAL CARBON CO.		
-1838	the EASTMAN KODAK CO.		
-1841	the BAUSCH & LOMB CO.		
-1842	Walter Jolley		
-1843	Steve Krilanovich		
-1846	Henry Fracker		
-1920	RICHARD H. RANGER		
-1922	CARL HAUGE		
-1923	EDWARD REICHARD		
-1925	ROY C. STEWART AND SONS		
-1926	DR. C.R. DAILY		
-1975	SOCIÉTÉ D'OPTIQUE ET DE MECANIQUE DE HAUTE PRECISION		
-1976	LORAND WARGO		
-1977	HOWARD M. LITTLE		
-1979	Charles E. Sutter		
-2022	Don W. Prideaux		
-2023	LEROY G. LEIGHTON		
-2026	WILLY BORBERG		
-2027	CONRAD BOYE		
-2088	ROBERT E. GOTTSCHALK		
-2090	Wadsworth E. Pohl		
-2093	S.E. HOWSE		
-2094	THOMAS P. DIXON		
-2097	JACK ALFORD		
-2099	JOSEPH SCHMIT		
-2101	AL LOFQUIST		
-2102	Dr. Howard S. Coleman		
-2103	DR. A. FRANCIS TURNER		
-2104	HAROLD H. SCHROEDER		
-2105	JAMES R. BENFORD		
-2106	HAROLD E. ROSENBERGER		
-2107	ROBERT P. GUTTERMAN		
-2110	E.L. Stones		
-2179	Arthur Holcomb		
-2183	Carl Hauge		
-2184	ROBERT GRUBEL		
-2249	Fred L. Metzler		
-2252	S. WILSON		
-2253	H.E. RICE		
-2254	JOHN RUDE		
-2256	WADSWORTH E. POHL		
-2257	H. PEASGOOD		
-2258	E.I. Sponable		
-2259	Herbert E. Bragg		
-2261	F.D. Leslie		
-2262	R.D. Whitmore		
-2263	A.A. Alden		
-2264	Endel Pool		
-2331	Albert S. Pratt		
-2332	JAMES L. WASSELL		
-2335	WILLIAM BRYSON SMITH		
-2336	LOUIS C. KENNELL		
-2338	LOUIS G. MacKENZIE		
-2480	EDWARD H. REICHARD		
-2481	CARL W. HAUGE		
-2482	JOB SANDERSON		
-2483	Pierre Angenieux		
-2485	RICHARD B. GLICKMAN		
-2486	DANIEL J. PEARLMAN		
-2488	Edward H. Reichard		
-2489	LEONARD L. SOKOLOW		
-2556	ARTHUR J. HATCH		
-2639	Arnold & Richter Kg		
-2709	FRED R. WILSON		
-2774	PHILIP V. PALMQUIST		
-2777	Donald W. Norwood		
-2780	NIELS G. PETERSEN		
-2781	NORMAN S. HUGHES		
-2783	Todd-Ao		
-2785	E. MICHAEL MEAHL		
-2786	ROY J. RIDENOUR		
-2868	OTTO POPELKA		
-2870	ROBERT M. FLYNN		
-2871	RUSSELL HESSEY		
-2962	LEONARD SOKOLOW		
-2964	B. J. Losmandy		
-3043	JOHN N. WILKINSON		
-3044	Thomas Jefferson Hutchinson		
-3045	James R. Rochester		
-3047	Robert D. Auguste		
-3133	Howard T. La Zare		
-3134	Edward Efron		
-3137	Ramtronics		
-3138	David Degenkolb		
-3139	HARRY LARSON		
-3140	MANFRED MICHELSON		
-3142	JIRO MUKAI		
-3143	RYUSHO HIROSE		
-3145	LEONARD L. OLSON		
-3146	FRANK P. CLARK		
-3147	E. H. GEISSLER		
-3148	G. M. BERGGREN		
-3217	JOACHIM GERB		
-3220	WILLIAM W. VALLIANT		
-3222	CLIFFORD H. ELLIS		
-3223	ROGER W. BANKS		
-3225	RICHARD H. VETTER		
-3304	Robert J. Leonard		
-3306	LOUIS AMI		
-3399	CHADWELL O'CONNOR		
-3400	WILLIAM F. MINER		
-3403	DAVID J. DEGENKOLB		
-3408	Bell & Howell		
-3481	MANFRED G. MICHELSON		
-3482	GEOFFREY F. NORMAN		
-3483	SIEGFRIED SEIBERT		
-3484	FRED BARTSCHER		
-3485	GLENN BERGGREN		
-3486	HIROSHI SUZUKAWA		
-3577	BARRY K. HENLEY		
-3578	HAMMOND H. HOLT		
-3585	ERNST NETTMANN		
-3587	DR. BERNHARD KÜHL		
-3588	WERNER BLOCK		
-3673	Robert E. Gottschalk		
-3679	KARL MACHER		
-3680	GLENN M. BERGGREN		
-3681	David J. Degenkolb		
-3682	ARTHUR L. FORD		
-3683	FRED J. SCOBEY		
-3684	KIICHI SEKIGUCHI		
-3687	ROBERT STINDT		
-3778	Mark Serrurier		
-3781	Michael V. Chewey		
-3782	WALTER G. EGGERS		
-3783	ALLEN HECHT		
-3787	James S. Stanfield		
-3788	Paul W. Trester		
-3872	Samuelson Film Service Limited		
-3873	EDWARD B. KRAUSE		
-3877	ANDRÉ DeBRIE		
-3879	EUGENE NOTTINGHAM		
-3880	John W. Lang		
-3881	WALTER HRASTNIK		
-3882	CHARLES J. WATSON		
-3883	WORTH BAIRD		
-3964	Leonard Sokolow		
-3965	HOWARD T. LaZARE		
-3967	EDWARD J. BLASKO		
-3968	RODERICK T. RYAN		
-3972	JOHN DeMUTH		
-3973	ERNST F. NETTMANN		
-3976	Dr. Louis Stankiewicz		
-3977	H. L. Blachford		
-4060	COLIN F. MOSSMAN		
-4062	SANTE ZELLI		
-4063	SALVATORE ZELLI		
-4064	DR. MOHAMMAD S. NOZARI		
-4066	DONALD SCHISLER		
-4067	Jacobus L. Dimmers		
-4158	Dr. John G. Frayne		
-4159	DR. KURT LARCHE		
-4163	Gunnar P. Michelson		
-4164	WILLIAM G. KROKAUGGER		
-4165	Charles J. Watson		
-4166	Larry L. Langrehr		
-4167	John H. Steiner		
-4168	ELIZABETH D. DE LA MARE		
-4171	Michael Sigrist		
-4267	DONALD A. ANDERSON		
-4268	DIANA REINERS		
-4269	Barry M. Stultz		
-4271	WES KENNEDY		
-4273	Wes Kennedy		
-4280	NAT TIFFEN		
-4284	ROBERT BEALMEAR		
-4397	JOE P. CROOKHAM		
-4398	JIM DROST		
-4504	ANTHONY D. BRUNO		
-4505	JOHN L. BAPTISTA		
-4506	BRUCE W. KELLER		
-4510	ALFRED THUMIM		
-4511	ELAN LIPSCHITZ		
-4512	DARRYL A. ARMOUR		
-4513	FRITZ SENNHEISER		
-4522	CARL HOLMES		
-4525	William B. Pollard		
-4526	E. M. (Al) Lewis		
-4608	Bernhard Kühl		
-4609	Werner Block		
-4611	Willi Burth		
-4614	Ronald C. Barker		
-4615	Chester L. Schuler		
-4616	Colin F. Mossman		
-4617	Rank Film Development Group		
-4623	Geoffrey H. Williamson		
-4628	DAN C. NORRIS		
-4722	Gordon Henry Cook		
-4723	Roy W. Edwards		
-4725	Arnold & Richter		
-4726	Otto Blaschek		
-4736	GRANT LOUCKS		
-4737	GEOFFREY H. WILLIAMSON		
-4738	Michael V. Chewey III		
-4740	DR. ANTAL LISZIEWICZ		
-4741	James K. Branch		
-4743	Nasir J. Zaidi		
-4748	EMANUEL TRILLING		
-4749	Paul A. Roos		
-4834	J. Noxon Leavitt		
-4835	J. L. FISHER		
-4836	Klaus Resch		
-4838	Fgv Schmidle & Fitz		
-4913	BRUCE WILTON		
-4914	CARLOS ICINKOFF		
-4918	Takuo Miyagishima		
-4921	HARVEY HUBERT JR.		
-4923	Bengt O. Orhall		
-4924	KENNETH LUND		
-4925	BJORN SELIN		
-4926	KJELL HOGBERG		
-4930	Dr. Fred Kolb Jr.		
-4931	Paul Preo		
-4933	Paul Kiankhooy		
-4936	Roderick T. Ryan		
-5022	Albert Saiki		
-5024	HEINZ FEIERLEIN		
-5025	SACHTLER AG		
-5026	Harry J. Baker		
-5028	Richard Keeney		
-5029	Richard J. Lundell		
-5035	Mario Celso		
-5048	Robert W. Stoker Jr.		
-5051	Steve Hamerski		
-5053	Ken Robings		
-5055	Century Precision Optics		
-5058	Donald Hagans		
-5155	Claus Wiedemann		
-5156	Robert Orban		
-5159	Al Mayer		
-5160	George Kraemer		
-5161	Hans Spirawski		
-5162	Bill Eslick		
-5165	Edmund M. Di Giulio		
-5169	ROBERT R. BURTON		
-5170	Kaz Fudano		
-5267	Gustave Parada		
-5268	Gary Nuzzi		
-5269	David Johnsrud		
-5270	William Blethen		
-5271	Michael Dorrough		
-5368	GARY STARKWEATHER		
-5375	Al Saiki		
-5376	Panavision International		
-5377	William J. Warner		
-5378	Eric C. Peters		
-5380	Tom A. Ohanian		
-5381	Patrick D. O'Connor		
-5382	Joe H. Rice		
-5388	George Sauve		
-5389	Arpag Dadourian		
-5391	B. RUSSELL HESSEY		
-5396	Dr. Joe Zhou		
-5397	Don Northrop		
-5398	EMMANUEL PREVINAIRE		
-5399	JACQUES SAX		
-5407	COLIN BROAD		
-5409	David A. Addleman		
-5410	Lloyd A. Addleman		
-5411	Mark R. Schneider		
-5412	Herbert R. Jones		
-5413	Christopher D. Conover		
-5414	John R.B. Brown		
-5420	ART FRITZEN		
-5528	Arnold And Richter Cine Technik		
-5531	Howard Flemming		
-5532	Ronald Uhlig		
-5538	Joe Wary		
-5539	Hans Leisinger		
-5540	Gerald Painter		
-5543	JOHANNES BORGGREBE		
-5544	JEAN-PIERRE GAGNON		
-5545	FRANK RICOTTA		
-5548	Eric Dubberke		
-5552	Pascal Chedeville		
-5555	Al Jensen		
-5556	CHUCK HEADLEY		
-5557	JEAN MESSNER		
-5558	HAZEM NABULSI		
-5561	Yan Zhong Fang		
-5570	Institut National Polytechnique De Toulouse		
-5571	Kodak Pathe Ctp Cine		
-5665	Kay Beving Erland		
-5666	Perry Kivolowitz		
-5667	Dr. Garth A. Dickie		
-5671	Grant Loucks		
-5674	James Kajiya		
-5675	Timothy Kay		
-5680	Richard A. Prey		
-5681	William N. Masten		
-5774	Milan Novacek		
-5775	Glen Ozymok		
-5778	Réjean		
-5780	Richard Laperriere		
-5785	Kirk Handley		
-5786	Ray Meluch		
-5788	Wilson H. Allen		
-5790	JOEL W. JOHNSON		
-5791	Clark F. Crites		
-5792	Dan Leimeter		
-5796	DOUGLAS W. NISHIMURA		
-5797	MONIQUE C. FISCHER		
-5799	James F. Foley		
-5800	Charles E. Converse		
-5801	F. Edward Gardner		
-5804	Roger Hibbard		
-5812	Paul H. Breslin		
-5904	Thomas G. Stockham Jr.		
-5906	James A. Moorer		
-5907	STEPHEN J. KAY		
-5908	Gary Tregaskis		
-5913	Mohamed Ken T. Husain		
-5914	Cameron Shearer		
-5915	Roy B. Ference		
-5916	Steven R. Schmidt		
-5917	Richard J. Federico		
-5918	Rockwell Yarid		
-5919	MICHAEL E. McCRACKAN		
-5920	HANS LEISINGER		
-5921	GEORGE JOHN ROWLAND		
-5922	Arnold & Richter Cine Technik		
-5923	Arnold Richter Cine Technik		
-5924	DEREK C. LIGHTBODY		
-5932	Ronald E. Uhlig		
-5933	THOMAS F. POWERS		
-5934	FRED M. FUSS		
-5940	Bala S. Manian		
-5953	Manfred N. Klemme		
-5954	Donald E. Wetzel		
-5960	A. Tulsi Ram		
-5961	RICHARD C. SEHLIN		
-5962	CARL F. HOLTZ		
-5963	DAVID F. KOPPERL		
-5964	TAKUO MIYAGISHIMA		
-5965	ALBERT K. SAIKI		
-5966	EDMUND M. DI GIULIO		
-5967	JAMES BARTELL		
-5969	ED ZWANEVELD		
-5972	DALE BRUBACHER-CRESSMAN		
-6066	Karl Lynch		
-6067	Mark V. Crabtree		
-6070	Mark Craig Gerchman		
-6071	Marlowe A. Pichel		
-6073	Vivienne Dyer		
-6075	Leslie Drever		
-6076	Richard C. Sehlin		
-6077	MITCHELL J. BOGDANOWICZ		
-6078	MARY L. SCHMOEGER		
-6079	JOHN C. BREWER		
-6165	Akai Digital		
-6166	Fairlight		
-6170	Ashot Nalbandyan		
-6175	PHILIP GREENSTREET		
-6176	Udo Schauss		
-6177	Hildegard Ebbesmeier		
-6178	Karl Lenhardt		
-6179	Ralf Linn		
-6180	Norbert Brinker		
-6181	Glenn M. Berggren		
-6182	Horst Linge		
-6183	Wolfgang Reinecke		
-6185	Venkat Krishnamurthy		
-6189	John P. Pytlak		
-6190	Robin Bransbury		
-6293	John M. Eargle		
-6294	D.B. Keele		
-6295	Mark E. Engebretson		
-6297	Johannes Steurer		
-6298	Wolfgang Riedel		
-6301	Joseph A. Olivier		
-6303	Makoto Tsukada		
-6304	Steven Gerlach		
-6307	Paul J. Constantine		
-6308	Peter M. Constantine		
-6310	Bernard M. Werner		
-6311	William Gelow		
-6315	Thomas Major Barron		
-6323	JOHN M. CONSTANTINE		
-6328	Dr. Lance J. Williams		
-6329	Dr. Uwe Sassenberg		
-6427	Alias/Wavefront		
-6428	ARNOLD & RICHTER CINE TECHNIK		
-6433	Dr. Leslie Gutierrez		
-6434	Diane E. Kestner		
-6436	David Niklewicz		
-6437	Dr. Depu Jin		
-6438	Franz Petters		
-6440	Thomas Driemeyer		
-6441	Mental Images		
-6449	ROBERT W. JEFFS		
-6451	Richard B. Glickman		
-6533	Digidesign		
-6535	Kenneth L. Tingler		
-6536	CHARLES C. ANDERSON		
-6537	DIANE E. KESTNER		
-6538	BRIAN A. SCHELL		
-6541	Michael C. Carlos		
-6546	Kish Sadhvani		
-6548	Carl Pernicone		
-6550	Stephen R. Marschner		
-6647	GYULA MESTER		
-6658	Dr. Christopher Hicks		
-6660	Dr. Julian Morris		
-6662	Dr. Paul Smyth		
-6664	Dr. John O.B. Greaves		
-6665	Ned Phipps		
-6666	Antonie J. Van Den Bogert		
-6668	Dr. Nels Madsen		
-6767	Yuriy Popovsky		
-6779	J. Walt Adamczyk		
-6790	Demetri Terzopoulos		
-6793	Harold Rattray		
-6798	Nicole Wemken		
-6904	Dr. Anil Kokaram		
-6910	Albert Ridilla		
-6911	Papken Shahbazian		
-6912	Ronald Belknap		
-6913	JAY McGARRIGLE		
-6915	Josef Handler		
-6916	Thomas Smidek		
-6917	Marc Shipman Mueller		
-6919	Ernst Tschida		
-6921	MARTIN WAITZ		
-6924	J. Wayne Anderson		
-6930	Dr. Alan Masson		
-6932	Frank Ricotta		
-7021	JÖRG PÖHLER		
-7022	RÜDIGER KLEINKE		
-7024	ANDREAS DASSER		
-7030	Dr. Jeroen Molemaker		
-7033	Julia Pakalns		
-7129	Erwin Melzner		
-7130	Volker Schumacher		
-7133	Alexandre Leuchter		
-7134	Bruno Coumert		
-7135	Jacques Debize		
-7136	Dominique Chervin		
-7137	Christophe Reboulet		
-7138	STEVE HYLÉN		
-7248	Michael Bunnell		
-7249	Dr. Richard Kirk		
-7251	Markus Hasenzahl		
-7252	Dr. Klaus Anderle		
-7253	Andreas Loew		
-7254	Michael Cieslinski		
-7255	Dr. Reimar Lenz		
-7256	Bernd Brauner		
-7259	Tony Sedivy		
-7260	Dr. John Quartel		
-7264	Dr. James Logie		
-7267	Tamas Perlaki		
-7273	Ryoji Nishimura		
-7275	Youichi Hosoya		
-7280	Mark Wolforth		
-7281	Christian Baeker		
-7282	Frank Billasch		
-7520	Dr. Jürgen Noffke		
-7521	Uwe Weber		
-7524	Raigo Alas		
-7525	Michael Vellekoop		
-7527	Michael Sayovitz		
-7528	Brad Fritzel		
-7531	Ian Cavén		
-7536	Dr. Katsuhisa Oozeki		
-7538	Andrew Clinton		
-7631	Cooke Optics Limited		
-7635	DR. PHILIP McLAUCHLAN		
-7636	Allan Jaenicke		
-7637	John-Paul Smith		
-7639	Joe Murtha		
-7640	WILLIAM FREDERICK		
-7641	JIM MARKLAND		
-7653	Dr. Markus Gross		
-8117	Michael John Keesling		
-8121	Michael Kirilenko		
-8124	Jon Scott Miller		
-8140	J Robert Ray		
-8267	Red Digital Cinema		
-8272	Thiago Ize		
-8278	JOSHUA BARRATT		
-8280	ARCHIE TE		
-8281	Thomson Grass Valley		
-8289	Jeff Cruts		
-8294	Lawrence E. Fisher		
-8416	Side Effects Software		
-8565	James Acquavella		
-8567	David M. Cotter		
-8571	Edwin Catmull		
-8574	Erik Bielefeldt		
-8577	Per-Anders Arvid Edwards		
-8586	Charles Teorell Loop		
-8678	Dr. Zvi Reznic		
-8679	Professor Meir Feder		
-8680	Guy Dorman		
-8681	Ron Yogev		
-8682	Nicolaas Verheem		
-8684	Ilya Issenin		
-8685	ALEXEY LUKIN		
-8688	GUY McNALLY		
-8691	Jonathan Newland		
-8693	Masato Nakashima		
-8694	Koichi Ueno		
-8695	Junji Sakuda		
-8696	Junro Yonemitsu		
-8699	Robert Derry		
-8702	Scott Robitille		
-8705	SVEN WOOP		
-8706	CARSTEN BENTHIN		
-8707	ATTILA T. Á FRA		
-8709	INGO WALD		
-8713	Andrew Witkin		
-8715	Kelly Ward Hammel		
-8723	Jens-Jørn Stokholm		
-8726	Omer T. Inan		
-8727	Fredrik Limsäter		
-8729	Mattias Lagergren		
-8731	Matt Daw		
-9280	Charles Q. Robinson		
-9281	Nicolas Tsingos		
-9282	Christophe Chabanne		
-9285	Barry Silverstein		
-9287	Goran Stojmenovik		
-9290	Gerwin Damberg		
-9291	Martin J. Richards		
-9292	Jaden Oh		
-9299	Gregory T. Niven		
-9300	Yoshitaka Nakatsu		
-9301	Yoji Nagao		
-9302	Tsuyoshi Hirao		
-9303	Tomonori Morizumi		
-9304	Kazuma Kozuru		
-9312	Nicholas Avramoussis		
-9465	Thijs Vogels		
-9466	Fabrice Rousselle		
-9468	Gerhard Röthlin		
-9470	Yair Chuchem		
-9472	Curt Schaller		
-9473	Dr. Roman Foltyn		
-9479	Essex Edwards		
-9483	Andrew Van Straten		
-9486	Neeme Vaino		
-9489	Attila T. Áfra		
-9492	Su Tie		
-9493	Bei Shimen		
-9494	Zhao Yanchong		
-9643	Josef Köhler		
-9644	Ian Medwell		
-9651	Bret St.Clair		
-9652	Marc-André Davignon		
-9653	Pav Grochola		
-9654	Edmond Boulet Gilly		
+814	Paramount		ambiguous:2	1	nm1837126(?-,composer|soundtrack)
+1282	Kurt Singer		ambiguous:4	1	nm13953904(?-,?)
+1484	Floyd Campbell		ambiguous:2	1	nm3003434(?-,?)
+1927	John Pond		ambiguous:4	1	nm14277758(?-,?)
+3785	PAUL KAUFMAN		ambiguous:6	1	nm6258895(?-,?)
+4400	David W. Spencer		ambiguous:2	1	nm6910478(?-,sound_department)
+4922	JIM GRAVES		ambiguous:2	1	nm5885297(?-,?)
+5265	Wally Mills		ambiguous:2	1	nm9775100(?-,?)
+5537	Colin Mossman		ambiguous:2	1	nm8967775(?-,?)
+5542	David Gilmartin		ambiguous:2	1	nm9134244(?-,?)
+5789	John Neary		ambiguous:2	1	nm16129535(?-,?)
+5926	Ronan Carroll		ambiguous:2	1	nm3780090(?-,composer|soundtrack)
+6068	James Moultrie		ambiguous:2	1	nm13473556(?-,?)
+6164	Brian Dang		ambiguous:2	1	nm16295942(?-,?)
+6322	CARL LUDWIG		ambiguous:2	1	nm1157605(?-,miscellaneous|visual_effects)
+6430	GLENN SANDERS		ambiguous:2	1	nm7383728(?-,sound_department)
+6656	Anthony Seaman		ambiguous:2	1	nm10865218(?-,?)
+6777	Dave Sherwin		ambiguous:2	1	nm3016619(?-,sound_department)
+6922	Peter Litwinowicz		ambiguous:2	1	nm5896212(?-,director|editor|writer)
+8291	Glenn Sanders		ambiguous:2	1	nm7383728(?-,sound_department)
+8564	Daniel Wilk		ambiguous:2	1	nm8648688(?-,camera_department)
+8732	Isaac Reuben		ambiguous:3	1	nm2210750(?-,miscellaneous)
+9286	Peter Janssens		ambiguous:5	1	nm13818009(?-,?)
+813	Ray Wilkinson		ambiguous:2	2	nm1443103(?-,art_department|art_director); nm5875095(?-,?)
+1755	ROLAND MILLER		ambiguous:4	2	nm13118909(?-,?); nm18672889(?-,?)
+1980	WILLIAM B. SMITH		ambiguous:2	2	nm18538363(?-,music_department); nm2841708(?-,costume_department|production_department|production_designer)
+2330	Ralph Chapman		ambiguous:4	2	nm15568159(?-,?); nm6009657(?-,editor)
+2775	HERBERT MEYER		ambiguous:3	2	nm0583161(?-,director|production_manager); nm13036238(?-,camera_department)
+3402	Roger Banks		ambiguous:4	2	nm2677497(?-,sound_department); nm8650620(?-,sound_department)
+3574	John Jurgens		ambiguous:2	2	nm1931673(?-,actor|miscellaneous); nm7760459(?-,camera_department)
+4270	RUBEN AVILA		ambiguous:4	2	nm15033692(?-,miscellaneous); nm5260364(?-,miscellaneous)
+4272	Ruben Avila		ambiguous:4	2	nm15033692(?-,miscellaneous); nm5260364(?-,miscellaneous)
+4275	KENNETH RICHTER		ambiguous:2	2	nm11694997(?-,special_effects); nm4345823(?-,cinematographer|director|producer)
+5166	Arnold Richter		ambiguous:4	2	nm12807190(?-,?); nm3434903(?-,camera_department)
+5266	Gary Stadler		ambiguous:2	2	nm11200255(?-,?); nm4391962(?-,composer)
+5373	GLENN KENNEL		ambiguous:2	2	nm4955127(?-,?); nm7824556(?-,?)
+5387	DUNCAN MacLEAN		ambiguous:4	2	nm11246483(?-,art_department); nm5738503(?-,?)
+5415	Jack C. Smith		ambiguous:3	2	nm0808553(?-,actor|location_management|production_manager); nm0808554(?-,miscellaneous)
+5938	Bob Webber		ambiguous:3	2	nm11106351(?-,?); nm2489237(?-,sound_department)
+6649	Lindsay Arnold		ambiguous:6	2	nm11024351(?-,miscellaneous); nm5125249(?-,actor|miscellaneous|writer)
+6796	Bill Hogue		ambiguous:3	2	nm15557159(?-,miscellaneous|writer); nm17362028(?-,?)
+7034	Martin Werner		ambiguous:3	2	nm12358669(?-,actor|camera_department); nm5721659(?-,visual_effects)
+7537	Hiroshi Hirano		ambiguous:3	2	nm15750004(?-,art_department); nm16421266(?-,miscellaneous)
+8137	Steve Linn		ambiguous:2	2	nm1315023(?-,visual_effects); nm13895999(?-,?)
+8568	Thomas Knoll		ambiguous:3	2	nm18097755(?-,?); nm2630258(?-,?)
+8690	John Ellwood		ambiguous:2	2	nm11883210(?-,?); nm4280974(?-,music_department|sound_department)
+8725	Chris Countryman		ambiguous:3	2	nm10548422(?-,camera_department); nm13662276(?-,miscellaneous)
+9642	Brent Bell		ambiguous:3	2	nm9062969(?-,art_department|art_director); nm9418034(?-,?)
+626	WILLIAM RUDOLPH		ambiguous:5	3	nm13778280(?-,sound_department); nm18590783(?-,?); nm5914076(?-,camera_department)
+5419	CHRIS HUNTLEY		ambiguous:4	3	nm0403143(?-,actor|director|visual_effects); nm16659594(?-,?); nm8750298(?-,?)
+5777	Dominique Boisvert		ambiguous:4	3	nm0092403(?-,assistant_director|miscellaneous|production_department); nm0092404(?-,editor|production_manager|sound_department); nm4972853(?-,?)
+5949	Remy Smith		ambiguous:4	3	nm15638687(?-,?); nm1990555(?-,?); nm6720043(?-,art_department|miscellaneous|production_designer)
+6663	Paul Tate		ambiguous:7	3	nm11602112(?-,miscellaneous); nm14492477(?-,?); nm15120680(?-,?)
+7131	Timo Müller		ambiguous:4	3	nm13483395(?-,?); nm3041351(?-,director|editor|writer); nm3433431(?-,composer|sound_department)
+7523	Greg Marsden		ambiguous:3	3	nm13752216(?-,miscellaneous); nm1573512(?-,?); nm3789551(?-,?)
+8135	Mark Kirk		ambiguous:3	3	nm0456520(?-,editor|miscellaneous); nm3268451(?-,?); nm4113555(?-,?)
+8268	Sony		ambiguous:13	3	nm17494460(?-,?); nm3663717(?-,camera_department); nm8981272(?-,music_department|soundtrack)
+8579	Marco Paolini		ambiguous:6	3	nm8078314(?-,actor|composer|sound_department); nm9563726(?-,?); nm9583783(?-,?)
+8683	Greg Smokler		ambiguous:3	3	nm14747262(?-,?); nm1658055(?-,camera_department|cinematographer|producer); nm17799752(?-,art_department)
+9648	Jonathan Moulin		ambiguous:4	3	nm4181522(?-,animation_department|special_effects|visual_effects); nm4926469(?-,actor|editorial_department); nm9337319(?-,visual_effects)
+3878	CHARLES VAUGHN		ambiguous:5	4	nm0891150(?-,?); nm13191498(?-,art_department|miscellaneous); nm1863332(?-,assistant_director|miscellaneous); nm4943795(?-,editor|sound_department|visual_effects)
+4071	ED PHILLIPS		ambiguous:8	4	nm2337370(?-,editor); nm3094780(?-,?); nm5061927(?-,art_department); nm8266429(?-,?)
+5385	Arthur Wright		ambiguous:7	4	nm0942209(1937-2015,composer|music_department|soundtrack); nm14877504(?-,cinematographer|director|writer); nm15385917(?-,music_department); nm6945734(?-,?)
+5805	Larry Jacobson		ambiguous:10	4	nm11074447(?-,?); nm11109445(?-,?); nm12649824(?-,?); nm5661410(?-,composer)
+6652	Charlie Lawrence		ambiguous:6	4	nm12919232(?-,producer|production_manager|script_department); nm18103086(?-,camera_department); nm3708856(?-,sound_department); nm5900132(?-,miscellaneous)
+6661	Michael Birch		ambiguous:7	4	nm0083275(1927-2020,camera_department|director|writer); nm3109710(?-,miscellaneous|producer); nm6353004(?-,?); nm8820989(?-,?)
+6776	Frank Fletcher		ambiguous:10	4	nm0282000(?-,assistant_director|location_management|miscellaneous); nm3298774(?-,assistant_director|special_effects); nm5732441(?-,transportation_department); nm6631570(?-,miscellaneous)
+8563	David Simons		ambiguous:10	4	nm1651578(?-,art_department); nm3060538(?-,?); nm5613184(?-,miscellaneous); nm6805381(?-,costume_department)
+4170	John Lacey		ambiguous:10	5	nm12916424(?-,?); nm15150132(?-,miscellaneous); nm15849912(?-,camera_department|cinematographer); nm3102837(?-,actor|cinematographer|sound_department); nm9863753(?-,music_department)
+5405	RICHARD LARSON		ambiguous:8	5	nm10833744(?-,?); nm13992443(?-,editorial_department|miscellaneous); nm4310190(?-,composer); nm6929628(?-,miscellaneous); nm7361683(?-,transportation_department)
+5810	Kim Davidson		ambiguous:8	5	nm12692526(?-,?); nm13244965(?-,?); nm14291324(?-,miscellaneous); nm3487551(?-,visual_effects); nm9460270(?-,?)
+5959	STAN MILLER		ambiguous:11	5	nm0589349(?-,miscellaneous); nm1498300(?-,sound_department); nm16942919(?-,?); nm6590692(?-,?); nm7227632(?-,?)
+6069	Mike Salter		ambiguous:9	5	nm2516445(?-,sound_department); nm2516446(?-,animation_department); nm3871588(?-,art_department); nm6010776(?-,camera_department); nm8622034(?-,?)
+6173	David Pringle		ambiguous:9	5	nm0697810(?-,camera_department|producer); nm1290728(?-,composer|sound_department); nm1405539(?-,composer|music_department); nm1707566(?-,camera_department); nm4910029(?-,sound_department)
+7654	Doug James		ambiguous:15	5	nm0416446(?-,art_director|production_designer); nm13758839(?-,?); nm5625740(?-,cinematographer); nm5802965(?-,composer|music_department|soundtrack); nm7842619(?-,?)
+8697	Alejandro Arango		ambiguous:8	5	nm10116001(?-,camera_department|cinematographer|producer); nm10840657(?-,camera_department); nm18540925(?-,visual_effects); nm5620312(?-,composer); nm9911133(?-,composer)
+8698	Gary Martinez		ambiguous:6	5	nm0553540(?-,camera_department|miscellaneous|special_effects); nm13871476(?-,?); nm1471282(?-,miscellaneous|producer|production_department); nm2071012(?-,?); nm2780153(?-,visual_effects)
+9298	Bill Beck		ambiguous:9	5	nm11752677(?-,miscellaneous); nm1491662(?-,miscellaneous|producer|production_department); nm17750488(?-,art_department); nm2449494(?-,?); nm5890938(?-,?)
+1845	Charles West		ambiguous:20	6	nm0921981(?-,miscellaneous); nm15436175(?-,production_manager); nm1791341(?-,?); nm18153101(?-,visual_effects); nm8344416(?-,cinematographer); nm9866168(?-,?)
+4734	Bill Holland		ambiguous:11	6	nm12827498(?-,?); nm14935727(?-,?); nm1622407(?-,art_department|set_decorator); nm16282674(?-,camera_department); nm1808200(?-,camera_department|cinematographer); nm5856327(?-,miscellaneous)
+5366	DAN CAMERON		ambiguous:12	6	nm11803201(?-,?); nm6355682(?-,camera_department); nm6522124(?-,camera_department); nm6559737(?-,?); nm9625811(?-,camera_department); nm9652052(?-,camera_department|director|writer)
+5565	Dan Cameron		ambiguous:12	6	nm11803201(?-,?); nm6355682(?-,camera_department); nm6522124(?-,camera_department); nm6559737(?-,?); nm9625811(?-,camera_department); nm9652052(?-,camera_department|director|writer)
+5771	Roy Hall		ambiguous:9	6	nm10111328(?-,?); nm11039641(?-,?); nm12398196(?-,camera_department); nm16077235(?-,miscellaneous); nm5320510(?-,?); nm6012177(?-,?)
+6778	Michael Sorensen		ambiguous:8	6	nm1060568(1978-,actor|camera_department|producer); nm14485088(?-,composer); nm14854102(?-,cinematographer|editor); nm6293595(?-,?); nm7702182(?-,miscellaneous); nm8699521(?-,?)
+9496	John Ellison		ambiguous:9	6	nm1141283(?-,actor|composer|soundtrack); nm11532406(?-,?); nm2212483(?-,miscellaneous); nm3326468(?-,camera_department); nm6848310(?-,?); nm6916311(?-,?)
+5816	Pete Clark		ambiguous:13	7	nm0164372(?-,sound_department); nm0164373(?-,special_effects); nm10019560(?-,?); nm18520733(?-,camera_department); nm3297078(?-,?); nm6007727(?-,?); nm8532750(?-,?)
+6789	John Platt		ambiguous:11	7	nm0686870(?-,camera_department|cinematographer|miscellaneous); nm10055375(?-,?); nm11054765(?-,?); nm1144349(?-,actor|miscellaneous); nm15093099(?-,camera_department); nm17192541(?-,camera_department); nm17709391(?-,?)
+6931	Martin Richards		ambiguous:16	7	nm10441503(?-,?); nm1345193(?-,art_department|camera_department|miscellaneous); nm13498678(?-,?); nm14674095(?-,?); nm17662697(?-,editorial_department); nm3580522(?-,?); nm7904931(?-,?)
+8687	Jeff Bloom		ambiguous:9	7	nm12994137(?-,?); nm17663823(?-,?); nm17975085(?-,transportation_department); nm18359918(?-,?); nm2960337(?-,production_manager|sound_department); nm5566298(?-,camera_department|producer); nm8831654(?-,director|editor)
+8287	Mark Rappaport		ambiguous:10	8	nm0710900(?-,director|editor|writer); nm0710901(?-,camera_department); nm0710902(?-,make_up_department|miscellaneous|special_effects); nm12982743(?-,?); nm15608850(?-,?); nm17420120(?-,?); nm3113465(?-,camera_department|miscellaneous); nm3186591(?-,?)
+9284	Steve Read		ambiguous:8	8	nm10894170(?-,camera_department); nm11360969(?-,cinematographer); nm12871775(?-,camera_department); nm18524225(?-,camera_department); nm4408351(?-,?); nm4480876(?-,art_department); nm5486153(?-,cinematographer|director|producer); nm8977918(?-,?)
+1928	William Wade		ambiguous:13	9	nm10128767(?-,?); nm11504240(?-,sound_department); nm14108171(?-,?); nm14845853(?-,?); nm16277500(?-,miscellaneous); nm17903408(?-,?); nm6462570(?-,?); nm7106825(?-,?); nm9489262(?-,sound_department)
+7258	Theo Brown		ambiguous:14	9	nm11928792(?-,?); nm15589795(?-,camera_department); nm2123334(?-,camera_department|cinematographer|miscellaneous); nm3554333(?-,visual_effects); nm4029798(?-,editor); nm4856686(?-,camera_department|cinematographer); nm6694187(?-,?); nm6803296(?-,?); nm7593645(?-,?)
+8122	Trevor Davies		ambiguous:13	10	nm0204008(?-,animation_department|art_department|visual_effects); nm0204009(?-,miscellaneous|producer); nm10203040(?-,miscellaneous); nm11141644(?-,?); nm11527522(?-,?); nm1512564(?-,camera_department|cinematographer); nm15236287(?-,?); nm15263289(?-,visual_effects); nm16620706(?-,?); nm3304591(?-,actor|director|editor)
+9467	David Adler		ambiguous:20	10	nm10030194(?-,?); nm10361934(?-,?); nm10897016(?-,?); nm12933029(?-,visual_effects); nm12983586(?-,visual_effects); nm14699223(?-,?); nm16089182(?-,visual_effects); nm1624018(?-,actor|composer|music_department); nm17961051(?-,camera_department); nm2729450(?-,miscellaneous)
+1211	MARTY MARTIN		ambiguous:17	11	nm12053172(?-,camera_department); nm12655373(?-,art_department|writer); nm12920537(?-,?); nm16953413(?-,?); nm17606405(?-,?); nm2480259(?-,camera_department); nm2678694(?-,art_department); nm3546246(?-,art_department); nm6068729(?-,miscellaneous); nm6634900(?-,sound_department); nm7035266(?-,cinematographer)
+1340	Marty Martin		ambiguous:17	11	nm12053172(?-,camera_department); nm12655373(?-,art_department|writer); nm12920537(?-,?); nm16953413(?-,?); nm17606405(?-,?); nm2480259(?-,camera_department); nm2678694(?-,art_department); nm3546246(?-,art_department); nm6068729(?-,miscellaneous); nm6634900(?-,sound_department); nm7035266(?-,cinematographer)
+4932	Peter Baldwin		ambiguous:18	11	nm1677988(1951-,?); nm17245263(?-,?); nm2610362(?-,miscellaneous); nm4134614(?-,?); nm4370342(?-,camera_department); nm5178927(?-,?); nm5768658(?-,producer|visual_effects); nm7282455(?-,actor|miscellaneous); nm8531446(?-,miscellaneous); nm9536177(?-,?); nm9770302(?-,composer|sound_department)
+9497	Steve Webb		ambiguous:21	11	nm0916304(?-,assistant_director|camera_department|director); nm13147316(?-,art_department); nm1369866(?-,camera_department|cinematographer); nm14491239(?-,executive|miscellaneous); nm14847918(?-,camera_department); nm17099589(?-,cinematographer); nm2676135(?-,?); nm3060107(?-,sound_department); nm3357029(?-,?); nm3407263(?-,cinematographer|director|writer); nm3995421(?-,miscellaneous)
+1760	FRED WILSON		ambiguous:20	12	nm0933423(?-,?); nm1180422(?-,composer|soundtrack); nm12289724(?-,?); nm15160886(?-,?); nm15236783(?-,?); nm16780235(?-,?); nm17910929(?-,camera_department); nm18242562(?-,composer); nm3698547(?-,camera_department); nm5468080(?-,?); nm7250726(?-,?); nm9800402(?-,?)
+6797	Tim Reynolds		ambiguous:19	12	nm14219404(?-,?); nm15750408(?-,art_department); nm16574684(?-,?); nm3518454(?-,?); nm3539506(?-,composer); nm3889653(?-,camera_department); nm4894615(?-,?); nm4974915(?-,music_department|soundtrack); nm5396839(?-,?); nm5662017(?-,miscellaneous|special_effects|writer); nm8206958(?-,miscellaneous); nm8936074(?-,music_department)
+2251	James Dale		ambiguous:24	13	nm10692713(?-,?); nm12530870(?-,music_department); nm13591201(?-,camera_department); nm14840701(?-,camera_department); nm15037852(?-,?); nm15153379(?-,music_department); nm16250091(?-,?); nm3379544(?-,camera_department|editor); nm4126442(?-,?); nm4362048(?-,actor|camera_department|miscellaneous); nm5881538(?-,?); nm8406228(?-,camera_department); nm9107317(?-,editorial_department)
+7268	Brad Walker		ambiguous:19	13	nm0907575(?-,cinematographer|director|producer); nm10702089(?-,?); nm11955501(?-,camera_department|editorial_department); nm11974194(?-,camera_department); nm13130066(?-,camera_department|production_department); nm16435469(?-,?); nm2060715(?-,camera_department|editorial_department|sound_department); nm7052366(?-,?); nm7160514(?-,?); nm7392085(?-,camera_department); nm8098708(?-,?); nm8236976(?-,?); nm9394009(?-,camera_department)
+9289	Michael Perkins		ambiguous:26	14	nm10840100(?-,actor|production_manager); nm11859654(?-,?); nm12434957(?-,transportation_department); nm13434297(?-,camera_department); nm14298983(?-,cinematographer|director); nm16005415(?-,camera_department); nm18360789(?-,camera_department); nm2918891(?-,art_department|production_designer); nm3188457(?-,?); nm3720796(?-,cinematographer|director|producer); nm3808459(?-,camera_department); nm4279909(?-,sound_department); nm7111721(?-,actor|production_manager); nm7999223(?-,animation_department)
+9480	James Jacobs		ambiguous:24	14	nm0414447(1949-,actor|cinematographer|editor); nm1117262(1972-,camera_department|miscellaneous|visual_effects); nm12424929(?-,camera_department); nm15215283(?-,miscellaneous); nm16946484(?-,camera_department); nm17073731(?-,animation_department); nm17165682(?-,camera_department); nm18382620(?-,music_department); nm2900263(?-,actor|transportation_department); nm5481693(?-,?); nm6139887(?-,cinematographer|director|producer); nm6574769(?-,camera_department|cinematographer); nm7580528(?-,?); nm8948790(?-,miscellaneous)
+5386	Neil Harris		ambiguous:22	15	nm0365145(?-,editor|writer); nm0365146(1925-2000,composer); nm11100265(?-,?); nm13420988(?-,?); nm13717093(?-,animation_department); nm14362700(?-,miscellaneous); nm1521850(?-,?); nm15271026(?-,?); nm1844920(?-,art_department); nm2387677(?-,editorial_department); nm2910973(?-,editorial_department|sound_department); nm3542912(?-,miscellaneous); nm4040101(?-,animation_department); nm7227340(?-,?); nm8029233(?-,?)
+7284	Brett Allen		ambiguous:27	15	nm10362161(?-,music_department); nm10867350(?-,miscellaneous); nm11095442(?-,?); nm11113424(?-,camera_department|editor); nm14176922(?-,?); nm17517750(?-,?); nm3564667(?-,cinematographer); nm4110728(?-,camera_department); nm4519946(?-,actor|camera_department|producer); nm4585508(?-,?); nm4612597(?-,?); nm4982124(?-,miscellaneous|visual_effects); nm5071269(?-,composer|sound_department); nm7689614(?-,?); nm7902950(?-,?)
+6902	Simon Robinson		ambiguous:26	16	nm12069172(?-,?); nm13425593(?-,?); nm13559598(?-,composer|sound_department); nm13913340(?-,camera_department); nm14100045(?-,?); nm14369973(?-,miscellaneous); nm15014507(?-,?); nm17788945(?-,composer); nm2095349(?-,director|editor|writer); nm2267561(1984-,sound_department); nm2529499(?-,camera_department); nm2837630(?-,?); nm4107223(?-,miscellaneous); nm4971312(?-,miscellaneous); nm5099580(?-,camera_department|cinematographer|producer); nm9207585(?-,miscellaneous)
+8689	Nick Rose		ambiguous:22	16	nm0741593(?-,actor|miscellaneous|production_department); nm12341861(?-,composer); nm13267208(?-,?); nm14513587(?-,?); nm16582821(?-,camera_department); nm17179372(?-,composer); nm17506183(?-,?); nm17606597(?-,camera_department); nm17713465(?-,?); nm17780085(?-,?); nm3155589(?-,camera_department|miscellaneous|production_department); nm3465704(?-,composer|music_department|soundtrack); nm3953708(?-,camera_department); nm7722362(?-,?); nm8719197(?-,?); nm8889021(1995-,actor|cinematographer|editor)
+5958	JIM MEYER		ambiguous:25	17	nm0583199(?-,actor|art_department); nm0583200(?-,miscellaneous|visual_effects); nm11375545(?-,?); nm11940551(?-,?); nm12761019(?-,?); nm1341319(?-,art_department|miscellaneous); nm13450385(?-,?); nm1434191(?-,?); nm15813823(?-,composer); nm3949851(?-,?); nm5226238(?-,?); nm5231968(?-,?); nm5238477(?-,miscellaneous); nm7845593(?-,?); nm8801668(?-,?); nm8801680(?-,miscellaneous); nm9823796(?-,composer)
+6648	KEITH EDWARDS		ambiguous:26	19	nm0250137(?-,sound_department); nm0250288(?-,art_department|special_effects|visual_effects); nm14371728(?-,?); nm14481803(?-,?); nm14669586(?-,?); nm15120666(?-,?); nm15274077(?-,?); nm1649233(?-,?); nm17447927(?-,?); nm1992287(?-,composer); nm2194879(?-,music_department); nm2679477(?-,?); nm3775424(?-,?); nm4744586(?-,editor|editorial_department|producer); nm5256576(?-,camera_department); nm7119393(?-,visual_effects); nm7331305(?-,miscellaneous); nm8459024(?-,?); nm9579648(?-,?)
+6667	William Hayes		ambiguous:38	23	nm0371283(?-,actor|miscellaneous); nm10071892(?-,?); nm10294850(?-,?); nm11313433(?-,?); nm12275843(?-,miscellaneous); nm13871572(?-,?); nm14986856(?-,visual_effects); nm15148242(?-,camera_department); nm15835434(?-,camera_department); nm1714395(?-,miscellaneous); nm17332407(?-,composer); nm1757786(?-,camera_department); nm17918997(?-,camera_department); nm2679709(?-,cinematographer); nm5045660(?-,?); nm5181348(?-,camera_department|cinematographer|producer); nm8288448(?-,?); nm8586295(?-,sound_department); nm9076759(?-,?); nm9250754(?-,composer); nm9330999(?-,cinematographer); nm9532081(?-,?); nm9974021(?-,?)
+2091	WILLIAM EVANS		ambiguous:38	25	nm0263310(?-,miscellaneous); nm0263311(?-,camera_department); nm0263312(?-,cinematographer); nm11033172(?-,?); nm11477416(?-,camera_department|miscellaneous); nm11982735(?-,?); nm13257008(?-,?); nm13661223(?-,?); nm14090175(?-,?); nm15013818(?-,camera_department); nm16693302(?-,?); nm17157203(?-,?); nm18626042(?-,sound_department); nm1948287(?-,camera_department|cinematographer|editorial_department); nm2115964(?-,miscellaneous); nm2808376(?-,music_department); nm3679490(?-,?); nm5243837(?-,cinematographer); nm6173208(?-,cinematographer); nm6513569(?-,?); nm8266087(?-,miscellaneous); nm8505606(?-,costume_department); nm9112723(?-,actor|music_department); nm9376438(?-,camera_department); nm9801245(?-,actor|camera_department)
+1071	Russell Brown		ambiguous:46	26	nm0114613(?-,miscellaneous); nm1162655(?-,miscellaneous); nm1458074(?-,miscellaneous); nm16488498(?-,camera_department|production_department); nm17520240(?-,?); nm18533875(?-,music_department); nm2588093(?-,composer); nm2680307(?-,director|miscellaneous|producer); nm3292281(?-,?); nm3599534(?-,actor|camera_department); nm4352131(?-,miscellaneous|production_department); nm4524998(?-,cinematographer|director|editor); nm5166823(?-,?); nm5295429(?-,?); nm5300066(?-,?); nm5621014(?-,?); nm6150613(?-,?); nm7155124(?-,?); nm7966246(?-,?); nm8075807(?-,actor|camera_department); nm8216494(?-,?); nm8675708(?-,sound_department); nm8770760(?-,?); nm8803897(?-,cinematographer|director|producer); nm8979513(?-,miscellaneous); nm9094610(?-,miscellaneous)
+6928	Shawn Jones		ambiguous:45	28	nm0429238(?-,cinematographer); nm10175179(?-,cinematographer|editor); nm10210616(?-,?); nm11964283(?-,?); nm12351219(?-,editor); nm12380103(?-,?); nm14061548(?-,miscellaneous); nm14236863(?-,?); nm14645914(?-,composer); nm14715318(?-,?); nm1485259(1977-,actor|cinematographer|producer); nm16272722(?-,?); nm16550405(?-,camera_department); nm16850335(?-,transportation_department); nm16991314(?-,?); nm17800118(?-,composer|writer); nm2631919(?-,miscellaneous); nm3223290(?-,miscellaneous); nm3907551(?-,?); nm4364668(?-,actor|make_up_department); nm5281892(?-,transportation_department); nm5910893(?-,composer|music_department|sound_department); nm7045180(?-,music_department); nm7076237(?-,?); nm8177423(?-,?); nm8896604(?-,?); nm9392042(?-,?); nm9593815(?-,?)
+8703	Ian Kelly		ambiguous:48	30	nm0446431(?-,camera_department|editor|miscellaneous); nm0446434(?-,camera_department); nm11000848(?-,director|editor|production_manager); nm11265459(?-,music_department); nm11969391(?-,miscellaneous); nm11990632(?-,?); nm12480692(?-,?); nm12491411(?-,?); nm12669210(?-,?); nm13091935(?-,miscellaneous); nm14059583(?-,?); nm14663083(?-,miscellaneous); nm14998553(?-,editor|producer); nm15086498(?-,editorial_department); nm16449988(?-,camera_department|editorial_department); nm16763146(?-,?); nm17471652(?-,camera_department|cinematographer|editorial_department); nm18438853(?-,miscellaneous); nm2685372(?-,animation_department|composer|music_department); nm3282334(?-,?); nm3852428(?-,art_department); nm4584626(?-,casting_department|visual_effects); nm4764151(?-,?); nm5270186(?-,actor|art_department); nm5743044(?-,?); nm7220678(?-,director|producer|sound_department); nm7859398(?-,miscellaneous); nm8208079(?-,composer); nm9559824(?-,miscellaneous); nm9746722(?-,actor|cinematographer)
+8138	Brian Green		ambiguous:54	34	nm0337663(?-,camera_department|miscellaneous); nm0337664(?-,art_department|miscellaneous); nm12760398(?-,music_department); nm1290482(?-,camera_department|cinematographer); nm14743039(?-,?); nm14871922(?-,?); nm16257467(?-,composer); nm1636220(?-,animation_department|miscellaneous|visual_effects); nm16496761(?-,camera_department); nm18084612(?-,composer); nm18609182(?-,animation_department); nm2462405(?-,?); nm2980059(?-,actor|editor|writer); nm3443418(?-,sound_department); nm3520064(?-,music_department|soundtrack); nm4797511(?-,?); nm4969468(?-,?); nm5015524(?-,cinematographer); nm5821967(?-,miscellaneous); nm6257131(?-,composer); nm6965634(?-,sound_department); nm7374549(?-,camera_department); nm7593652(?-,?); nm7782128(?-,?); nm7933314(?-,camera_department); nm8143108(?-,composer|music_department); nm8287806(?-,cinematographer|director); nm8411382(?-,camera_department); nm8505034(?-,?); nm8515046(?-,cinematographer); nm8520648(?-,?); nm8542530(?-,?); nm8599420(?-,miscellaneous); nm8962878(?-,composer)
+718	DANIEL CLARK		ambiguous:55	38	nm10342357(?-,camera_department); nm1088765(?-,camera_department|composer); nm11218587(?-,?); nm11572189(?-,sound_department); nm11654868(?-,?); nm12750528(?-,camera_department); nm12930929(?-,?); nm13372903(?-,music_department); nm13845959(?-,?); nm14576551(?-,actor|assistant_director|camera_department); nm14989479(?-,animation_department); nm16026898(?-,?); nm16291078(?-,editor); nm16478741(?-,camera_department); nm16844132(?-,?); nm1732388(?-,actor|miscellaneous); nm17371491(?-,?); nm17643803(?-,composer); nm17650040(?-,composer); nm17654267(?-,composer); nm17661864(?-,composer); nm17709968(?-,composer|music_department); nm18194798(?-,?); nm2243992(?-,miscellaneous); nm2384135(?-,sound_department); nm2509151(?-,?); nm3897056(?-,music_department); nm4098496(?-,camera_department); nm4819899(?-,animation_department); nm4871798(?-,visual_effects); nm5081606(?-,?); nm5157750(?-,camera_department|production_department); nm5467435(?-,director|visual_effects|writer); nm5780564(?-,music_department); nm6330301(?-,?); nm7195195(?-,?); nm7585015(?-,?); nm8799783(?-,composer)
+720	CHARLES MILLER		ambiguous:77	42	nm0588060(?-,camera_department|director|producer); nm0588061(?-,location_management|production_department|production_manager); nm0588063(?-,cinematographer); nm10091008(?-,?); nm1019563(?-,?); nm11344095(?-,?); nm11524377(?-,camera_department|cinematographer|editorial_department); nm11595533(?-,?); nm11687877(?-,?); nm11860183(?-,camera_department); nm12315464(?-,?); nm12668331(?-,?); nm12887386(?-,composer|director|writer); nm13023903(?-,?); nm13349487(?-,?); nm1349320(?-,art_department); nm13655494(?-,miscellaneous); nm13740024(?-,camera_department); nm1447513(?-,actor|miscellaneous); nm1640923(?-2019,camera_department|cinematographer|producer); nm17302223(?-,?); nm17373636(?-,miscellaneous); nm17919545(?-,?); nm18184664(?-,?); nm18622353(?-,?); nm2287517(?-,editor|sound_department); nm2577049(?-,?); nm4829006(?-,producer|production_manager|script_department); nm5151014(?-,camera_department); nm5211745(?-,camera_department); nm5902374(?-,?); nm5938780(?-,camera_department|cinematographer|producer); nm6018436(?-,actor|transportation_department); nm6253770(?-,?); nm6707204(?-,?); nm6891899(?-,camera_department); nm6916557(?-,?); nm6940777(?-,miscellaneous); nm7128336(?-,music_department); nm8308990(?-,?); nm9064519(?-,camera_department); nm9146574(?-,camera_department)
+6171	George Johnson		ambiguous:71	48	nm0425135(?-,editor|miscellaneous|producer); nm10754901(?-,miscellaneous); nm10913022(?-,?); nm11313950(?-,?); nm11716625(?-,?); nm11860265(?-,?); nm12704048(?-,director|editor); nm12965933(?-,?); nm13254571(?-,miscellaneous); nm13310141(?-,?); nm13514087(?-,?); nm14028704(?-,miscellaneous|sound_department); nm14365008(?-,?); nm1482822(?-,?); nm1504103(?-,editor); nm15516892(?-,visual_effects); nm15726134(?-,?); nm16360774(?-,?); nm16718827(?-,?); nm1714575(?-,miscellaneous); nm17685536(?-,visual_effects); nm17766147(?-,cinematographer|sound_department); nm17872507(?-,?); nm17979628(?-,visual_effects); nm1839488(?-,miscellaneous); nm2328369(?-,music_department|production_department|sound_department); nm2423802(?-,miscellaneous); nm2476863(?-,miscellaneous|producer); nm2668981(?-,camera_department|cinematographer); nm4635555(1953-,?); nm5105488(?-,?); nm5249027(?-,?); nm5270670(?-,?); nm5369385(?-,?); nm5523363(?-,cinematographer|editor); nm5630609(?-,art_department|miscellaneous|set_decorator); nm6542338(?-,cinematographer|editor); nm6786835(?-,sound_department); nm7020850(?-,?); nm7692513(?-,miscellaneous); nm7756565(?-,?); nm7809720(?-,actor|composer|soundtrack); nm8020906(?-,assistant_director|miscellaneous); nm8844242(?-,camera_department); nm9234520(?-,composer); nm9257282(?-,sound_department); nm9750843(?-,editor); nm9920828(?-,?)
+8126	Matthew Robinson		ambiguous:84	52	nm0732901(?-,art_department|art_director|writer); nm10099372(?-,?); nm10183514(?-,editor|editorial_department); nm10256193(?-,sound_department); nm1034844(?-,production_manager); nm10525137(?-,?); nm10594301(?-,miscellaneous); nm10826716(?-,?); nm10844158(?-,?); nm10931373(?-,assistant_director|sound_department); nm11036247(?-,sound_department); nm11322888(?-,?); nm11506601(?-,?); nm11593820(?-,actor|editor); nm11624026(?-,sound_department); nm11650666(?-,miscellaneous); nm11705944(?-,sound_department); nm12010835(?-,?); nm12477684(?-,cinematographer); nm12706180(?-,camera_department); nm12741992(?-,?); nm15258130(?-,editor|production_designer|visual_effects); nm15404474(?-,actor|camera_department); nm1547692(?-,animation_department|visual_effects); nm15791071(?-,miscellaneous); nm18209094(?-,sound_department); nm18294396(?-,cinematographer|director|producer); nm18658894(?-,miscellaneous); nm3086196(?-,camera_department|cinematographer); nm3185314(?-,miscellaneous); nm3729203(?-,actor|cinematographer|editor); nm4496617(?-,cinematographer); nm5192004(?-,actor|camera_department|producer); nm5336129(?-,music_department|production_department); nm5448574(?-,director|editor|producer); nm5562308(?-,?); nm6087185(?-,sound_department); nm6125345(?-,cinematographer|director|writer); nm6454187(?-,visual_effects); nm6758424(?-,cinematographer|director|writer); nm6790474(?-,?); nm6958887(?-,director|editor|producer); nm7242381(?-,camera_department); nm7880831(?-,camera_department|producer); nm8025074(?-,costume_department); nm8053395(?-,?); nm8220811(?-,sound_department); nm8279707(?-,miscellaneous); nm8800448(?-,art_department); nm9199010(?-,actor|cinematographer); nm9239497(?-,sound_department); nm9427342(?-,director|editor|writer)
+1844	DAVE ANDERSON		ambiguous:103	67	nm0026580(?-,camera_department); nm0026583(1886-1964,camera_department); nm10120382(?-,miscellaneous); nm1012792(?-,editorial_department); nm10400562(?-,camera_department); nm10613295(?-,?); nm10803731(?-,transportation_department); nm11431992(?-,?); nm11558043(?-,?); nm11572518(?-,?); nm11626654(?-,?); nm11690541(?-,?); nm11742853(?-,?); nm11767027(?-,camera_department); nm12280842(?-,?); nm1267579(?-,transportation_department); nm12737773(?-,?); nm13008603(?-,miscellaneous|writer); nm13091996(?-,music_department); nm13132275(?-,?); nm13241111(?-,transportation_department); nm13286442(?-,miscellaneous); nm13427155(?-,?); nm1396957(?-,miscellaneous); nm14397541(?-,?); nm14845353(?-,?); nm14855109(?-,editorial_department); nm15010660(?-,cinematographer); nm15524133(?-,miscellaneous); nm15790647(?-,music_department); nm15842842(?-,camera_department); nm1592682(?-,camera_department); nm15936642(?-,miscellaneous); nm16130916(?-,sound_department); nm16254646(?-,camera_department); nm16344433(?-,?); nm16366007(?-,miscellaneous); nm1649038(1929-2018,miscellaneous|writer); nm16516830(?-,camera_department); nm1653799(?-,camera_department); nm17772437(?-,?); nm1947290(?-,camera_department); nm2065254(?-,?); nm2241120(?-,miscellaneous); nm2307557(?-,camera_department); nm2433746(?-,?); nm2797395(?-,miscellaneous); nm2888938(?-,music_department); nm2957045(?-,miscellaneous); nm2962191(?-,?); nm2971710(?-,miscellaneous|producer|script_department); nm3199229(?-,transportation_department); nm3783386(?-,sound_department); nm4335607(?-,?); nm4811494(?-,transportation_department); nm5310319(?-,camera_department); nm5319851(?-,sound_department); nm5609143(?-,camera_department); nm5785789(?-,composer); nm6855818(?-,?); nm7028541(?-,camera_department); nm7416300(?-,?); nm7576925(?-,miscellaneous|producer); nm7668728(?-,sound_department); nm8086494(?-,miscellaneous|producer); nm9278289(?-,?); nm9498780(?-,?)
+7522	Michael Lewis		ambiguous:167	90	nm0507549(?-,miscellaneous|writer); nm0507552(?-,art_department|miscellaneous); nm0507554(?-,miscellaneous); nm0507555(?-,camera_department); nm0507556(?-,miscellaneous); nm0974236(?-,legal|miscellaneous); nm10457972(?-,composer); nm10593625(?-,?); nm10877664(?-,?); nm10970158(?-,?); nm11013689(?-,?); nm11220535(?-,music_department|soundtrack); nm11816695(?-,animation_department); nm11820798(?-,?); nm1183954(1963-,?); nm11959304(?-,make_up_department); nm12036864(?-,?); nm12075521(?-,animation_department); nm12080591(?-,?); nm12549858(?-,?); nm12608795(?-,?); nm1266336(?-,cinematographer); nm1276363(?-,miscellaneous|producer|production_manager); nm12830885(?-,transportation_department); nm13383255(?-,art_department); nm13523330(?-,sound_department); nm13538624(?-,?); nm14745603(?-,composer); nm14988648(?-,?); nm14998680(?-,?); nm15227098(?-,sound_department); nm15443190(?-,actor|production_department|sound_department); nm1565711(?-,composer|soundtrack); nm15779067(?-,?); nm15965674(?-,?); nm16059963(?-,?); nm16421748(?-,music_department); nm16592737(?-,?); nm1661553(?-,?); nm17093659(?-,?); nm17143816(?-,make_up_department); nm17185154(?-,?); nm17193608(?-,?); nm1734501(?-,camera_department|editor|writer); nm17538654(?-,?); nm18133855(?-,?); nm18474816(?-,?); nm2004134(1980-,?); nm2255364(?-,actor|music_department); nm2276307(?-,?); nm2418336(1978-,?); nm3284182(?-,?); nm3467262(?-,miscellaneous); nm3528721(?-,art_department); nm3679666(?-,?); nm3748579(?-,miscellaneous); nm3831491(1971-,?); nm4136886(?-,camera_department); nm4146775(?-,assistant_director|miscellaneous|production_department); nm4230456(?-,actor|composer); nm4233114(?-,?); nm4414946(?-,actor|miscellaneous); nm4746880(?-,editor|editorial_department|miscellaneous); nm4845861(1985-,miscellaneous|music_department|production_department); nm4921225(?-,art_department); nm5300217(?-,miscellaneous|music_department|production_department); nm5506115(?-,cinematographer|costume_designer|director); nm5637016(?-,?); nm5644373(?-,art_department|camera_department|special_effects); nm5647153(?-,miscellaneous|special_effects); nm5738906(?-,?); nm5897942(?-,?); nm6097289(?-,actor|camera_department); nm6126945(?-,sound_department); nm6154187(?-,art_department|cinematographer|director); nm6295800(?-,transportation_department); nm6415538(?-,miscellaneous); nm6457260(?-,camera_department); nm6475277(?-,miscellaneous); nm6572370(?-,?); nm7058223(?-,sound_department); nm7592859(?-,?); nm7680358(?-,camera_department|director|special_effects); nm8025617(?-,art_department|production_department); nm8333715(?-,editor|producer); nm8372401(?-,?); nm8437207(?-,?); nm8878579(?-,?); nm8943418(?-,cinematographer|director|producer); nm9952598(?-,miscellaneous)
+5912	John Scott		ambiguous:168	93	nm0779346(1930-,actor|composer|music_department); nm0779347(1944-,camera_department|editor|editorial_department); nm0779348(1942-,actor|miscellaneous|stunts); nm0779350(?-,camera_department|director|producer); nm0779351(?-,miscellaneous|transportation_department); nm0779352(?-,costume_department|costume_designer); nm0779353(?-,transportation_department); nm0779360(?-,actor|composer); nm0779361(?-,miscellaneous); nm1053780(?-,art_director); nm10681587(?-,camera_department); nm10922320(?-,art_department|editorial_department); nm11593550(?-,?); nm11797833(?-,camera_department); nm11818063(?-,?); nm11844973(?-,camera_department|miscellaneous); nm11846905(?-,sound_department); nm12096717(?-,miscellaneous); nm12102165(?-,sound_department); nm12320622(?-,art_department); nm12359123(?-,transportation_department); nm12439732(?-,art_department); nm12769255(?-,?); nm12985409(?-,transportation_department); nm13266167(?-,composer); nm13287861(?-,?); nm13330687(?-,cinematographer); nm13364156(?-,miscellaneous); nm13470972(?-,?); nm13694821(?-,?); nm13895178(?-,?); nm14479024(?-,?); nm14902992(?-,miscellaneous); nm14907257(?-,cinematographer|editor|sound_department); nm15515326(?-,director|miscellaneous); nm15580434(?-,miscellaneous); nm15780603(?-,?); nm1587057(?-,?); nm16331372(?-,?); nm16334564(?-,?); nm16620567(?-,?); nm16906933(?-,miscellaneous); nm1726496(?-,sound_department); nm17376771(?-,miscellaneous); nm18091110(?-,?); nm18587235(?-,?); nm1963272(?-,camera_department|cinematographer); nm2285501(?-,editorial_department); nm2564452(?-,miscellaneous); nm2631173(?-,miscellaneous); nm2689903(?-,miscellaneous|production_department); nm3024104(?-,camera_department); nm3029342(?-,miscellaneous); nm3074100(?-,camera_department); nm3297495(?-,camera_department); nm3331256(?-,sound_department); nm3388189(?-,transportation_department); nm3410630(?-,composer); nm3568344(?-,editorial_department|producer); nm3728783(?-,?); nm3802752(?-,special_effects); nm3950711(?-,miscellaneous); nm4251717(?-,?); nm4282496(?-,cinematographer|director|writer); nm4537036(?-,?); nm5010417(?-,camera_department|sound_department); nm5109503(?-,miscellaneous); nm5346873(?-,?); nm5524473(?-,?); nm5556353(?-,sound_department); nm5569794(?-,?); nm5663209(?-,editor); nm5797484(?-,miscellaneous); nm5931695(?-,?); nm6088607(?-,editor); nm6301479(?-,camera_department); nm6321602(?-,?); nm6459695(?-,?); nm6601642(?-,actor|director|editor); nm7129385(?-,miscellaneous); nm7347515(?-,camera_department); nm7414468(?-,camera_department); nm8054757(?-,transportation_department); nm8065566(?-,cinematographer|special_effects); nm8231179(?-,?); nm8998621(?-,art_department); nm9026243(?-,sound_department); nm9239599(?-,?); nm9290936(?-,visual_effects); nm9542759(?-,editorial_department); nm9686327(?-,sound_department); nm9799819(?-,?); nm9826113(?-,composer|sound_department)
+8712	John Anderson		ambiguous:212	142	nm0026931(?-,camera_department|director|writer); nm0026934(?-,soundtrack|visual_effects); nm0026935(1948-,composer); nm0026937(?-,archive_footage|art_department); nm0026939(?-,transportation_department); nm0026941(?-,composer|music_department|writer); nm0026942(?-,?); nm0026943(?-,music_department); nm0026944(?-,visual_effects); nm0026945(?-,camera_department|cinematographer); nm0026946(1954-,actor|composer|soundtrack); nm0998541(?-,art_department); nm10011024(?-,?); nm10032726(?-,transportation_department); nm10065406(?-,?); nm10252533(?-,cinematographer); nm10411847(?-,?); nm1042072(1965-,actor|archive_footage|miscellaneous); nm10856148(?-,?); nm11109137(?-,sound_department); nm11202158(?-,?); nm11329977(?-,?); nm1140524(?-,miscellaneous); nm11434281(?-,?); nm11650412(?-,editor|editorial_department|production_department); nm11788327(?-,camera_department); nm11801922(?-,music_department); nm11821862(?-,?); nm11871026(?-,?); nm11913664(?-,?); nm12082982(?-,?); nm12202245(?-,production_manager); nm12350528(?-,?); nm12366912(?-,?); nm1240587(?-,location_management|miscellaneous); nm12484178(?-,camera_department); nm1262999(?-,visual_effects); nm12809932(?-,costume_department); nm1329727(?-,camera_department); nm13381836(?-,?); nm13419539(?-,?); nm13498620(?-,?); nm13619997(?-,?); nm13740399(?-,?); nm13748145(?-,?); nm13751693(?-,music_department); nm13928494(?-,camera_department); nm13991002(?-,art_department|editor); nm14026757(?-,?); nm14246366(?-,cinematographer); nm14541550(?-,?); nm14738470(?-,art_department); nm14781007(?-,?); nm14822499(?-,art_department); nm14929813(?-,?); nm15092584(?-,cinematographer); nm15095075(?-,?); nm15251650(?-,?); nm15702171(?-,editorial_department); nm15775218(?-,?); nm15818164(?-,?); nm15870850(?-,cinematographer); nm16341648(?-,?); nm16475580(?-,art_department); nm16776519(?-,?); nm1702015(?-,animation_department|art_department); nm17213711(?-,?); nm17727215(?-,miscellaneous); nm17941558(?-,?); nm18089677(?-,?); nm18089762(?-,editor); nm18187341(?-,editor|producer|visual_effects); nm1828882(1931-2024,miscellaneous); nm18338841(?-,?); nm1844153(?-,miscellaneous); nm18472701(?-,?); nm18497359(?-,?); nm18503256(?-,?); nm18609194(?-,animation_department); nm1968951(1950-2025,?); nm1972156(?-,?); nm2001520(?-,director|editor|producer); nm2086939(?-,actor|art_department); nm2095383(?-,miscellaneous|production_manager); nm2121986(?-,sound_department); nm2217260(?-,editor); nm2245810(?-,art_department|miscellaneous); nm2403047(?-,actor|camera_department); nm2403048(?-,miscellaneous); nm2512322(?-,camera_department|director|producer); nm2739718(?-,production_designer); nm3030789(?-,sound_department); nm3032437(?-,?); nm3148913(1956-,?); nm3364065(?-,?); nm3417113(?-,?); nm3646706(?-,?); nm3799506(?-,?); nm3886121(?-,?); nm3904632(?-,camera_department|director|sound_department); nm4057947(?-,music_department); nm4287204(?-,camera_department); nm4420870(?-,?); nm4450454(?-,?); nm4538668(?-,?); nm4663823(?-,?); nm4758957(?-,?); nm4851895(?-,?); nm4908593(?-,?); nm4917163(?-,?); nm5071946(?-,editor|producer|sound_department); nm5086585(?-,animation_department|director|editor); nm5171247(?-,miscellaneous); nm5187449(?-,?); nm5195050(?-,?); nm5199691(?-,?); nm5365211(?-,animation_department|director|producer); nm5415499(?-,camera_department); nm5465948(?-,camera_department|cinematographer); nm5570492(?-,transportation_department); nm5622781(?-,cinematographer); nm6703845(?-,?); nm6706158(?-,?); nm6754040(?-,editor); nm6866906(?-,?); nm7067825(?-,director|editor); nm7272042(?-,animation_department|director); nm7350880(?-,?); nm7468957(?-,?); nm8114678(?-,?); nm8336018(?-,cinematographer|editor); nm8345704(?-,sound_department); nm8457033(?-,?); nm8470404(?-,?); nm8668864(?-,art_department); nm8750404(?-,?); nm9062847(?-,?); nm9089682(1954-2022,?); nm9253747(?-,composer); nm9303019(?-,?); nm9731428(?-,cinematographer|director|producer); nm9938594(?-,?)
+8293	David Thomas		ambiguous:218	143	nm0858429(1955-,actor|art_department|miscellaneous); nm0858694(?-,director|editor|producer); nm0858696(?-,art_department); nm0858700(?-,art_department); nm0858701(?-,actor|miscellaneous|transportation_department); nm0858703(?-,camera_department); nm0858704(?-,composer); nm10010424(?-,sound_department); nm10098715(?-,?); nm10144588(?-,actor|camera_department); nm10220572(?-,?); nm10221197(?-,actor|camera_department|production_manager); nm10239991(?-,?); nm10300967(?-,art_department|miscellaneous); nm10660360(?-,editor); nm10761475(?-,?); nm10873740(?-,?); nm11014084(?-,?); nm11105923(?-,camera_department); nm11109116(?-,costume_department); nm11303196(?-,?); nm11360690(?-,miscellaneous); nm11389649(?-,?); nm11428406(?-,?); nm11795493(?-,music_department); nm11796648(?-,?); nm11830086(?-,?); nm11878961(?-,miscellaneous); nm11957032(?-,art_department|editorial_department|production_manager); nm1198696(?-,?); nm12001721(?-,?); nm12038946(?-,miscellaneous); nm12098142(?-,?); nm12211730(?-,?); nm12211895(?-,miscellaneous); nm12219331(?-,?); nm12278942(?-,?); nm12476975(?-,?); nm12557851(?-,camera_department); nm12572355(?-,?); nm13029008(?-,editor); nm13047208(?-,camera_department); nm13062638(?-,?); nm13102479(?-,miscellaneous); nm13118955(?-,animation_department); nm13171205(?-,?); nm13180471(?-,animation_department); nm13203385(?-,?); nm13504245(?-,actor|producer|transportation_department); nm14220877(?-,?); nm1444832(?-,camera_department); nm14834543(?-,sound_department); nm14952970(?-,composer); nm15114030(?-,miscellaneous); nm15554708(?-,?); nm15687326(?-,music_department); nm15703346(?-,?); nm15733933(?-,visual_effects); nm15770975(?-,?); nm15912884(?-,?); nm15946411(?-,?); nm16324930(?-,editor); nm16345479(?-,?); nm16412909(?-,?); nm1642976(?-,sound_department); nm16522263(?-,?); nm16674609(?-,?); nm16776899(?-,art_department); nm17228991(?-,?); nm17253015(?-,sound_department); nm17276601(?-,?); nm17435320(?-,?); nm17773162(?-,?); nm18444448(?-,?); nm18454509(?-,visual_effects); nm18560519(?-,sound_department); nm18574770(?-,?); nm18580046(?-,?); nm18663597(?-,editor); nm1949405(?-,?); nm1986970(?-,camera_department); nm2010878(?-,miscellaneous|production_department); nm2063942(?-,?); nm2215670(?-,camera_department|cinematographer|production_department); nm2528078(?-,sound_department); nm2545837(?-,?); nm2588223(?-,camera_department); nm2834222(?-,actor|music_department); nm3118953(1983-,?); nm3170763(?-,miscellaneous); nm3386846(?-,art_department); nm3427754(?-,?); nm3578591(?-,actor|miscellaneous); nm3735882(?-,?); nm4116211(?-,miscellaneous); nm4419257(?-,?); nm4449053(?-,animation_department); nm4484780(?-,miscellaneous); nm4542610(?-,?); nm4849204(?-,?); nm4861636(?-,miscellaneous); nm4863261(?-,?); nm4888916(?-,music_department); nm5237769(?-,editorial_department); nm5434061(?-,camera_department); nm5500845(?-,editor|producer|visual_effects); nm5540796(?-,?); nm5961458(?-,miscellaneous); nm5988825(?-,?); nm5999358(?-,camera_department); nm6147987(?-,visual_effects); nm6375747(?-,sound_department); nm6444965(?-,?); nm6492391(?-,miscellaneous); nm6500420(?-,?); nm6652597(?-,camera_department); nm6890575(?-,music_department|sound_department); nm7238621(?-,composer); nm7262448(?-,transportation_department); nm7364850(?-,?); nm7475930(?-,?); nm7587040(?-,art_department|assistant_director|director); nm7613251(?-,art_department); nm7777380(?-,?); nm7836241(?-,sound_department); nm7840327(?-,?); nm7868562(?-,camera_department); nm8076443(?-,?); nm8140001(?-,miscellaneous); nm8200484(?-,?); nm8331476(?-,?); nm8414732(?-,?); nm8848460(?-,?); nm8923835(?-,production_designer); nm9070549(?-,miscellaneous); nm9099587(?-,?); nm9166455(?-,camera_department); nm9260430(?-,?); nm9267387(?-,?); nm9490077(?-,composer); nm9650138(?-,camera_department); nm9869745(?-,?); nm9881266(?-,composer)
+8119	Steve Smith		ambiguous:352	243	nm0810018(?-,art_director|set_decorator); nm0810021(?-,art_department); nm0810022(1955-,camera_department); nm0810023(?-,miscellaneous|producer|production_department); nm0810024(?-,music_department|sound_department|writer); nm0810027(?-,music_department); nm0810028(?-,?); nm0810029(1954-,actor|composer|music_department); nm10011280(?-,?); nm10081949(?-,?); nm10102112(?-,?); nm10113314(?-,?); nm10199559(?-,?); nm10199615(?-,transportation_department); nm10304474(?-,camera_department); nm10349939(?-,miscellaneous); nm10403349(?-,camera_department); nm10452460(?-,?); nm10489678(?-,miscellaneous); nm10632029(?-,miscellaneous); nm10666181(?-,camera_department); nm10676495(?-,?); nm10681852(?-,?); nm10706506(?-,art_department|camera_department|miscellaneous); nm10742748(?-,?); nm10745039(?-,music_department); nm10778648(?-,camera_department); nm10911074(?-,?); nm10931992(?-,?); nm10970574(?-,art_department); nm11103900(?-,?); nm11146494(?-,?); nm11186235(?-,?); nm11427009(?-,?); nm11507579(?-,camera_department); nm11513694(?-,sound_department); nm11519290(?-,camera_department); nm11544133(?-,sound_department); nm11549079(?-,?); nm11552227(?-,?); nm11552409(?-,?); nm11576865(?-,?); nm11746775(?-,camera_department); nm1177921(1963-,sound_department); nm1183987(1963-,?); nm11992652(?-,music_department); nm12016868(?-,?); nm1206033(?-,cinematographer); nm12117768(?-,?); nm12126733(?-,?); nm12154795(?-,?); nm12163270(?-,camera_department); nm12242380(?-,?); nm12282354(?-,composer); nm12292649(?-,camera_department); nm12356717(?-,sound_department); nm12422838(?-,?); nm12577917(?-,?); nm12729895(?-,?); nm12786045(?-,?); nm1281273(?-,art_department); nm12817145(?-,?); nm13033151(?-,music_department); nm13066552(?-,?); nm13102380(?-,editorial_department); nm1313423(?-,camera_department|miscellaneous); nm13161709(?-,transportation_department); nm13169413(?-,camera_department); nm13295873(?-,miscellaneous); nm13305980(?-,?); nm13313868(?-,?); nm13469173(?-,make_up_department); nm13539208(?-,transportation_department); nm13592013(?-,?); nm13592787(?-,?); nm13653814(?-,?); nm13686276(?-,art_department); nm13778747(?-,?); nm13927001(?-,?); nm13984221(?-,cinematographer); nm14004360(?-,?); nm14070645(?-,?); nm14109630(?-,camera_department); nm14153436(?-,editor); nm1430996(?-,?); nm14472679(?-,?); nm14530773(?-,?); nm14600712(?-,?); nm1467475(?-,camera_department); nm14682973(?-,?); nm14883600(?-,?); nm14922025(?-,?); nm1503586(?-,animation_department|art_department|assistant_director); nm15161291(?-,?); nm15301927(?-,music_department); nm15310189(?-,miscellaneous); nm15497600(?-,sound_department); nm15531978(?-,camera_department); nm15598781(?-,?); nm15760774(?-,?); nm1577609(?-,camera_department); nm15816889(?-,?); nm15852556(?-,actor|camera_department|cinematographer); nm15889564(?-,?); nm15943982(?-,?); nm15988601(?-,?); nm16030433(?-,?); nm16083961(?-,art_department); nm16133397(?-,director|miscellaneous|producer); nm16191073(?-,miscellaneous); nm16304212(?-,music_department); nm16326327(?-,?); nm16334737(?-,?); nm16401773(?-,camera_department); nm16448988(?-,?); nm1653674(?-,art_department|miscellaneous); nm16621085(?-,sound_department); nm16657358(?-,?); nm16728105(?-,camera_department); nm16863224(?-,?); nm16872828(?-,?); nm16941809(?-,?); nm16989633(?-,actor|make_up_department); nm17094315(?-,?); nm17146695(?-,animation_department); nm17307780(?-,miscellaneous); nm17471829(?-,?); nm17581063(?-,?); nm17611851(?-,?); nm17876094(?-,camera_department); nm17882746(?-,transportation_department); nm1807493(?-,actor|composer|producer); nm18099987(?-,miscellaneous); nm18197548(?-,camera_department); nm1839146(?-,visual_effects); nm18441100(?-,miscellaneous); nm18559432(?-,miscellaneous); nm1967292(?-,?); nm1999532(?-,camera_department|cinematographer); nm2041303(?-,cinematographer); nm2170745(?-,sound_department); nm2244500(?-,actor|camera_department|producer); nm2297748(?-,actor|camera_department); nm2332776(?-,camera_department); nm2785695(1985-,?); nm2856612(?-,editor); nm2998683(?-,camera_department); nm3056048(?-,miscellaneous); nm3095997(?-,transportation_department); nm3180380(?-,music_department); nm3334796(?-,camera_department); nm3365768(?-,visual_effects); nm3382212(?-,?); nm3426442(?-,camera_department); nm3476842(?-,?); nm3630156(?-,music_department); nm3752905(?-,miscellaneous); nm3791870(?-,?); nm3799737(?-,?); nm3869863(?-,transportation_department); nm3896200(?-,?); nm3907342(?-,?); nm3995993(?-,camera_department); nm4090255(?-,camera_department); nm4112913(?-,?); nm4374735(?-,?); nm4417653(?-,?); nm4475842(?-,music_department|soundtrack); nm4488418(?-,camera_department); nm4493236(?-,miscellaneous); nm4579687(?-,special_effects|writer); nm4645065(?-,?); nm4759233(?-,?); nm4776330(?-,sound_department); nm4801624(?-,?); nm4814825(?-,?); nm4898020(?-,miscellaneous); nm4980360(?-,music_department); nm5062083(?-,miscellaneous); nm5073272(?-,camera_department|miscellaneous); nm5136072(?-,?); nm5147430(?-,cinematographer); nm5426650(?-,music_department|soundtrack); nm5466575(?-,cinematographer); nm5476708(?-,sound_department); nm5495336(?-,?); nm5514131(?-,miscellaneous); nm5643375(?-,camera_department); nm5687426(?-,cinematographer); nm5828174(?-,camera_department); nm5844834(?-,?); nm5870209(?-,camera_department); nm5943313(?-,?); nm5967243(?-,animation_department|director|editor); nm5979436(?-,sound_department); nm6235614(?-,sound_department); nm6264093(?-,?); nm6285651(?-,?); nm6382219(?-,miscellaneous); nm6394970(?-,visual_effects); nm6413786(?-,?); nm6420296(?-,cinematographer); nm6591155(1966-,?); nm6591389(?-,?); nm6609481(?-,camera_department); nm6611498(?-,?); nm6681381(?-,cinematographer); nm6691253(?-,animation_department); nm6736527(?-,?); nm6747402(?-,composer|director|writer); nm6771094(?-,?); nm6783200(?-,?); nm7147085(?-,?); nm7215756(?-,camera_department); nm7223225(?-,?); nm7224897(?-,?); nm7232523(?-,cinematographer|producer); nm7251768(?-,camera_department); nm7343592(?-,?); nm7343619(?-,camera_department); nm7421961(?-,?); nm7694878(?-,?); nm7792770(?-,transportation_department); nm7853864(?-,?); nm7959069(?-,composer); nm8263448(?-,miscellaneous); nm8288702(?-,animation_department); nm8644106(?-,camera_department); nm8661136(?-,composer|editor|sound_department); nm8710412(?-,cinematographer); nm8740710(?-,?); nm8785728(?-,?); nm8796762(?-,?); nm8873417(?-,?); nm8942050(?-,?); nm8943817(?-,composer|producer); nm9168351(?-,?); nm9295305(?-,art_department|miscellaneous); nm9404370(?-,art_department|miscellaneous); nm9416083(?-,camera_department); nm9596651(?-,miscellaneous); nm9660288(?-,cinematographer); nm9732574(?-,?)
+2181	Anthony Paglia		ambiguous:2 (narrowed to 0, showing all)	0	nm17358467(?-,actor); nm9582794(?-,actor)
+4169	Douglas Fries		ambiguous:2 (narrowed to 0, showing all)	0	nm13572980(?-,actor); nm16792538(?-,actor)
+5776	Dave Springer		ambiguous:2 (narrowed to 0, showing all)	0	nm16436851(?-,actor); nm5005406(?-,actor)
+6659	Dave Betts		ambiguous:2 (narrowed to 0, showing all)	0	nm2123922(?-,actor); nm8987656(?-,actor)
+7651	Theodore Kim		ambiguous:2 (narrowed to 0, showing all)	0	nm13713147(?-,producer); nm14718133(?-,archive_footage)
+# --- no match: 606 ---
+212	SIDNEY SANDERS				
+380	E. C. Wente				
+460	JOSEPH E. ROBBINS				
+628	EMERY HUSE				
+631	A. J. TONDREAU				
+643	DON MUSGRAVE				
+721	ROBERT W. STEVENS.				
+815	Wilbur Silvertooth				
+906	F. Thomas Thompson				
+982	Earle Morgan				
+983	Barton Thompson				
+986	Willard H. Turner				
+1072	Ray Hinsdale				
+1073	Joseph E. Robbins				
+1074	Paul Zeff				
+1075	S. J. TWINING				
+1153	Charles R. Daily				
+1154	Michael S. Leshing				
+1155	BENJAMIN C. ROBINSON				
+1156	ARTHUR B. CHATELAIN				
+1158	JOHN G. CAPSTAFF				
+1203	Harlan L. Baumbach				
+1204	Herbert E. Britt				
+1205	Burton F. Miller				
+1208	Arthur F. Blinn				
+1212	HAL ADKINS				
+1275	Thomas Armat				
+1277	C. C. Davis				
+1278	C. R. Daily				
+1279	Hal Corl				
+1280	H. G. Cartwright				
+1281	FRED PONEDEL				
+1336	Victor Caccialanza				
+1342	A. J. Moran				
+1415	Bruce H. Denney				
+1418	Andre Coutant				
+1419	Jacques Mathot				
+1485	L. W. Russell				
+1550	S. L. Stancliffe				
+1551	OLIN L. DUPY				
+1552	Richard M. Haff				
+1553	Frank P. Herrnfeld				
+1554	Garland C. Misener				
+1556	Fred Ponedel				
+1620	John G. Frayne				
+1621	R. R. Scoville				
+1624	Gustav Jirouch				
+1687	EARL SPONABLE				
+1689	HERBERT BRAGG				
+1752	J.W. Stafford				
+1753	K.M. Frierson				
+1756	MAX GOEPPINGER				
+1758	G.M. Sprague				
+1759	Metro-Goldwyn-Mayer				
+1761	P.C. YOUNG				
+1837	the NATIONAL CARBON CO.				
+1838	the EASTMAN KODAK CO.				
+1841	the BAUSCH & LOMB CO.				
+1842	Walter Jolley				
+1843	Steve Krilanovich				
+1846	Henry Fracker				
+1920	RICHARD H. RANGER				
+1922	CARL HAUGE				
+1923	EDWARD REICHARD				
+1925	ROY C. STEWART AND SONS				
+1926	DR. C.R. DAILY				
+1975	SOCIÉTÉ D'OPTIQUE ET DE MECANIQUE DE HAUTE PRECISION				
+1976	LORAND WARGO				
+1977	HOWARD M. LITTLE				
+1979	Charles E. Sutter				
+2022	Don W. Prideaux				
+2023	LEROY G. LEIGHTON				
+2026	WILLY BORBERG				
+2027	CONRAD BOYE				
+2088	ROBERT E. GOTTSCHALK				
+2090	Wadsworth E. Pohl				
+2093	S.E. HOWSE				
+2094	THOMAS P. DIXON				
+2097	JACK ALFORD				
+2099	JOSEPH SCHMIT				
+2101	AL LOFQUIST				
+2102	Dr. Howard S. Coleman				
+2103	DR. A. FRANCIS TURNER				
+2104	HAROLD H. SCHROEDER				
+2105	JAMES R. BENFORD				
+2106	HAROLD E. ROSENBERGER				
+2107	ROBERT P. GUTTERMAN				
+2110	E.L. Stones				
+2179	Arthur Holcomb				
+2183	Carl Hauge				
+2184	ROBERT GRUBEL				
+2249	Fred L. Metzler				
+2252	S. WILSON				
+2253	H.E. RICE				
+2254	JOHN RUDE				
+2256	WADSWORTH E. POHL				
+2257	H. PEASGOOD				
+2258	E.I. Sponable				
+2259	Herbert E. Bragg				
+2261	F.D. Leslie				
+2262	R.D. Whitmore				
+2263	A.A. Alden				
+2264	Endel Pool				
+2331	Albert S. Pratt				
+2332	JAMES L. WASSELL				
+2335	WILLIAM BRYSON SMITH				
+2336	LOUIS C. KENNELL				
+2338	LOUIS G. MacKENZIE				
+2480	EDWARD H. REICHARD				
+2481	CARL W. HAUGE				
+2482	JOB SANDERSON				
+2483	Pierre Angenieux				
+2485	RICHARD B. GLICKMAN				
+2486	DANIEL J. PEARLMAN				
+2488	Edward H. Reichard				
+2489	LEONARD L. SOKOLOW				
+2556	ARTHUR J. HATCH				
+2639	Arnold & Richter Kg				
+2709	FRED R. WILSON				
+2774	PHILIP V. PALMQUIST				
+2777	Donald W. Norwood				
+2780	NIELS G. PETERSEN				
+2781	NORMAN S. HUGHES				
+2783	Todd-Ao				
+2785	E. MICHAEL MEAHL				
+2786	ROY J. RIDENOUR				
+2868	OTTO POPELKA				
+2870	ROBERT M. FLYNN				
+2871	RUSSELL HESSEY				
+2962	LEONARD SOKOLOW				
+2964	B. J. Losmandy				
+3043	JOHN N. WILKINSON				
+3044	Thomas Jefferson Hutchinson				
+3045	James R. Rochester				
+3047	Robert D. Auguste				
+3133	Howard T. La Zare				
+3134	Edward Efron				
+3137	Ramtronics				
+3138	David Degenkolb				
+3139	HARRY LARSON				
+3140	MANFRED MICHELSON				
+3142	JIRO MUKAI				
+3143	RYUSHO HIROSE				
+3145	LEONARD L. OLSON				
+3146	FRANK P. CLARK				
+3147	E. H. GEISSLER				
+3148	G. M. BERGGREN				
+3217	JOACHIM GERB				
+3220	WILLIAM W. VALLIANT				
+3222	CLIFFORD H. ELLIS				
+3223	ROGER W. BANKS				
+3225	RICHARD H. VETTER				
+3304	Robert J. Leonard				
+3306	LOUIS AMI				
+3399	CHADWELL O'CONNOR				
+3400	WILLIAM F. MINER				
+3403	DAVID J. DEGENKOLB				
+3408	Bell & Howell				
+3481	MANFRED G. MICHELSON				
+3482	GEOFFREY F. NORMAN				
+3483	SIEGFRIED SEIBERT				
+3484	FRED BARTSCHER				
+3485	GLENN BERGGREN				
+3486	HIROSHI SUZUKAWA				
+3577	BARRY K. HENLEY				
+3578	HAMMOND H. HOLT				
+3585	ERNST NETTMANN				
+3587	DR. BERNHARD KÜHL				
+3588	WERNER BLOCK				
+3673	Robert E. Gottschalk				
+3679	KARL MACHER				
+3680	GLENN M. BERGGREN				
+3681	David J. Degenkolb				
+3682	ARTHUR L. FORD				
+3683	FRED J. SCOBEY				
+3684	KIICHI SEKIGUCHI				
+3687	ROBERT STINDT				
+3778	Mark Serrurier				
+3781	Michael V. Chewey				
+3782	WALTER G. EGGERS				
+3783	ALLEN HECHT				
+3787	James S. Stanfield				
+3788	Paul W. Trester				
+3872	Samuelson Film Service Limited				
+3873	EDWARD B. KRAUSE				
+3877	ANDRÉ DeBRIE				
+3879	EUGENE NOTTINGHAM				
+3880	John W. Lang				
+3881	WALTER HRASTNIK				
+3882	CHARLES J. WATSON				
+3883	WORTH BAIRD				
+3964	Leonard Sokolow				
+3965	HOWARD T. LaZARE				
+3967	EDWARD J. BLASKO				
+3968	RODERICK T. RYAN				
+3972	JOHN DeMUTH				
+3973	ERNST F. NETTMANN				
+3976	Dr. Louis Stankiewicz				
+3977	H. L. Blachford				
+4060	COLIN F. MOSSMAN				
+4062	SANTE ZELLI				
+4063	SALVATORE ZELLI				
+4064	DR. MOHAMMAD S. NOZARI				
+4066	DONALD SCHISLER				
+4067	Jacobus L. Dimmers				
+4158	Dr. John G. Frayne				
+4159	DR. KURT LARCHE				
+4163	Gunnar P. Michelson				
+4164	WILLIAM G. KROKAUGGER				
+4165	Charles J. Watson				
+4166	Larry L. Langrehr				
+4167	John H. Steiner				
+4168	ELIZABETH D. DE LA MARE				
+4171	Michael Sigrist				
+4267	DONALD A. ANDERSON				
+4268	DIANA REINERS				
+4269	Barry M. Stultz				
+4271	WES KENNEDY				
+4273	Wes Kennedy				
+4280	NAT TIFFEN				
+4284	ROBERT BEALMEAR				
+4397	JOE P. CROOKHAM				
+4398	JIM DROST				
+4504	ANTHONY D. BRUNO				
+4505	JOHN L. BAPTISTA				
+4506	BRUCE W. KELLER				
+4510	ALFRED THUMIM				
+4511	ELAN LIPSCHITZ				
+4512	DARRYL A. ARMOUR				
+4513	FRITZ SENNHEISER				
+4522	CARL HOLMES				
+4525	William B. Pollard				
+4526	E. M. (Al) Lewis				
+4608	Bernhard Kühl				
+4609	Werner Block				
+4611	Willi Burth				
+4614	Ronald C. Barker				
+4615	Chester L. Schuler				
+4616	Colin F. Mossman				
+4617	Rank Film Development Group				
+4623	Geoffrey H. Williamson				
+4628	DAN C. NORRIS				
+4722	Gordon Henry Cook				
+4723	Roy W. Edwards				
+4725	Arnold & Richter				
+4726	Otto Blaschek				
+4736	GRANT LOUCKS				
+4737	GEOFFREY H. WILLIAMSON				
+4738	Michael V. Chewey III				
+4740	DR. ANTAL LISZIEWICZ				
+4741	James K. Branch				
+4743	Nasir J. Zaidi				
+4748	EMANUEL TRILLING				
+4749	Paul A. Roos				
+4834	J. Noxon Leavitt				
+4835	J. L. FISHER				
+4836	Klaus Resch				
+4838	Fgv Schmidle & Fitz				
+4913	BRUCE WILTON				
+4914	CARLOS ICINKOFF				
+4918	Takuo Miyagishima				
+4921	HARVEY HUBERT JR.				
+4923	Bengt O. Orhall				
+4924	KENNETH LUND				
+4925	BJORN SELIN				
+4926	KJELL HOGBERG				
+4930	Dr. Fred Kolb Jr.				
+4931	Paul Preo				
+4933	Paul Kiankhooy				
+4936	Roderick T. Ryan				
+5022	Albert Saiki				
+5024	HEINZ FEIERLEIN				
+5025	SACHTLER AG				
+5026	Harry J. Baker				
+5028	Richard Keeney				
+5029	Richard J. Lundell				
+5035	Mario Celso				
+5048	Robert W. Stoker Jr.				
+5051	Steve Hamerski				
+5053	Ken Robings				
+5055	Century Precision Optics				
+5058	Donald Hagans				
+5155	Claus Wiedemann				
+5156	Robert Orban				
+5159	Al Mayer				
+5160	George Kraemer				
+5161	Hans Spirawski				
+5162	Bill Eslick				
+5165	Edmund M. Di Giulio				
+5169	ROBERT R. BURTON				
+5170	Kaz Fudano				
+5267	Gustave Parada				
+5268	Gary Nuzzi				
+5269	David Johnsrud				
+5270	William Blethen				
+5271	Michael Dorrough				
+5368	GARY STARKWEATHER				
+5375	Al Saiki				
+5376	Panavision International				
+5377	William J. Warner				
+5378	Eric C. Peters				
+5380	Tom A. Ohanian				
+5381	Patrick D. O'Connor				
+5382	Joe H. Rice				
+5388	George Sauve				
+5389	Arpag Dadourian				
+5391	B. RUSSELL HESSEY				
+5396	Dr. Joe Zhou				
+5397	Don Northrop				
+5398	EMMANUEL PREVINAIRE				
+5399	JACQUES SAX				
+5407	COLIN BROAD				
+5409	David A. Addleman				
+5410	Lloyd A. Addleman				
+5411	Mark R. Schneider				
+5412	Herbert R. Jones				
+5413	Christopher D. Conover				
+5414	John R.B. Brown				
+5420	ART FRITZEN				
+5528	Arnold And Richter Cine Technik				
+5531	Howard Flemming				
+5532	Ronald Uhlig				
+5538	Joe Wary				
+5539	Hans Leisinger				
+5540	Gerald Painter				
+5543	JOHANNES BORGGREBE				
+5544	JEAN-PIERRE GAGNON				
+5545	FRANK RICOTTA				
+5548	Eric Dubberke				
+5552	Pascal Chedeville				
+5555	Al Jensen				
+5556	CHUCK HEADLEY				
+5557	JEAN MESSNER				
+5558	HAZEM NABULSI				
+5561	Yan Zhong Fang				
+5570	Institut National Polytechnique De Toulouse				
+5571	Kodak Pathe Ctp Cine				
+5665	Kay Beving Erland				
+5666	Perry Kivolowitz				
+5667	Dr. Garth A. Dickie				
+5671	Grant Loucks				
+5674	James Kajiya				
+5675	Timothy Kay				
+5680	Richard A. Prey				
+5681	William N. Masten				
+5774	Milan Novacek				
+5775	Glen Ozymok				
+5778	Réjean				
+5780	Richard Laperriere				
+5785	Kirk Handley				
+5786	Ray Meluch				
+5788	Wilson H. Allen				
+5790	JOEL W. JOHNSON				
+5791	Clark F. Crites				
+5792	Dan Leimeter				
+5796	DOUGLAS W. NISHIMURA				
+5797	MONIQUE C. FISCHER				
+5799	James F. Foley				
+5800	Charles E. Converse				
+5801	F. Edward Gardner				
+5804	Roger Hibbard				
+5812	Paul H. Breslin				
+5904	Thomas G. Stockham Jr.				
+5906	James A. Moorer				
+5907	STEPHEN J. KAY				
+5908	Gary Tregaskis				
+5913	Mohamed Ken T. Husain				
+5914	Cameron Shearer				
+5915	Roy B. Ference				
+5916	Steven R. Schmidt				
+5917	Richard J. Federico				
+5918	Rockwell Yarid				
+5919	MICHAEL E. McCRACKAN				
+5920	HANS LEISINGER				
+5921	GEORGE JOHN ROWLAND				
+5922	Arnold & Richter Cine Technik				
+5923	Arnold Richter Cine Technik				
+5924	DEREK C. LIGHTBODY				
+5932	Ronald E. Uhlig				
+5933	THOMAS F. POWERS				
+5934	FRED M. FUSS				
+5940	Bala S. Manian				
+5953	Manfred N. Klemme				
+5954	Donald E. Wetzel				
+5960	A. Tulsi Ram				
+5961	RICHARD C. SEHLIN				
+5962	CARL F. HOLTZ				
+5963	DAVID F. KOPPERL				
+5964	TAKUO MIYAGISHIMA				
+5965	ALBERT K. SAIKI				
+5966	EDMUND M. DI GIULIO				
+5967	JAMES BARTELL				
+5969	ED ZWANEVELD				
+5972	DALE BRUBACHER-CRESSMAN				
+6066	Karl Lynch				
+6067	Mark V. Crabtree				
+6070	Mark Craig Gerchman				
+6071	Marlowe A. Pichel				
+6073	Vivienne Dyer				
+6075	Leslie Drever				
+6076	Richard C. Sehlin				
+6077	MITCHELL J. BOGDANOWICZ				
+6078	MARY L. SCHMOEGER				
+6079	JOHN C. BREWER				
+6165	Akai Digital				
+6166	Fairlight				
+6170	Ashot Nalbandyan				
+6175	PHILIP GREENSTREET				
+6176	Udo Schauss				
+6177	Hildegard Ebbesmeier				
+6178	Karl Lenhardt				
+6179	Ralf Linn				
+6180	Norbert Brinker				
+6181	Glenn M. Berggren				
+6182	Horst Linge				
+6183	Wolfgang Reinecke				
+6185	Venkat Krishnamurthy				
+6189	John P. Pytlak				
+6190	Robin Bransbury				
+6293	John M. Eargle				
+6294	D.B. Keele				
+6295	Mark E. Engebretson				
+6297	Johannes Steurer				
+6298	Wolfgang Riedel				
+6301	Joseph A. Olivier				
+6303	Makoto Tsukada				
+6304	Steven Gerlach				
+6307	Paul J. Constantine				
+6308	Peter M. Constantine				
+6310	Bernard M. Werner				
+6311	William Gelow				
+6315	Thomas Major Barron				
+6323	JOHN M. CONSTANTINE				
+6328	Dr. Lance J. Williams				
+6329	Dr. Uwe Sassenberg				
+6427	Alias/Wavefront				
+6428	ARNOLD & RICHTER CINE TECHNIK				
+6433	Dr. Leslie Gutierrez				
+6434	Diane E. Kestner				
+6436	David Niklewicz				
+6437	Dr. Depu Jin				
+6438	Franz Petters				
+6440	Thomas Driemeyer				
+6441	Mental Images				
+6449	ROBERT W. JEFFS				
+6451	Richard B. Glickman				
+6533	Digidesign				
+6535	Kenneth L. Tingler				
+6536	CHARLES C. ANDERSON				
+6537	DIANE E. KESTNER				
+6538	BRIAN A. SCHELL				
+6541	Michael C. Carlos				
+6546	Kish Sadhvani				
+6548	Carl Pernicone				
+6550	Stephen R. Marschner				
+6647	GYULA MESTER				
+6658	Dr. Christopher Hicks				
+6660	Dr. Julian Morris				
+6662	Dr. Paul Smyth				
+6664	Dr. John O.B. Greaves				
+6665	Ned Phipps				
+6666	Antonie J. Van Den Bogert				
+6668	Dr. Nels Madsen				
+6767	Yuriy Popovsky				
+6779	J. Walt Adamczyk				
+6790	Demetri Terzopoulos				
+6793	Harold Rattray				
+6798	Nicole Wemken				
+6904	Dr. Anil Kokaram				
+6910	Albert Ridilla				
+6911	Papken Shahbazian				
+6912	Ronald Belknap				
+6913	JAY McGARRIGLE				
+6915	Josef Handler				
+6916	Thomas Smidek				
+6917	Marc Shipman Mueller				
+6919	Ernst Tschida				
+6921	MARTIN WAITZ				
+6924	J. Wayne Anderson				
+6930	Dr. Alan Masson				
+6932	Frank Ricotta				
+7021	JÖRG PÖHLER				
+7022	RÜDIGER KLEINKE				
+7024	ANDREAS DASSER				
+7030	Dr. Jeroen Molemaker				
+7033	Julia Pakalns				
+7129	Erwin Melzner				
+7130	Volker Schumacher				
+7133	Alexandre Leuchter				
+7134	Bruno Coumert				
+7135	Jacques Debize				
+7136	Dominique Chervin				
+7137	Christophe Reboulet				
+7138	STEVE HYLÉN				
+7248	Michael Bunnell				
+7249	Dr. Richard Kirk				
+7251	Markus Hasenzahl				
+7252	Dr. Klaus Anderle				
+7253	Andreas Loew				
+7254	Michael Cieslinski				
+7255	Dr. Reimar Lenz				
+7256	Bernd Brauner				
+7259	Tony Sedivy				
+7260	Dr. John Quartel				
+7264	Dr. James Logie				
+7267	Tamas Perlaki				
+7273	Ryoji Nishimura				
+7275	Youichi Hosoya				
+7280	Mark Wolforth				
+7281	Christian Baeker				
+7282	Frank Billasch				
+7520	Dr. Jürgen Noffke				
+7521	Uwe Weber				
+7524	Raigo Alas				
+7525	Michael Vellekoop				
+7527	Michael Sayovitz				
+7528	Brad Fritzel				
+7531	Ian Cavén				
+7536	Dr. Katsuhisa Oozeki				
+7538	Andrew Clinton				
+7631	Cooke Optics Limited				
+7635	DR. PHILIP McLAUCHLAN				
+7636	Allan Jaenicke				
+7637	John-Paul Smith				
+7639	Joe Murtha				
+7640	WILLIAM FREDERICK				
+7641	JIM MARKLAND				
+7653	Dr. Markus Gross				
+8117	Michael John Keesling				
+8121	Michael Kirilenko				
+8124	Jon Scott Miller				
+8140	J Robert Ray				
+8267	Red Digital Cinema				
+8272	Thiago Ize				
+8278	JOSHUA BARRATT				
+8280	ARCHIE TE				
+8281	Thomson Grass Valley				
+8289	Jeff Cruts				
+8294	Lawrence E. Fisher				
+8416	Side Effects Software				
+8565	James Acquavella				
+8567	David M. Cotter				
+8571	Edwin Catmull				
+8574	Erik Bielefeldt				
+8577	Per-Anders Arvid Edwards				
+8586	Charles Teorell Loop				
+8678	Dr. Zvi Reznic				
+8679	Professor Meir Feder				
+8680	Guy Dorman				
+8681	Ron Yogev				
+8682	Nicolaas Verheem				
+8684	Ilya Issenin				
+8685	ALEXEY LUKIN				
+8688	GUY McNALLY				
+8691	Jonathan Newland				
+8693	Masato Nakashima				
+8694	Koichi Ueno				
+8695	Junji Sakuda				
+8696	Junro Yonemitsu				
+8699	Robert Derry				
+8702	Scott Robitille				
+8705	SVEN WOOP				
+8706	CARSTEN BENTHIN				
+8707	ATTILA T. Á FRA				
+8709	INGO WALD				
+8713	Andrew Witkin				
+8715	Kelly Ward Hammel				
+8723	Jens-Jørn Stokholm				
+8726	Omer T. Inan				
+8727	Fredrik Limsäter				
+8729	Mattias Lagergren				
+8731	Matt Daw				
+9280	Charles Q. Robinson				
+9281	Nicolas Tsingos				
+9282	Christophe Chabanne				
+9285	Barry Silverstein				
+9287	Goran Stojmenovik				
+9290	Gerwin Damberg				
+9291	Martin J. Richards				
+9292	Jaden Oh				
+9299	Gregory T. Niven				
+9300	Yoshitaka Nakatsu				
+9301	Yoji Nagao				
+9302	Tsuyoshi Hirao				
+9303	Tomonori Morizumi				
+9304	Kazuma Kozuru				
+9312	Nicholas Avramoussis				
+9465	Thijs Vogels				
+9466	Fabrice Rousselle				
+9468	Gerhard Röthlin				
+9470	Yair Chuchem				
+9472	Curt Schaller				
+9473	Dr. Roman Foltyn				
+9479	Essex Edwards				
+9483	Andrew Van Straten				
+9486	Neeme Vaino				
+9489	Attila T. Áfra				
+9492	Su Tie				
+9493	Bei Shimen				
+9494	Zhao Yanchong				
+9643	Josef Köhler				
+9644	Ian Medwell				
+9651	Bret St.Clair				
+9652	Marc-André Davignon				
+9653	Pav Grochola				
+9654	Edmond Boulet Gilly				
 # --- no match, company-looking: 7 ---
-1974	The Motion Picture Research Council		company-looking (kind still 'person')
-2178	Ampex Professional Products Co.		company-looking (kind still 'person')
-3046	Photo Research		company-looking (kind still 'person')
-5054	Clairmont Camera		company-looking (kind still 'person')
-5392	Vincent T. Kelton		company-looking (kind still 'person')
-6169	Leonard Pincus		company-looking (kind still 'person')
-9288	Wouter D’Oosterlinck		company-looking (kind still 'person')
+1974	The Motion Picture Research Council		company-looking (kind still 'person')		
+2178	Ampex Professional Products Co.		company-looking (kind still 'person')		
+3046	Photo Research		company-looking (kind still 'person')		
+5054	Clairmont Camera		company-looking (kind still 'person')		
+5392	Vincent T. Kelton		company-looking (kind still 'person')		
+6169	Leonard Pincus		company-looking (kind still 'person')		
+9288	Wouter D’Oosterlinck		company-looking (kind still 'person')		
