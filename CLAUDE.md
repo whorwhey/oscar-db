@@ -174,6 +174,35 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   Stark both times) — another DLu per-nomination duplicate; nm7383728
   assigned to the surviving row. persons 10839 → 10838, imdb_id 10108 →
   10113, people total 11145 → 11144 (net -1 from the merge).
+- First strong+medium batch of the "narrowed to 2-3" tier, same day (14
+  imdb_ids): several with direct confirmation — Thomas Knoll (Photoshop)
+  is literally interviewed in "From Darkroom to Daylight," his
+  candidate's only IMDb credit; Jonathan Moulin's candidate has explicit
+  ILM lighting/lookdev credits on Solo and Avatar: The Way of Water,
+  matching his ILM citation exactly. Others (John Jurgens/Steadicam,
+  Martin Werner/Maya Fluid Effects, Steve Linn/Rhythm & Hues, John
+  Ellwood, Greg Smokler) matched on profession + era fit strong enough
+  to treat as confirmed. Medium-confidence set (Ralph Chapman, Gary
+  Stadler, Glenn Kennel, Paul Tate, Brent Bell, Chris Huntley, Dominique
+  Boisvert) written on thematic/contextual fit without a fully
+  independent identity check. Low-medium tier (Kenneth Richter, Roland
+  Miller, Jack C. Smith, Lindsay Arnold, Mark Kirk) deliberately held
+  back for review alongside 5926 Ronan Carroll, not written this round.
+  Two more studio/company nominees found and reclassified: person 5166
+  "Arnold Richter" (citation reads "To ARNOLD & RICHTER..." — ARRI's
+  founding company name, mis-entered as a person) and person 8268
+  "Sony" (literally the corporation). Person 4272 "Ruben Avila" merged
+  into 4270 "RUBEN AVILA" (two related 1984 Film Processing Corp
+  citations, same DLu per-nomination duplicate pattern) but left
+  without an imdb_id — neither IMDb candidate fit either row (both were
+  40-year-era mismatches), a duplicate merge doesn't require a resolved
+  id. TECH_PROFESSIONS in people_id_review.py was missing
+  "production_department" and "location_management" — caught mid-batch
+  when Paul Tate's actual best candidate (right birth year, real 1990s
+  film credits) turned out to be excluded from the narrowed list purely
+  by that gap; fixed, which regenerates a few new narrowed-to-1 rows not
+  yet reviewed. persons 10835/imdb_id 10127, companies 308, people total
+  11143 (net -1 from the merge, -2 from the company reclassifications).
 
 ## Roadmap
 

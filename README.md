@@ -18,7 +18,7 @@ Current data quality: all 5,265 films have `release_year`; all but one
 (an obscure 1943 army short) have an `imdb_id` and `original_title`;
 99.8% have `runtime_minutes` (the rest are missing at IMDb); film
 titles match IMDb's primaryTitle, with divergences reviewed by hand.
-Of the 10,838 persons, 93% have an `imdb_id` (the rest — mostly early
+Of the 10,835 persons, 93% have an `imdb_id` (the rest — mostly early
 Sci-Tech honorees — have no IMDb record); names match IMDb's
 primaryName; 6,785 have `birth_year` and 4,087 `death_year`, the
 remainder missing at IMDb. 1,508 of these persons are directors who
@@ -43,7 +43,7 @@ in `schema.md`, per-source details in `data/data_notes.md`):
   `original_title` (IMDb's originalTitle, verbatim), `release_year`,
   `runtime_minutes`, `imdb_id`; `title_zh` and `douban_id` are
   reserved for planned enrichment.
-- **`people`** (11,144 = 10,838 persons + 306 companies) — nominees,
+- **`people`** (11,143 = 10,835 persons + 308 companies) — nominees,
   plus directors linked via `film_directors` who were never nominated
   themselves; `kind` distinguishes persons from companies and other
   organizations (early Best Picture went to studios; Sci-Tech awards go

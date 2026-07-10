@@ -35,7 +35,7 @@ TECH_PROFESSIONS = {
     "electrical_department", "animation_department", "miscellaneous",
     "production_manager", "art_director", "production_designer", "composer",
     "music_department", "costume_department", "make_up_department",
-    "transportation_department",
+    "transportation_department", "production_department", "location_management",
 }
 
 
