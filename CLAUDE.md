@@ -132,6 +132,28 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   archive_sound — no technical-crew category exists, so it can't help
   disambiguate the Sci-Tech engineers filling data/people_no_imdb_id.txt;
   ruled out rather than downloading the 773MB file.
+- First batch of the "ambiguous name matches" group resolved 2026-07-10
+  (name.basics exact-name match found 2+ candidates): 13 imdb_ids
+  hand-fixed after narrowing candidates by profession + birth/death
+  plausibility (all rows are filmless Sci-Tech citations, so knownForTitles
+  overlap can't disambiguate) and, for 3, positive external confirmation
+  (John Neary's Wikipedia bio matches his Dolby CP500 citation exactly;
+  Carl Ludwig traced via his own career bio from Celco digital film
+  recorders to Blue Sky Studios co-founder; Wally Mills matched to the
+  real Cinemills lighting company, distinct from an unrelated "Wally
+  Mills, Actor" IMDb profile). The Carl Ludwig lookup collided with an
+  imdb_id already on person 8283 "Carl Ludwig" (2016 CGI Studio renderer
+  nomination) — his 2001 CELCO award turned out to be the same person,
+  DLu-duplicated across two nominations like the 25 rows merged
+  2026-07-09; person 6322 merged into 8283 rather than assigned a
+  (colliding) id of its own. Person 814 "Paramount" turned out to be
+  the studio again (citation names "PARAMOUNT STUDIO LABORATORY" across
+  4 different nominations) — reclassified kind='company', same as the
+  4 fixed above. Person 5926 "Ronan Carroll" left unresolved: the sole
+  narrowed candidate is a confirmed film composer, not the Milo
+  Motion-Control Crane engineer the citation describes — conflicting
+  evidence, not written. persons 10841 → 10839, companies 305 → 306,
+  people total 11146 → 11145 (net -1 from the merge).
 
 ## Roadmap
 

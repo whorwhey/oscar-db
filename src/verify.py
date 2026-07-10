@@ -44,7 +44,7 @@ def structural(cur):
     }
     expected = {
         "ceremonies": 98, "categories": 66, "nominations": 12137,
-        "films": 5265, "people": 11146, "nomination_films": 10879,
+        "films": 5265, "people": 11145, "nomination_films": 10879,
         "nomination_people": 18823, "film_directors": 6400,
     }
     check("row counts match data_notes.md scale", counts == expected, counts)
@@ -165,8 +165,8 @@ def imdb_enrichment(cur):
         SELECT kind, COUNT(*), COUNT(imdb_id), COUNT(birth_year), COUNT(death_year)
         FROM people GROUP BY kind ORDER BY kind
     """).fetchall()
-    check("people coverage: persons 10841/10096 id/6785 birth/4087 death; companies 305/71/0/0",
-          people_cov == [("company", 305, 71, 0, 0), ("person", 10841, 10096, 6785, 4087)],
+    check("people coverage: persons 10839/10108 id/6785 birth/4087 death; companies 306/71/0/0",
+          people_cov == [("company", 306, 71, 0, 0), ("person", 10839, 10108, 6785, 4087)],
           people_cov)
 
     bad_years = cur.execute(

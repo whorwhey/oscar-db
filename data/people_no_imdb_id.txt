@@ -1,21 +1,7 @@
 person_id	name	imdb_id_candidate	match_basis	narrowed_count	candidates
 # --- name-match candidates: 0 ---
-# --- ambiguous name matches: 132 ---
-814	Paramount		ambiguous:2	1	nm1837126(?-,composer|soundtrack)
-1282	Kurt Singer		ambiguous:4	1	nm13953904(?-,?)
-1484	Floyd Campbell		ambiguous:2	1	nm3003434(?-,?)
-1927	John Pond		ambiguous:4	1	nm14277758(?-,?)
-3785	PAUL KAUFMAN		ambiguous:6	1	nm6258895(?-,?)
-4400	David W. Spencer		ambiguous:2	1	nm6910478(?-,sound_department)
-4922	JIM GRAVES		ambiguous:2	1	nm5885297(?-,?)
-5265	Wally Mills		ambiguous:2	1	nm9775100(?-,?)
-5537	Colin Mossman		ambiguous:2	1	nm8967775(?-,?)
-5542	David Gilmartin		ambiguous:2	1	nm9134244(?-,?)
-5789	John Neary		ambiguous:2	1	nm16129535(?-,?)
+# --- ambiguous name matches: 118 ---
 5926	Ronan Carroll		ambiguous:2	1	nm3780090(?-,composer|soundtrack)
-6068	James Moultrie		ambiguous:2	1	nm13473556(?-,?)
-6164	Brian Dang		ambiguous:2	1	nm16295942(?-,?)
-6322	CARL LUDWIG		ambiguous:2	1	nm1157605(?-,miscellaneous|visual_effects)
 6430	GLENN SANDERS		ambiguous:2	1	nm7383728(?-,sound_department)
 6656	Anthony Seaman		ambiguous:2	1	nm10865218(?-,?)
 6777	Dave Sherwin		ambiguous:2	1	nm3016619(?-,sound_department)
