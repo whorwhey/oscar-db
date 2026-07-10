@@ -5,8 +5,9 @@ The database draws on two sources with distinct authority boundaries:
 1. **DLu's TSV** (`data/oscars.tsv`): which ceremonies/nominations/films/
    people exist and how they connect. Bootstrap-only.
 2. **IMDb non-commercial datasets** (`data/title.basics.tsv.gz`,
-   `data/name.basics.tsv.gz`): film titles, original titles, release years,
-   runtimes; people names, birth/death years. Re-runnable sync.
+   `data/name.basics.tsv.gz`, `data/title.crew.tsv.gz`): film titles,
+   original titles, release years, runtimes; people names, birth/death
+   years; film-director links. Re-runnable sync.
 
 Categories are not sourced at all — we author them (see "Categories:
 curated by us" below).
@@ -143,6 +144,31 @@ ranked for review in `data/people_no_imdb_id.txt` (regenerate:
 exact-name matching verified against knownForTitles, and are now regular
 enriched rows).
 
+## Source 4: IMDb title.crew (enrichment)
+
+`title.crew.tsv.gz` from datasets.imdbws.com, ~78MB, gitignored,
+re-downloadable; current snapshot 2026-07. One row per title (`tconst`);
+`directors` is a comma-separated list of `nconst`s (IMDb's listing order is
+not preserved — `film_directors` has no order column, matching every other
+junction table); `writers` is also present but unused for now.
+
+Populates `film_directors(film_id, person_id)`, joined on `tconst` =
+`films.imdb_id`. Directors who were never personally nominated don't exist
+in `people` yet at this point in the sync — they're INSERTed (`kind =
+'person'`), with name/birth_year/death_year sourced from the same
+name.basics snapshot used for Source 3. 1,508 such directors were added
+2026-07-09.
+
+Sync semantics (`src/enrich_imdb.py`, `sync_film_directors`, run after
+`sync_people` since it depends on the person imdb_id linkage that step
+builds): keyed on imdb_id throughout; re-runnable (`INSERT OR IGNORE` on
+the junction).
+
+Coverage: of 5,264 films with an imdb_id, 4 aren't in the title.crew
+snapshot at all and a further 74 are matched but list no directors (IMDb's
+own gaps, all pre-1960s titles) — 5,186 films end up with >=1 director
+linked, 6,397 links across 3,213 distinct directors.
+
 ## Categories: curated by us
 
 `data/categories_seed.tsv`: facts (nominations, films, people: thousands
@@ -175,16 +201,18 @@ Judgment calls in the mapping are documented in schema.md.
 - International Feature quirk: for that category the official "nominee" is
   historically the country itself (e.g. Parasite → South Korea), so some
   country data is extractable from nominee fields before full enrichment.
-- Directors are NOT a column on films: co-directors exist, and this dataset
-  only knows directors via Directing-category nominations. Derive by query for
-  now; add a `film_directors` junction during IMDb enrichment.
+- Directors are not a column on films: co-directors exist, so `film_directors`
+  is a junction table (Source 4), not derived by query — it also covers
+  directors who were never personally nominated.
 
 ## Scale (actual)
 
 ceremonies 98 · categories 66 (seeded) · nominations 12,137 · films 5,265 ·
-people 9,638 (9,337 persons + 301 companies) · nomination_films 10,879 ·
-nomination_people 18,823.
+people 11,146 (10,845 persons + 301 companies) · nomination_films 10,879 ·
+nomination_people 18,823 · film_directors 6,397.
 Films enrichment: imdb_id 5,264 · release_year 5,265 · original_title
-5,264 · runtime_minutes 5,252. People enrichment: imdb_id 8,588 persons
-(+71 company `co` IDs) · birth_year 5,620 · death_year 3,369.
-Total ~57k rows, a few MB — trivial for SQLite.
+5,264 · runtime_minutes 5,252. People enrichment: imdb_id 10,096 persons
+(+71 company `co` IDs) · birth_year 6,785 · death_year 4,087 — persons
+include 1,508 directors never individually nominated, added by the
+film_directors sync 2026-07-09.
+Total ~65k rows, a few MB — trivial for SQLite.

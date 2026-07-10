@@ -7,6 +7,9 @@
 #             persons with no imdb_id are counted only -- the curated
 #             review list data/people_no_imdb_id.txt is maintained
 #             separately and must not be clobbered here.
+#   film_directors <- title.crew: one row per (film, director). Directors
+#             never individually nominated don't exist in people yet --
+#             they're INSERTed here (name/birth/death from name.basics).
 # Datasets from https://datasets.imdbws.com/ -- download separately,
 # not committed (large, re-downloadable, see .gitignore).
 #
@@ -143,6 +146,71 @@ def sync_people(cur, tsv_gz_path="data/name.basics.tsv.gz"):
           f" -> data/name_review.txt")
 
 
+def sync_film_directors(cur, tsv_gz_path="data/title.crew.tsv.gz",
+                         people_tsv_gz_path="data/name.basics.tsv.gz"):
+    films = cur.execute(
+        "SELECT film_id, imdb_id FROM films WHERE imdb_id IS NOT NULL"
+    ).fetchall()
+    crew = load_matches(tsv_gz_path, "tconst", {i for _, i in films})
+
+    film_directors = {}  # film_id -> [nconst, ...]
+    unmatched_films = []
+    for film_id, imdb_id in films:
+        if imdb_id not in crew:
+            unmatched_films.append((film_id, imdb_id))
+            continue
+        directors = crew[imdb_id]["directors"]
+        film_directors[film_id] = directors.split(",") if directors else []
+
+    all_nconsts = {n for ds in film_directors.values() for n in ds}
+    known = dict(cur.execute(
+        "SELECT imdb_id, person_id FROM people"
+        " WHERE imdb_id IS NOT NULL AND kind = 'person'"
+    ).fetchall())
+    missing = all_nconsts - known.keys()
+
+    people_matches = load_matches(people_tsv_gz_path, "nconst", missing)
+    inserted = 0
+    unmatched_directors = []
+    for nconst in missing:
+        if nconst not in people_matches:
+            unmatched_directors.append(nconst)
+            continue
+        m = people_matches[nconst]
+        cur.execute(
+            "INSERT INTO people (name, imdb_id, kind, birth_year, death_year)"
+            " VALUES (?, ?, 'person', ?, ?)",
+            (m["primaryName"], nconst,
+             int(m["birthYear"]) if m["birthYear"] is not None else None,
+             int(m["deathYear"]) if m["deathYear"] is not None else None),
+        )
+        known[nconst] = cur.lastrowid
+        inserted += 1
+
+    links = 0
+    for film_id, nconsts in film_directors.items():
+        for nconst in nconsts:
+            if nconst not in known:
+                continue
+            cur.execute(
+                "INSERT OR IGNORE INTO film_directors (film_id, person_id) VALUES (?, ?)",
+                (film_id, known[nconst]),
+            )
+            links += cur.rowcount
+
+    print(f"\n-- film_directors (title.crew) --")
+    print(f"films with imdb_id: {len(films)}")
+    print(f"unmatched (imdb_id not found in title.crew): {len(unmatched_films)}")
+    for film_id, imdb_id in unmatched_films:
+        print(f"  {film_id}\t{imdb_id}")
+    print(f"director nconsts referenced: {len(all_nconsts)}")
+    print(f"new people inserted (directors never nominated): {inserted}")
+    print(f"director nconsts not found in name.basics: {len(unmatched_directors)}")
+    for nconst in unmatched_directors:
+        print(f"  {nconst}")
+    print(f"film_directors links inserted: {links}")
+
+
 def main(db_path="data/oscars.db"):
     conn = sqlite3.connect(db_path)
     conn.execute("PRAGMA foreign_keys = ON")
@@ -150,6 +218,7 @@ def main(db_path="data/oscars.db"):
 
     sync_films(cur)
     sync_people(cur)
+    sync_film_directors(cur)
 
     conn.commit()
     conn.close()

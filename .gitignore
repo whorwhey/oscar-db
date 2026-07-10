@@ -15,6 +15,7 @@ wheels/
 # Downloaded third-party datasets (large, re-downloadable)
 data/title.basics.tsv.gz
 data/name.basics.tsv.gz
+data/title.crew.tsv.gz
 
 # Generated reports (rewritten by src/enrich_imdb.py each run)
 data/name_review.txt

@@ -39,13 +39,13 @@ def structural(cur):
         table: cur.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
         for table in (
             "ceremonies", "categories", "nominations", "films", "people",
-            "nomination_films", "nomination_people",
+            "nomination_films", "nomination_people", "film_directors",
         )
     }
     expected = {
         "ceremonies": 98, "categories": 66, "nominations": 12137,
-        "films": 5265, "people": 9638, "nomination_films": 10879,
-        "nomination_people": 18823,
+        "films": 5265, "people": 11146, "nomination_films": 10879,
+        "nomination_people": 18823, "film_directors": 6397,
     }
     check("row counts match data_notes.md scale", counts == expected, counts)
 
@@ -158,12 +158,15 @@ def imdb_enrichment(cur):
 
     # People enrichment (name.basics, 2026-07 snapshot). Companies are absent
     # from name.basics by design: no imdb 'nm' id, no birth/death years.
+    # Persons count includes 1,508 directors never individually nominated,
+    # inserted by sync_film_directors (all matched name.basics, hence
+    # imdb_id/birth/death coverage rose too, not just the row count).
     people_cov = cur.execute("""
         SELECT kind, COUNT(*), COUNT(imdb_id), COUNT(birth_year), COUNT(death_year)
         FROM people GROUP BY kind ORDER BY kind
     """).fetchall()
-    check("people coverage: persons 9337/8588 id/5620 birth/3369 death; companies 301/71/0/0",
-          people_cov == [("company", 301, 71, 0, 0), ("person", 9337, 8588, 5620, 3369)],
+    check("people coverage: persons 10845/10096 id/6785 birth/4087 death; companies 301/71/0/0",
+          people_cov == [("company", 301, 71, 0, 0), ("person", 10845, 10096, 6785, 4087)],
           people_cov)
 
     bad_years = cur.execute(
@@ -183,6 +186,51 @@ def imdb_enrichment(cur):
     ]
     check("birth/death spot checks (Hepburn, Al Mayer Sr./Jr.)",
           people_spot == expected_people, people_spot)
+
+
+def film_directors_checks(cur):
+    section("film_directors (title.crew)")
+
+    # Coverage: 5,264 films have an imdb_id; 4 aren't in the 2026-07
+    # title.crew snapshot at all, and a further 74 are matched but list no
+    # directors (IMDb \N) -- both are gaps in IMDb's own data, not ours.
+    coverage = cur.execute("""
+        SELECT COUNT(*), COUNT(DISTINCT person_id) FROM film_directors
+    """).fetchone()
+    check("6397 links across 3213 distinct directors", coverage == (6397, 3213), coverage)
+
+    (linked_films,) = cur.execute(
+        "SELECT COUNT(DISTINCT film_id) FROM film_directors"
+    ).fetchone()
+    check("5186 distinct films have >=1 director linked", linked_films == 5186, linked_films)
+
+    (non_person,) = cur.execute("""
+        SELECT COUNT(*) FROM film_directors fd
+        JOIN people p ON p.person_id = fd.person_id
+        WHERE p.kind != 'person'
+    """).fetchone()
+    check("no film_directors row points at a company", non_person == 0, non_person)
+
+    # No Country for Old Men (tt0477348): known co-directed film, both
+    # already people via their own Directing nominations -- exercises the
+    # "existing person" path, not just newly-inserted directors.
+    coens = cur.execute("""
+        SELECT p.name FROM films f
+        JOIN film_directors fd ON fd.film_id = f.film_id
+        JOIN people p ON p.person_id = fd.person_id
+        WHERE f.imdb_id = 'tt0477348' ORDER BY p.name
+    """).fetchall()
+    check("No Country for Old Men directed by Joel Coen and Ethan Coen",
+          coens == [("Ethan Coen",), ("Joel Coen",)], coens)
+
+    # Jonathan Frakes directed Star Trek: First Contact (Oscar-nominated for
+    # Makeup) but was never himself a nominee -- exercises the
+    # never-nominated-director insert path (name/kind from name.basics).
+    frakes = cur.execute(
+        "SELECT name, kind FROM people WHERE imdb_id = 'nm0000408'"
+    ).fetchone()
+    check("director never nominated (Jonathan Frakes) inserted as kind='person'",
+          frakes == ("Jonathan Frakes", "person"), frakes)
 
 
 def spot_checks(cur):
@@ -283,6 +331,7 @@ def main():
     structural(cur)
     aggregate(cur)
     imdb_enrichment(cur)
+    film_directors_checks(cur)
     spot_checks(cur)
     round_trip(cur)
 

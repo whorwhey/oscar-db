@@ -18,10 +18,12 @@ Current data quality: all 5,265 films have `release_year`; all but one
 (an obscure 1943 army short) have an `imdb_id` and `original_title`;
 99.8% have `runtime_minutes` (the rest are missing at IMDb); film
 titles match IMDb's primaryTitle, with divergences reviewed by hand.
-Of the 9,337 persons, 92% have an `imdb_id` (the rest — mostly early
+Of the 10,845 persons, 93% have an `imdb_id` (the rest — mostly early
 Sci-Tech honorees — have no IMDb record); names match IMDb's
-primaryName; 5,620 have `birth_year` and 3,369 `death_year`, the
-remainder missing at IMDb.
+primaryName; 6,785 have `birth_year` and 4,087 `death_year`, the
+remainder missing at IMDb. 1,508 of these persons are directors who
+were never personally nominated, added via `film_directors` (all
+matched to IMDb).
 
 ### Database structure
 
@@ -41,12 +43,13 @@ in `schema.md`, per-source details in `data/data_notes.md`):
   `original_title` (IMDb's originalTitle, verbatim), `release_year`,
   `runtime_minutes`, `imdb_id`; `title_zh` and `douban_id` are
   reserved for planned enrichment.
-- **`people`** (9,638 = 9,337 persons + 301 companies) — nominees;
-  `kind` distinguishes persons from companies and other organizations
-  (early Best Picture went to studios; Sci-Tech awards go to firms;
-  wartime documentaries credited government agencies). `name` follows
-  IMDb's primaryName; `birth_year`/`death_year` from IMDb (`NULL`
-  death year means unknown *or* still alive). `name_zh` and
+- **`people`** (11,146 = 10,845 persons + 301 companies) — nominees,
+  plus directors linked via `film_directors` who were never nominated
+  themselves; `kind` distinguishes persons from companies and other
+  organizations (early Best Picture went to studios; Sci-Tech awards go
+  to firms; wartime documentaries credited government agencies). `name`
+  follows IMDb's primaryName; `birth_year`/`death_year` from IMDb
+  (`NULL` death year means unknown *or* still alive). `name_zh` and
   `douban_id` reserved.
 - **`nominations`** (12,137) — one row per nomination, with
   `is_winner`, category links, and verbatim `detail`/`note`/`citation`
@@ -54,8 +57,9 @@ in `schema.md`, per-source details in `data/data_notes.md`):
   to no film — that's by design, not missing data.
 - **Junctions** — `nomination_films` and `nomination_people` (a
   nomination can span several films/people and vice versa);
-  `film_countries`/`person_countries` exist but are empty pending
-  enrichment.
+  `film_directors` (5,186 films → 3,213 directors, from IMDb crew data,
+  independent of nomination history); `film_countries`/`person_countries`
+  exist but are empty pending enrichment.
 
 Conventions: `NULL` always means unknown/absent — there are no
 sentinel values. `imdb_id` is the stable external key (`tt...` films,
@@ -80,7 +84,7 @@ LIMIT 5;
 ### To be updated
 
 - Enrichment: Chinese titles/names (title_zh, name_zh), douban_id,
-  countries, film_directors
+  countries
 - Query interfaces, built as learning demos: canned queries, small CLI,
   text-to-SQL LLM demo
 - Rebuild/merge tooling for reapplying enrichment after a schema change
@@ -119,12 +123,12 @@ ceremony, 2025).
 
 Corrections and enrichment (film titles, `original_title`,
 `release_year`, `runtime_minutes`; people names, `birth_year`,
-`death_year`) come from
+`death_year`; `film_directors` links) come from
 [IMDb's non-commercial datasets](https://datasets.imdbws.com/)
-(`title.basics.tsv.gz`, `name.basics.tsv.gz`), joined on `imdb_id`.
-Snapshots downloaded 2026-07-07/08; the files are refreshed daily by
-IMDb and are not committed to this repo, so a fresh download may differ
-slightly from what the enrichment was run against.
+(`title.basics.tsv.gz`, `name.basics.tsv.gz`, `title.crew.tsv.gz`),
+joined on `imdb_id`. Snapshots downloaded 2026-07-07/09; the files are
+refreshed daily by IMDb and are not committed to this repo, so a fresh
+download may differ slightly from what the enrichment was run against.
 
 ## License
 

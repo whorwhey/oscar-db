@@ -24,10 +24,11 @@ data dictionary). Read both before schema or data work.
 
 - DLu's TSV: authority for which ceremonies/nominations/films/people
   exist and how they connect. Bootstrap-only; never routinely reloaded.
-- IMDb non-commercial datasets (title.basics.tsv.gz, name.basics.tsv.gz;
-  gitignored, re-downloadable from datasets.imdbws.com): authority for
-  film titles (primaryTitle), original_title, release_year,
-  runtime_minutes; people names (primaryName), birth_year, death_year.
+- IMDb non-commercial datasets (title.basics.tsv.gz, name.basics.tsv.gz,
+  title.crew.tsv.gz; gitignored, re-downloadable from
+  datasets.imdbws.com): authority for film titles (primaryTitle),
+  original_title, release_year, runtime_minutes; people names
+  (primaryName), birth_year, death_year; film_directors links.
   Joined on imdb_id.
 - Us: categories seed (66 rows, data/categories_seed.tsv), hand fixes
   for cases neither source gets right (see "Resolved data quirks").
@@ -110,17 +111,10 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 ## Roadmap
 
-1. film_directors junction (film_id, person_id) from IMDb crew data —
-   prefer title.crew.tsv.gz (one row per tconst, director nconsts;
-   small) over title.principals.tsv.gz (every credited role, huge).
-   Schema discussion (new table). Directors never nominated must be
-   INSERTed into people, which then outgrows "Oscar nominees" —
-   pinned counts in verify.py/data_notes must follow (name.basics
-   provides names for inserted rows).
-2. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
+1. Interface demos: canned queries, small CLI, text-to-SQL LLM demo.
    GUI = VS Code SQLite Viewer extension. Respect the Titanic
    disambiguation rule above.
-3. Remaining enrichment: title_zh/name_zh, douban_id, countries.
+2. Remaining enrichment: title_zh/name_zh, douban_id, countries.
    Open people-id review: data/people_no_imdb_id.txt (132 ambiguous,
    617 no-match).
 
@@ -134,3 +128,9 @@ death_year columns synced from name.basics; enrich_imdb.py split into
 sync_films/sync_people; name follows primaryName; ~180 ids recovered,
 25 duplicate rows merged, 230 orgs reclassified as companies, 13 wrong
 ids hand-fixed; src/people_id_review.py added.
+
+Done 2026-07-09: film_directors junction (film_id, person_id), from
+title.crew.tsv.gz via enrich_imdb.py's new sync_film_directors — 6,397
+links, 5,186 films, 3,213 directors; 1,508 directors never personally
+nominated INSERTed into people (kind='person', named/dated from
+name.basics); pinned counts in verify.py/data_notes/README updated.

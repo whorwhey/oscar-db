@@ -1,8 +1,9 @@
 -- Database schema for the Academy Awards (Oscars) 
 -- Design rationale: schema.md, data_notes.md
 -- Designed for SQLite3, but should be compatible with other RDBMS with minor adjustments.
--- Tables: ceremonies, categories, films, people, nominations, 
---         nomination_films, nomination_people, film_countries, person_countries
+-- Tables: ceremonies, categories, films, people, nominations,
+--         nomination_films, nomination_people, film_directors,
+--         film_countries, person_countries
 -- NOTE: run PRAGMA foreign_keys = ON; in every connection
 
 CREATE TABLE ceremonies (
@@ -64,6 +65,12 @@ CREATE TABLE nomination_people (    -- junction table between nominations and pe
     nomination_id INTEGER NOT NULL REFERENCES nominations(nomination_id),
     person_id INTEGER NOT NULL REFERENCES people(person_id),
     PRIMARY KEY (nomination_id, person_id)
+);
+
+CREATE TABLE film_directors (   -- junction table between films and directing people
+    film_id INTEGER NOT NULL REFERENCES films(film_id),
+    person_id INTEGER NOT NULL REFERENCES people(person_id),
+    PRIMARY KEY (film_id, person_id)
 );
 
 CREATE TABLE film_countries (   -- junction table between films and countries
