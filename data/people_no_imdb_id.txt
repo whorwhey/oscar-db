@@ -1,15 +1,9 @@
 person_id	name	imdb_id_candidate	match_basis	narrowed_count	candidates
 # --- name-match candidates: 0 ---
-# --- ambiguous name matches: 118 ---
+# --- ambiguous name matches: 112 ---
 5926	Ronan Carroll		ambiguous:2	1	nm3780090(?-,composer|soundtrack)
-6430	GLENN SANDERS		ambiguous:2	1	nm7383728(?-,sound_department)
-6656	Anthony Seaman		ambiguous:2	1	nm10865218(?-,?)
 6777	Dave Sherwin		ambiguous:2	1	nm3016619(?-,sound_department)
-6922	Peter Litwinowicz		ambiguous:2	1	nm5896212(?-,director|editor|writer)
-8291	Glenn Sanders		ambiguous:2	1	nm7383728(?-,sound_department)
 8564	Daniel Wilk		ambiguous:2	1	nm8648688(?-,camera_department)
-8732	Isaac Reuben		ambiguous:3	1	nm2210750(?-,miscellaneous)
-9286	Peter Janssens		ambiguous:5	1	nm13818009(?-,?)
 813	Ray Wilkinson		ambiguous:2	2	nm1443103(?-,art_department|art_director); nm5875095(?-,?)
 1755	ROLAND MILLER		ambiguous:4	2	nm13118909(?-,?); nm18672889(?-,?)
 1980	WILLIAM B. SMITH		ambiguous:2	2	nm18538363(?-,music_department); nm2841708(?-,costume_department|production_department|production_designer)

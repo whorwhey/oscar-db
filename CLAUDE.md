@@ -154,6 +154,26 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   Motion-Control Crane engineer the citation describes — conflicting
   evidence, not written. persons 10841 → 10839, companies 305 → 306,
   people total 11146 → 11145 (net -1 from the merge).
+- Second batch of the same narrowed-to-1 tier, same day: Isaac Reuben
+  (nm2210750) confirmed via a direct, non-coincidental link — Shotgun
+  Software (his 2019 Sci-Tech award) was founded specifically to build
+  a pipeline tool for Disney's The Wild, which is this candidate's only
+  IMDb credit. Anthony Seaman, Peter Janssens and Peter Litwinowicz
+  written on clean-elimination confidence (real person independently
+  confirmed to exist — LinkedIn engineering practice, Barco-adjacent
+  Flemish short film, RE:Vision Effects co-founder bio, respectively —
+  but the exact nconst-to-bio link isn't independently provable beyond
+  the namesake elimination). Daniel Wilk and Dave Sherwin left
+  unresolved despite the real honorees being well-documented (Adobe
+  Principal Scientist; Panavision Power Pod co-inventor) — their sole
+  surviving name.basics candidates carry credits (German TV camera
+  crew; a 1997 documentary's sound department) that don't fit those
+  careers, so the coincidental-namesake risk outweighs the elimination
+  logic. Person 6430 "GLENN SANDERS" (2002 Zaxcom award) merged into
+  8291 "Glenn Sanders" (2016 Zaxcom award, same co-honoree Howard
+  Stark both times) — another DLu per-nomination duplicate; nm7383728
+  assigned to the surviving row. persons 10839 → 10838, imdb_id 10108 →
+  10113, people total 11145 → 11144 (net -1 from the merge).
 
 ## Roadmap
 
