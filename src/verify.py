@@ -165,8 +165,8 @@ def imdb_enrichment(cur):
         SELECT kind, COUNT(*), COUNT(imdb_id), COUNT(birth_year), COUNT(death_year)
         FROM people GROUP BY kind ORDER BY kind
     """).fetchall()
-    check("people coverage: persons 10845/10096 id/6785 birth/4087 death; companies 301/71/0/0",
-          people_cov == [("company", 301, 71, 0, 0), ("person", 10845, 10096, 6785, 4087)],
+    check("people coverage: persons 10841/10096 id/6785 birth/4087 death; companies 305/71/0/0",
+          people_cov == [("company", 305, 71, 0, 0), ("person", 10841, 10096, 6785, 4087)],
           people_cov)
 
     bad_years = cur.execute(

@@ -120,6 +120,18 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   confirmed IMDb itself doesn't have the data (mostly obscure
   shorts/newsreels/documentaries) — not pursuing title.principals.tsv.gz
   for these, low yield for the size/effort.
+- 4 more id-less "person" rows reclassified kind='company' 2026-07-10,
+  found while triaging data/people_no_imdb_id.txt's no-match group: Rko
+  Radio Pictures, Rko Radio, PARAMOUNT PICTURES, Paramount Pictures —
+  studio names missed by the reclassification regex (no "pictures" or
+  "radio" keyword). companies 301 → 305, persons 10845 → 10841.
+  title.principals.tsv.gz's category field checked empirically (live
+  ~640K-row sample) and confirmed closed to
+  actor/actress/writer/director/cinematographer/producer/editor/composer/
+  production_designer/self/archive_footage/casting_director/
+  archive_sound — no technical-crew category exists, so it can't help
+  disambiguate the Sci-Tech engineers filling data/people_no_imdb_id.txt;
+  ruled out rather than downloading the 773MB file.
 
 ## Roadmap
 

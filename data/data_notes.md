@@ -214,7 +214,7 @@ Judgment calls in the mapping are documented in schema.md.
 ## Scale (actual)
 
 ceremonies 98 · categories 66 (seeded) · nominations 12,137 · films 5,265 ·
-people 11,146 (10,845 persons + 301 companies) · nomination_films 10,879 ·
+people 11,146 (10,841 persons + 305 companies) · nomination_films 10,879 ·
 nomination_people 18,823 · film_directors 6,400.
 Films enrichment: imdb_id 5,264 · release_year 5,265 · original_title
 5,264 · runtime_minutes 5,252. People enrichment: imdb_id 10,096 persons
