@@ -203,6 +203,33 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   by that gap; fixed, which regenerates a few new narrowed-to-1 rows not
   yet reviewed. persons 10835/imdb_id 10127, companies 308, people total
   11143 (net -1 from the merge, -2 from the company reclassifications).
+- User review 2026-07-11 rejected most of the two batches above as
+  unreliable: elimination-only matching (no independent evidence beyond
+  "sole plausible candidate after excluding actors/wrong-era namesakes")
+  isn't trustworthy enough to write, full stop — same lesson already
+  learned from Ronan Carroll/Daniel Wilk/Dave Sherwin, generalized.
+  Reverted to NULL: all 26 "elimination-only" imdb_ids from the second
+  batch (Wally Mills, John Jurgens, Martin Werner, Steve Linn, John
+  Ellwood, Greg Smokler, Floyd Campbell, Colin Mossman, David Gilmartin,
+  David W. Spencer, John Pond, Paul Kaufman, Kurt Singer, James
+  Moultrie, Brian Dang, Jim Graves, Anthony Seaman, Peter Janssens,
+  Peter Litwinowicz, Ralph Chapman, Gary Stadler, Glenn Kennel, Paul
+  Tate, Brent Bell, Chris Huntley, Dominique Boisvert). Also reverted:
+  the Glenn Sanders merge (6430/8291) — same-co-honoree-twice was judged
+  not solid enough either; split back into two separate person rows,
+  both NULL, 6430 re-inserted with its original person_id and its 2002
+  nomination repointed back to it. Only the 5 rows with genuinely
+  independent confirmation survive: John Neary (Wikipedia bio naming
+  the exact award), Isaac Reuben (Shotgun/Disney's-The-Wild founding
+  story), Thomas Knoll (subject of the documentary that's his
+  candidate's only IMDb credit), Jonathan Moulin (candidate's own IMDb
+  credits list ILM staff roles on the exact films cited), and the Carl
+  Ludwig merge (his own career bio spans both awards). Working record
+  of the reasoning kept in data/people_review_pending.md (untracked).
+  persons 10836/imdb_id 10100, companies 308/71, people total 11144.
+  Lesson: profession/era elimination alone, without a positive external
+  or cross-citation confirmation, should not be written — flag as
+  unresolved instead, even at the cost of leaving the row NULL.
 
 ## Roadmap
 
