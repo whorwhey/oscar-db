@@ -233,8 +233,24 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 ## Roadmap
 
-1. Finalize data/people_no_imdb_id.txt (next chat): 132 ambiguous name
-   matches + 617 no-match (610 + 7 company-looking) still open.
+1. data/people_no_imdb_id.txt, paused 2026-07-11: of 736 still-open
+   persons, only 5 gained a genuinely-confirmed imdb_id this round (see
+   "Resolved data quirks"); everything else that was written on
+   elimination-only logic got reverted to NULL on review — that method
+   isn't trustworthy without independent confirmation, so it's not
+   being applied further as a bulk technique. What's left: 123
+   ambiguous (50 narrow to 1-3 candidates, still individually
+   researchable if someone wants to keep going one at a time; 73 narrow
+   to 4+ or got over-filtered to 0, essentially undecidable without
+   more signal than IMDb gives), 606 pure no-match (mostly obscure
+   pre-1960s Sci-Tech honorees genuinely absent from IMDb — an
+   accepted, expected, likely-permanent gap, not a bug), 7 no-match
+   company-looking rows (identifiable by name, just haven't been
+   reviewed individually). Not resuming as a bulk effort; revisit
+   per-row if there's a specific reason to (e.g. researching one
+   person for another purpose). Companies have an entirely separate,
+   untouched gap: 237 of 308 lack an imdb_id, and no tooling has ever
+   looked at them (people_id_review.py is persons-only).
 2. Interface demos (chat after that): canned queries, small CLI,
    text-to-SQL LLM demo. GUI = VS Code SQLite Viewer extension. Respect
    the Titanic disambiguation rule above. User wants this framed as a
@@ -274,3 +290,19 @@ name.basics); pinned counts in verify.py/data_notes/README updated. 3
 of 4 IMDb crew-file gaps hand-fixed (see "Resolved data quirks"); 74
 films with a genuinely-unknown-to-IMDb director confirmed by spot-check,
 left as-is.
+
+Paused 2026-07-11: first real pass at roadmap item 1 (ambiguous-name
+imdb_id review). Net result: 6 more studio/company nominees
+reclassified kind='company' (10 total across the session, see
+"Resolved data quirks"), 5 imdb_ids resolved with independent
+confirmation (John Neary, Isaac Reuben, Thomas Knoll, Jonathan Moulin,
+Carl Ludwig merge), 1 duplicate-person merge kept without an id (Ruben
+Avila). The larger finding was methodological, not numerical: matching
+by elimination alone (sole candidate left after excluding wrong-era/
+wrong-profession namesakes) produced 26+ plausible-looking but
+unconfirmed ids, all reverted on review rather than trusted — see the
+2026-07-11 entry in "Resolved data quirks" for the full account. People
+enrichment coverage barely moved (imdb_id 10,096 → 10,100 of 10,836
+persons) but the review file (data/people_no_imdb_id.txt) is now
+better organized (profession/plausibility-narrowed, sorted
+easiest-first) for whoever picks this up again.
