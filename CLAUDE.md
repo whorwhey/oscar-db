@@ -66,8 +66,10 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   reports (not writes) title/name divergence from primaryTitle/
   primaryName — currently 0 for both.
 - src/people_id_review.py: regenerates data/people_no_imdb_id.txt, the
-  ranked review list of persons without an imdb_id (749; candidates by
-  exact-name match against name.basics, verified via knownForTitles).
+  ranked review list of persons without an imdb_id (736; candidates by
+  exact-name match against name.basics, narrowed by profession +
+  birth/death plausibility for the filmless Sci-Tech rows — see roadmap
+  item 1 and "Resolved data quirks" for how much of that's trustworthy).
 
 ## Resolved data quirks (reference, all handled)
 

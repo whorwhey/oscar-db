@@ -136,13 +136,16 @@ design):
 Sync semantics: identical to title.basics (keyed on imdb_id, re-runnable,
 an IMDb `\N` never overwrites a db value).
 
-Coverage: 8,588 of 9,337 persons have an imdb_id, every one matching a
-name.basics row; 5,620 have birth_year, 3,369 death_year. The 749 ID-less
+Coverage: 10,100 of 10,836 persons have an imdb_id, every one matching a
+name.basics row; 6,785 have birth_year, 4,087 death_year. The 736 ID-less
 persons — mostly pre-1960s SciTech honorees with no IMDb record — are
 ranked for review in `data/people_no_imdb_id.txt` (regenerate:
 `uv run src/people_id_review.py`; ~180 IDs were recovered 2026-07-09 by
-exact-name matching verified against knownForTitles, and are now regular
-enriched rows).
+exact-name matching verified against knownForTitles, and 5 more
+2026-07-11 by individual research, see CLAUDE.md "Resolved data
+quirks"; a further ~26 recovered the same way were reverted after
+review — elimination-only matching without independent confirmation
+isn't trusted here).
 
 ## Source 4: IMDb title.crew (enrichment)
 
