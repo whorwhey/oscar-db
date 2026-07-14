@@ -60,8 +60,6 @@ nominations                               -- main table; one row per source row
 
 nomination_films   (nomination_id FK, film_id FK)
 nomination_people  (nomination_id FK, person_id FK)
-film_countries     (film_id FK, country text)     -- empty; enrichment later
-person_countries   (person_id FK, country text)   -- empty; enrichment later
 
 ## Category hierarchy
 

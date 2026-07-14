@@ -2,8 +2,7 @@
 -- Design rationale: schema.md, data_notes.md
 -- Designed for SQLite3, but should be compatible with other RDBMS with minor adjustments.
 -- Tables: ceremonies, categories, films, people, nominations,
---         nomination_films, nomination_people, film_directors,
---         film_countries, person_countries
+--         nomination_films, nomination_people, film_directors
 -- NOTE: run PRAGMA foreign_keys = ON; in every connection
 
 CREATE TABLE ceremonies (
@@ -71,16 +70,4 @@ CREATE TABLE film_directors (   -- junction table between films and directing pe
     film_id INTEGER NOT NULL REFERENCES films(film_id),
     person_id INTEGER NOT NULL REFERENCES people(person_id),
     PRIMARY KEY (film_id, person_id)
-);
-
-CREATE TABLE film_countries (   -- junction table between films and countries
-    film_id INTEGER NOT NULL REFERENCES films(film_id),
-    country TEXT NOT NULL,
-    PRIMARY KEY (film_id, country)
-);
-
-CREATE TABLE person_countries (  -- junction table between people and countries
-    person_id INTEGER NOT NULL REFERENCES people(person_id),
-    country TEXT NOT NULL,
-    PRIMARY KEY (person_id, country)
 );

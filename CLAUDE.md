@@ -235,37 +235,11 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 ## Roadmap
 
-1. data/people_no_imdb_id.txt, paused 2026-07-11: of 736 still-open
-   persons, only 5 gained a genuinely-confirmed imdb_id this round (see
-   "Resolved data quirks"); everything else that was written on
-   elimination-only logic got reverted to NULL on review — that method
-   isn't trustworthy without independent confirmation, so it's not
-   being applied further as a bulk technique. What's left: 123
-   ambiguous (50 narrow to 1-3 candidates, still individually
-   researchable if someone wants to keep going one at a time; 73 narrow
-   to 4+ or got over-filtered to 0, essentially undecidable without
-   more signal than IMDb gives), 606 pure no-match (mostly obscure
-   pre-1960s Sci-Tech honorees genuinely absent from IMDb — an
-   accepted, expected, likely-permanent gap, not a bug), 7 no-match
-   company-looking rows (identifiable by name, just haven't been
-   reviewed individually). Not resuming as a bulk effort; revisit
-   per-row if there's a specific reason to (e.g. researching one
-   person for another purpose). Companies have an entirely separate,
-   untouched gap: 237 of 308 lack an imdb_id, and no tooling has ever
-   looked at them (people_id_review.py is persons-only).
-2. Interface demos (chat after that): canned queries, small CLI,
+1. Interface demos (chat after that): canned queries, small CLI,
    text-to-SQL LLM demo. GUI = VS Code SQLite Viewer extension. Respect
    the Titanic disambiguation rule above. User wants this framed as a
    lecture + demo, not just a code drop.
-3. Remaining enrichment: title_zh/name_zh, douban_id, countries. For
-   countries specifically, agreed approach (2026-07-09): use
-   title.akas.tsv.gz, the row per title with isOriginalTitle=1, to get
-   both region and language in one shot — but check empirically first
-   whether that row actually carries non-null region/language (may
-   instead be null there, with real values only on the *localized*
-   akas rows). Validate against the small ground-truth set we already
-   have for free: International Feature Film nominees, where the
-   official "nominee" is the country itself (data_notes.md).
+2. Remaining enrichment: title_zh/name_zh, douban_id.
 
 Rebuild/merge tooling (previously a possible future item): dropped by
 agreement 2026-07-09 — the db itself is the durable artifact going
@@ -308,3 +282,53 @@ enrichment coverage barely moved (imdb_id 10,096 → 10,100 of 10,836
 persons) but the review file (data/people_no_imdb_id.txt) is now
 better organized (profession/plausibility-narrowed, sorted
 easiest-first) for whoever picks this up again.
+
+Closed 2026-07-14: roadmap item 1 (people/company imdb_id enrichment)
+retired as a bulk effort, by user decision — not worth further time.
+Remaining gaps left NULL permanently: 736 persons without an imdb_id
+(606 pure no-match, mostly obscure pre-1960s Sci-Tech honorees
+genuinely absent from IMDb; 123 ambiguous, narrowed but never
+confirmed; 7 no-match company-looking rows), and 237 of 308 companies
+(an entirely separate, never-tooled gap — people_id_review.py is
+persons-only and never looked at companies). Both are accepted,
+expected, permanent gaps, not bugs. Revisit only per-row if there's a
+specific reason (e.g. researching one person/company for another
+purpose) — not resuming as a bulk technique. The 71 companies that do
+have an imdb_id got it "for free" from DLu's original bootstrap TSV:
+early-era Best Picture nominations sometimes credited the production
+company itself, and DLu's scrape carried IMDb's `co`-prefixed company
+ids for those rows; `ingest.py`'s `derive_kind()` auto-classifies any
+id starting with "co" as kind='company' at bootstrap. The other 237
+were reclassified by hand later (name-pattern review, 2026-07-09/10)
+from DLu rows that had no id at all — not autodetected, and never
+imdb-matched.
+
+Dropped 2026-07-14: country/language enrichment via title.akas.tsv.gz,
+the approach roadmap item 3 had proposed 2026-07-09 (isOriginalTitle=1
+row -> region/language). Downloaded the file (~480MB) and checked
+empirically, as the roadmap note said to: 0 of 5,264 films' isOriginalTitle=1
+row carries a non-null region or language — that row only ever holds
+title text, never provenance, with no exceptions found. Tried a second
+angle (match the original-title *text* against all akas rows, original
+flag or not, and treat the matched rows' regions as a country signal):
+still unreliable, and worse than merely ambiguous. English-titled films
+(the majority of the catalog, since most nominees are American) match
+2+ regions ~79% of the time because the same English text is reused
+verbatim across every English-speaking market (e.g. "The Graduate"
+matches AU/CA/GB/IE/IN/NL/NZ/PH/SG/US/ZA), so text overlap tracks
+shared language, not country of production. Restricting to non-English/
+distinctive titles helps (48% still 2+ regions, down from 79%) but
+surfaces a worse failure: silent wrong answers, not just ambiguity —
+tt5607714 (Testről és lélekről, Hungarian) resolves to a clean single
+match on MX only because IMDb's own isOriginalTitle=1 row has a
+transliteration slip (ö for ő) that happens to coincide with a Mexican
+listing's identical slip, while the correctly-spelled Hungarian row
+(region=HU) doesn't string-match at all. No independently-verifiable
+signal for country/language survives in title.akas for this catalog;
+per the same standard applied to the ambiguous-name person-id batch
+(elimination/inference without independent confirmation isn't trusted
+here), this is being dropped rather than written speculatively. The
+`film_countries`/`person_countries` junction tables (always empty)
+were dropped from schema.sql and data/oscars.db; title_zh remains
+planned (straightforward from title.akas: rows with region='CN'), but
+country/language is not being pursued further absent a better source.

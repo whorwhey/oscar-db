@@ -137,8 +137,6 @@ def has_enrichment_data(db_path) -> bool:
             "OR douban_id IS NOT NULL OR release_year IS NOT NULL LIMIT 1",
             "SELECT 1 FROM people WHERE name_zh IS NOT NULL "
             "OR douban_id IS NOT NULL LIMIT 1",
-            "SELECT 1 FROM film_countries LIMIT 1",
-            "SELECT 1 FROM person_countries LIMIT 1",
         ]
         return any(conn.execute(sql).fetchone() for sql in checks)
     finally:
@@ -154,7 +152,7 @@ def main(
     if not force and has_enrichment_data(db_path):
         raise RuntimeError(
             f"{db_path} already has enrichment data (title_zh/name_zh/"
-            "douban_id/release_year/countries) -- refusing to wipe it. "
+            "douban_id/release_year) -- refusing to wipe it. "
             "Back it up, then rerun with force=True (or --force) once "
             "you've confirmed you can reapply the enrichment afterward."
         )

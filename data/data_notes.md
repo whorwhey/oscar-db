@@ -203,13 +203,6 @@ Judgment calls in the mapping are documented in schema.md.
   (manual or Douban enrichment).
 - `douban_id` NULL for now; Douban has no official API — future scraping lesson.
   Some films will never have one (too obscure, or censored).
-- **Countries are junctions** (`film_countries`, `person_countries`), not
-  columns: co-productions and dual citizenship are common. Empty until
-  enrichment. For people, "nationality" is messy — IMDb gives birthplace, not
-  citizenship; Wikidata is the better future source.
-- International Feature quirk: for that category the official "nominee" is
-  historically the country itself (e.g. Parasite → South Korea), so some
-  country data is extractable from nominee fields before full enrichment.
 - Directors are not a column on films: co-directors exist, so `film_directors`
   is a junction table (Source 4), not derived by query — it also covers
   directors who were never personally nominated.
