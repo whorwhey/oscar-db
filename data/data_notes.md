@@ -178,6 +178,40 @@ already `people` rows from their own nominations — see CLAUDE.md "Resolved
 data quirks"); Wings (tt0018578) remains unresolved. 5,189 films end up
 with >=1 director linked, 6,400 links across 3,213 distinct directors.
 
+## Source 5: IMDb title.akas (enrichment)
+
+`title.akas.tsv.gz` from datasets.imdbws.com, ~480MB, gitignored,
+re-downloadable; current snapshot 2026-07. One row per (title, region,
+language, ...) alternate-title combination; `titleId` = `films.imdb_id`.
+Rows filtered to `region = 'CN'` — the source for `films.title_zh` (a
+different angle on this same file, matching original-title text across
+all regions to infer country/language, was tried and dropped 2026-07-14,
+see CLAUDE.md; that finding doesn't apply here since this is a direct
+region filter, not text matching).
+
+Not every film has a CN row, and CN rows aren't reliably real Chinese
+text — IMDb tags some pinyin/English rows `region=CN` too (e.g. Solo:
+A Star Wars Story's CN row is "Ranger Solo", not Chinese at all).
+Written to `films.title_zh` (`src/enrich_imdb.py`, `sync_title_zh`) when:
+1. exactly one CN row exists and it contains CJK text, or
+2. 2+ CN rows exist but exactly one is `types='imdbDisplay'` (IMDb's own
+   designated display title for the region) *and* that row contains CJK
+   text — the CJK check applies here too, since a lone imdbDisplay row
+   can itself be pinyin (Crouching Tiger, Hidden Dragon's only imdbDisplay
+   row is "Wo hu cang long"; the real title, 卧虎藏龙, is typed
+   `alternative` and had to be hand-picked — see CLAUDE.md).
+
+Anything left ambiguous by those two rules (no CN row, a lone non-CJK
+row, or 0/2+ qualifying imdbDisplay rows) is left NULL. 1,311 films were
+written algorithmically 2026-07-17 (1,017 + 294); 13 more were reviewed
+and hand-picked from their candidate rows (data/title_zh_review.md,
+CLAUDE.md "Resolved data quirks"), one of them (Maleficent: Mistress of
+Evil) with a value that isn't in title.akas at all — a genuine hand
+entry, not IMDb-sourced. films.title_zh filled: 1,324 of 5,264 films
+with an imdb_id; the remaining 3,940 are a permanent, expected gap, not
+being pursued further as a bulk technique (same posture as the person/
+company imdb_id gaps closed 2026-07-14).
+
 ## Categories: curated by us
 
 `data/categories_seed.tsv`: facts (nominations, films, people: thousands
@@ -199,8 +233,9 @@ Judgment calls in the mapping are documented in schema.md.
 - **NULL means unknown/absent.** No sentinel values. Display fallback
   (e.g. show English title when no Chinese one exists) is query-time logic:
   `COALESCE(title_zh, title)` — never stored.
-- `title_zh` / `name_zh` hold Simplified Chinese (zh-Hans). NULL until filled
-  (manual or Douban enrichment).
+- `title_zh` / `name_zh` hold Simplified Chinese (zh-Hans). `title_zh`
+  filled 2026-07-17 from IMDb title.akas where unambiguous, see Source 5;
+  `name_zh` still NULL, planned from Douban.
 - `douban_id` NULL for now; Douban has no official API — future scraping lesson.
   Some films will never have one (too obscure, or censored).
 - Directors are not a column on films: co-directors exist, so `film_directors`

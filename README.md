@@ -41,8 +41,9 @@ in `schema.md`, per-source details in `data/data_notes.md`):
   name as written that year.
 - **`films`** (5,265) — `title` (follows IMDb's primaryTitle),
   `original_title` (IMDb's originalTitle, verbatim), `release_year`,
-  `runtime_minutes`, `imdb_id`; `title_zh` and `douban_id` are
-  reserved for planned enrichment.
+  `runtime_minutes`, `imdb_id`; `title_zh` (Simplified Chinese, from
+  IMDb's title.akas where unambiguous — 1,324 of 5,264 filled) and
+  `douban_id` (reserved for planned enrichment).
 - **`people`** (11,144 = 10,836 persons + 308 companies) — nominees,
   plus directors linked via `film_directors` who were never nominated
   themselves; `kind` distinguishes persons from companies and other
@@ -82,7 +83,7 @@ LIMIT 5;
 
 ### To be updated
 
-- Enrichment: Chinese titles/names (title_zh, name_zh), douban_id
+- Enrichment: Chinese names (name_zh), douban_id (title_zh done)
 - Query interfaces, built as learning demos: canned queries, small CLI,
   text-to-SQL LLM demo
 

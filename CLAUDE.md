@@ -232,6 +232,32 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   Lesson: profession/era elimination alone, without a positive external
   or cross-citation confirmation, should not be written — flag as
   unresolved instead, even at the cost of leaving the row NULL.
+- title_zh enrichment 2026-07-17 from title.akas.tsv.gz (region='CN'):
+  written when a film has exactly one CN row containing CJK text, or 2+
+  CN rows but exactly one is types='imdbDisplay' *and* contains CJK text
+  (a lone imdbDisplay row can itself be pinyin/English, not just a lone
+  plain row — see Crouching Tiger below). 1,311 films written this way
+  (1,017 single-row + 294 imdbDisplay tie-break). 13 films stayed
+  ambiguous after that rule and were hand-reviewed/hand-picked from
+  their candidate CN rows (data/title_zh_review.md has the full
+  candidate lists): Of Human Bondage 人生的枷锁, Ninotchka 妮诺契卡, The
+  Young Philadelphians 文君怨, The V.I.P.s 大人物, Bonnie and Clyde
+  雌雄大盗, North Country 决不让步, The Class 墙壁之间, Godzilla Minus
+  One 哥斯拉-1.0, Shaun the Sheep Movie 小羊肖恩, Parasite 寄生虫, Better
+  Days 少年的你. Crouching Tiger, Hidden Dragon (tt0190332) also hand-
+  picked: its sole imdbDisplay row is pinyin ("Wo hu cang long"), so the
+  algorithm skipped it even though a clean CJK alternative-typed row
+  (卧虎藏龙) existed — this pattern (checked empirically, only this one
+  case in the dataset) is why the CJK filter applies to the imdbDisplay
+  pick too, not just lone rows. Maleficent: Mistress of Evil (tt4777008)
+  is a genuine hand-entry exception: 沉睡魔咒2 is not present anywhere in
+  its title.akas CN rows (which only have a pinyin and an English row) —
+  entered from outside knowledge, not IMDb-sourced, unlike every other
+  title_zh value. films.title_zh filled: 1,324 of 5,264 imdb_id'd films;
+  3,940 remain NULL (no CN row at all, or a single/imdbDisplay CN row
+  with no real CJK text) — same permanent-gap posture as the person/
+  company imdb_id gaps closed 2026-07-14, not being pursued further as
+  a bulk technique.
 
 ## Roadmap
 
@@ -239,7 +265,8 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
    text-to-SQL LLM demo. GUI = VS Code SQLite Viewer extension. Respect
    the Titanic disambiguation rule above. User wants this framed as a
    lecture + demo, not just a code drop.
-2. Remaining enrichment: title_zh/name_zh, douban_id.
+2. Remaining enrichment: name_zh, douban_id (title_zh done 2026-07-17,
+   see below).
 
 Rebuild/merge tooling (previously a possible future item): dropped by
 agreement 2026-07-09 — the db itself is the durable artifact going
@@ -302,6 +329,15 @@ id starting with "co" as kind='company' at bootstrap. The other 237
 were reclassified by hand later (name-pattern review, 2026-07-09/10)
 from DLu rows that had no id at all — not autodetected, and never
 imdb-matched.
+
+Done 2026-07-17: title_zh (roadmap item 2, first half) from
+title.akas.tsv.gz region='CN', via enrich_imdb.py's new sync_title_zh —
+1,324 of 5,264 films filled (1,017 single-CN-row + 294 imdbDisplay
+tie-break, algorithmic; 13 hand-picked after review). 3,940 remain NULL
+as a permanent, expected gap (no CN row, or no real CJK text among the
+candidate rows) — see "Resolved data quirks" for the full accounting
+and the Crouching Tiger/Maleficent edge cases. name_zh and douban_id
+still open.
 
 Dropped 2026-07-14: country/language enrichment via title.akas.tsv.gz,
 the approach roadmap item 3 had proposed 2026-07-09 (isOriginalTitle=1

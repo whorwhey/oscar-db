@@ -1,6 +1,18 @@
 # Re-runnable IMDb sync.
 #   films  <- title.basics: release_year, original_title, runtime_minutes;
 #             reports (does not write) title divergence from primaryTitle.
+#   films  <- title.akas (region='CN'): title_zh. Written when: (a) exactly
+#             one CN row exists and it contains CJK text, or (b) 2+ CN rows
+#             exist but exactly one is types='imdbDisplay' and contains CJK
+#             text (IMDb's own designated display title for the region).
+#             The CJK filter applies in both cases -- it's not just a
+#             pinyin/English passthrough guard on lone rows, a lone
+#             imdbDisplay row can itself be pinyin (see Crouching Tiger,
+#             Hidden Dragon in "Resolved data quirks"). Anything still
+#             ambiguous after that (zero CN rows, a non-CJK lone row, or
+#             0/2+ qualifying imdbDisplay rows) is left NULL and counted;
+#             15 such films were hand-reviewed and hand-fixed 2026-07-17,
+#             see data/title_zh_review.md and "Resolved data quirks".
 #   people <- name.basics:  birth_year, death_year (kind='person' only;
 #             companies are absent from name.basics by design);
 #             reports (does not write) name divergence from primaryName;
@@ -20,7 +32,10 @@
 # overwrites what the db already holds (e.g. hand-entered fixes).
 
 import gzip
+import re
 import sqlite3
+
+CJK_RE = re.compile(r"[一-鿿]")
 
 
 def normalize(s: str) -> str:
@@ -44,6 +59,28 @@ def load_matches(tsv_gz_path, id_column, wanted_ids: set[str]) -> dict[str, dict
                 continue
             matches[row_id] = {name: to_none(field) for name, field in zip(header, fields)}
     return matches
+
+
+def load_akas_cn(tsv_gz_path, wanted_ids: set[str]) -> dict[str, list[tuple[str, str | None]]]:
+    """titleId -> [(title, types), ...] for each region='CN' row, for ids in wanted_ids."""
+    rows: dict[str, list[tuple[str, str | None]]] = {}
+    with gzip.open(tsv_gz_path, "rt", encoding="utf-8") as f:
+        header = f.readline().rstrip("\n").split("\t")
+        id_index = header.index("titleId")
+        title_index = header.index("title")
+        region_index = header.index("region")
+        types_index = header.index("types")
+        for line in f:
+            fields = line.rstrip("\n").split("\t")
+            if fields[region_index] != "CN":
+                continue
+            row_id = fields[id_index]
+            if row_id not in wanted_ids:
+                continue
+            rows.setdefault(row_id, []).append(
+                (fields[title_index], to_none(fields[types_index]))
+            )
+    return rows
 
 
 def write_report(path, header, rows):
@@ -100,6 +137,52 @@ def sync_films(cur, tsv_gz_path="data/title.basics.tsv.gz"):
     print(f"title mismatches (report only, not written): {len(title_mismatches)}")
     for film_id, ours, theirs, imdb_id in title_mismatches:
         print(f"  {film_id}\t{imdb_id}\tours={ours!r}\tIMDb={theirs!r}")
+
+
+def sync_title_zh(cur, tsv_gz_path="data/title.akas.tsv.gz"):
+    films = cur.execute(
+        "SELECT film_id, imdb_id FROM films WHERE imdb_id IS NOT NULL AND title_zh IS NULL"
+    ).fetchall()
+    cn_rows = load_akas_cn(tsv_gz_path, {i for _, i in films})
+
+    written_single = 0
+    written_display = 0
+    no_cn_row = 0
+    non_cjk_single = 0
+    ambiguous = 0
+    for film_id, imdb_id in films:
+        rows = cn_rows.get(imdb_id, [])
+        if len(rows) == 0:
+            no_cn_row += 1
+        elif len(rows) == 1:
+            title, _types = rows[0]
+            if CJK_RE.search(title):
+                cur.execute("UPDATE films SET title_zh = ? WHERE film_id = ?",
+                            (title, film_id))
+                written_single += 1
+            else:
+                non_cjk_single += 1
+        else:
+            # Tie-break: IMDb's own designated display title for the region,
+            # still subject to the same CJK filter (a lone imdbDisplay row
+            # can itself be a pinyin/English passthrough -- see Crouching
+            # Tiger, Hidden Dragon in "Resolved data quirks").
+            display = [t for t, types in rows if types == "imdbDisplay" and CJK_RE.search(t)]
+            if len(display) == 1:
+                cur.execute("UPDATE films SET title_zh = ? WHERE film_id = ?",
+                            (display[0], film_id))
+                written_display += 1
+            else:
+                ambiguous += 1
+
+    print(f"\n-- films.title_zh (title.akas, region=CN) --")
+    print(f"films with imdb_id and title_zh still NULL: {len(films)}")
+    print(f"written (exactly 1 CN row, contains CJK text): {written_single}")
+    print(f"written (2+ CN rows, exactly 1 typed imdbDisplay with CJK text): {written_display}")
+    print(f"skipped, no CN row at all: {no_cn_row}")
+    print(f"skipped, single CN row but no CJK text (pinyin/English passthrough): {non_cjk_single}")
+    print(f"skipped, 2+ CN rows, still ambiguous (0 or 2+ qualifying imdbDisplay rows):"
+          f" {ambiguous} -- see data/title_zh_review.md")
 
 
 def sync_people(cur, tsv_gz_path="data/name.basics.tsv.gz"):
@@ -217,6 +300,7 @@ def main(db_path="data/oscars.db"):
     cur = conn.cursor()
 
     sync_films(cur)
+    sync_title_zh(cur)
     sync_people(cur)
     sync_film_directors(cur)
 
