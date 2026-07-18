@@ -22,7 +22,7 @@ official Academy site (awardsdatabase.oscars.org) with IMDb IDs merged in.
 Not official; spot-check against the official site when in doubt.
 
 Bootstrap-only: ingested once by `src/ingest.py`, never routinely reloaded —
-`data/oscars.db` is the maintained artifact, and reloading would destroy
+`oscars.db` is the maintained artifact, and reloading would destroy
 enrichment (ingest.py refuses to run on an enriched db without --force).
 
 ### File quirks (`data/oscars.tsv`)
@@ -138,9 +138,10 @@ an IMDb `\N` never overwrites a db value).
 
 Coverage: 10,100 of 10,836 persons have an imdb_id, every one matching a
 name.basics row; 6,785 have birth_year, 4,087 death_year. The 736 ID-less
-persons — mostly pre-1960s SciTech honorees with no IMDb record — are
-ranked for review in `data/people_no_imdb_id.txt` (regenerate:
-`uv run src/people_id_review.py`; ~180 IDs were recovered 2026-07-09 by
+persons — mostly pre-1960s SciTech honorees with no IMDb record — were
+a bulk review effort (roadmap item 1, closed 2026-07-14, not resumed as
+a bulk technique; its worklist and generator script were removed
+2026-07-17). ~180 IDs were recovered 2026-07-09 by
 exact-name matching verified against knownForTitles, and 5 more
 2026-07-11 by individual research, see CLAUDE.md "Resolved data
 quirks"; a further ~26 recovered the same way were reverted after

@@ -1,4 +1,4 @@
-# Parsing/insertion helpers for data/oscars.tsv -> data/oscars.db.
+# Parsing/insertion helpers for data/oscars.tsv -> oscars.db.
 # See schema.md / data_notes.md for the design this follows.
 
 import sqlite3
@@ -145,7 +145,7 @@ def has_enrichment_data(db_path) -> bool:
 
 def main(
     tsv_path="data/oscars.tsv",
-    db_path="data/oscars.db",
+    db_path="oscars.db",
     schema_path="schema.sql",
     force=False,
 ):

@@ -1,4 +1,4 @@
-# Correctness checks for data/oscars.db.
+# Correctness checks for oscars.db.
 # Run: uv run src/verify.py
 # Sections: structural integrity, aggregate sanity, IMDb enrichment,
 # known-fact spot checks, TSV round-trip sample. Prints one line per check;
@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from ingest import parse_row, to_null, parse_winner, split_pipe, align_ids
 
-DB_PATH = "data/oscars.db"
+DB_PATH = "oscars.db"
 TSV_PATH = "data/oscars.tsv"
 
 failures = []

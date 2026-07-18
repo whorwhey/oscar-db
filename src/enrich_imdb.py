@@ -12,13 +12,13 @@
 #             ambiguous after that (zero CN rows, a non-CJK lone row, or
 #             0/2+ qualifying imdbDisplay rows) is left NULL and counted;
 #             15 such films were hand-reviewed and hand-fixed 2026-07-17,
-#             see data/title_zh_review.md and "Resolved data quirks".
+#             see "Resolved data quirks" in CLAUDE.md.
 #   people <- name.basics:  birth_year, death_year (kind='person' only;
 #             companies are absent from name.basics by design);
 #             reports (does not write) name divergence from primaryName;
-#             persons with no imdb_id are counted only -- the curated
-#             review list data/people_no_imdb_id.txt is maintained
-#             separately and must not be clobbered here.
+#             persons with no imdb_id are counted only -- roadmap item 1
+#             (bulk imdb_id review) closed 2026-07-14, not tracked as a
+#             worklist file anymore.
 #   film_directors <- title.crew: one row per (film, director). Directors
 #             never individually nominated don't exist in people yet --
 #             they're INSERTed here (name/birth/death from name.basics).
@@ -182,7 +182,7 @@ def sync_title_zh(cur, tsv_gz_path="data/title.akas.tsv.gz"):
     print(f"skipped, no CN row at all: {no_cn_row}")
     print(f"skipped, single CN row but no CJK text (pinyin/English passthrough): {non_cjk_single}")
     print(f"skipped, 2+ CN rows, still ambiguous (0 or 2+ qualifying imdbDisplay rows):"
-          f" {ambiguous} -- see data/title_zh_review.md")
+          f" {ambiguous}")
 
 
 def sync_people(cur, tsv_gz_path="data/name.basics.tsv.gz"):
@@ -219,8 +219,7 @@ def sync_people(cur, tsv_gz_path="data/name.basics.tsv.gz"):
     for person_id, name, imdb_id in unmatched:
         print(f"  {person_id}\t{name!r}\t{imdb_id}")
 
-    print(f"persons without imdb_id: {no_imdb}"
-          f" (review list: data/people_no_imdb_id.txt, maintained separately)")
+    print(f"persons without imdb_id: {no_imdb}")
 
     write_report("data/name_review.txt", "person_id\timdb_id\tours\tIMDb",
                  [(person_id, imdb_id, ours, theirs)
@@ -294,7 +293,7 @@ def sync_film_directors(cur, tsv_gz_path="data/title.crew.tsv.gz",
     print(f"film_directors links inserted: {links}")
 
 
-def main(db_path="data/oscars.db"):
+def main(db_path="oscars.db"):
     conn = sqlite3.connect(db_path)
     conn.execute("PRAGMA foreign_keys = ON")
     cur = conn.cursor()

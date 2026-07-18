@@ -9,7 +9,7 @@ useful to others.
 
 ## Description
 
-The database itself (`data/oscars.db`) is the maintained artifact — not
+The database itself (`oscars.db`) is the maintained artifact — not
 a build script's output. It was generated once from the source TSV and
 is since edited in place: titles corrected, stale IMDb IDs fixed,
 release years added. Rows are cross-referenced to IMDb by `imdb_id`.
@@ -101,7 +101,7 @@ uv sync
 
 TBD — no query interface yet. In the meantime:
 
-- `uv run src/verify.py` runs correctness checks against `data/oscars.db`.
+- `uv run src/verify.py` runs correctness checks against `oscars.db`.
 - Browse the db directly with any SQLite client (e.g. the VS Code
   SQLite Viewer extension).
 
@@ -131,7 +131,7 @@ download may differ slightly from what the enrichment was run against.
 ## License
 
 Code is MIT-licensed (see `LICENSE`). `data/oscars.tsv` and the
-resulting `data/oscars.db` are derived from `DLu/oscar_data`, licensed
+resulting `oscars.db` are derived from `DLu/oscar_data`, licensed
 BSD 2-Clause by its author — see the upstream repo for the full license
 text. IMDb-derived fields are from IMDb's non-commercial datasets,
 subject to [their terms](https://developer.imdb.com/non-commercial-datasets/).

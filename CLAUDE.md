@@ -2,8 +2,8 @@
 
 Curated SQLite Oscar-nominations database. Bootstrapped once from a
 community scrape (`data/oscars.tsv`, DLu/oscar_data), now corrected and
-enriched in place against IMDb's datasets; `data/oscars.db` is the
-maintained, git-tracked artifact. Repo: github.com/whorwhey/oscar-db.
+enriched in place against IMDb's datasets; `oscars.db` (repo root) is
+the maintained, git-tracked artifact. Repo: github.com/whorwhey/oscar-db.
 
 I'm learning SQL/databases — explain reasoning, go step by step, let me
 attempt things first. Before nontrivial edits, tell me the plan first.
@@ -65,11 +65,6 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   kind='person' only); never overwrites db values with IMDb NULLs;
   reports (not writes) title/name divergence from primaryTitle/
   primaryName — currently 0 for both.
-- src/people_id_review.py: regenerates data/people_no_imdb_id.txt, the
-  ranked review list of persons without an imdb_id (736; candidates by
-  exact-name match against name.basics, narrowed by profession +
-  birth/death plausibility for the filmless Sci-Tech rows — see roadmap
-  item 1 and "Resolved data quirks" for how much of that's trustworthy).
 
 ## Resolved data quirks (reference, all handled)
 
@@ -330,6 +325,14 @@ were reclassified by hand later (name-pattern review, 2026-07-09/10)
 from DLu rows that had no id at all — not autodetected, and never
 imdb-matched.
 
+Cleanup 2026-07-17: with roadmap item 1 closed and not being revisited
+as a bulk technique, `data/people_no_imdb_id.txt` (the worklist) and
+`src/people_id_review.py` (its sole generator) were both removed — the
+history above still stands as the record of what was found. `oscars.db`
+also moved from `data/` to the repo root (it's the product, not a data
+input); `data/` now holds only true inputs and docs (`oscars.tsv`,
+`categories_seed.tsv`, `data_notes.md`).
+
 Done 2026-07-17: title_zh (roadmap item 2, first half) from
 title.akas.tsv.gz region='CN', via enrich_imdb.py's new sync_title_zh —
 1,324 of 5,264 films filled (1,017 single-CN-row + 294 imdbDisplay
@@ -365,6 +368,6 @@ per the same standard applied to the ambiguous-name person-id batch
 (elimination/inference without independent confirmation isn't trusted
 here), this is being dropped rather than written speculatively. The
 `film_countries`/`person_countries` junction tables (always empty)
-were dropped from schema.sql and data/oscars.db; title_zh remains
+were dropped from schema.sql and oscars.db; title_zh remains
 planned (straightforward from title.akas: rows with region='CN'), but
 country/language is not being pursued further absent a better source.
