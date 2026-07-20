@@ -1,9 +1,18 @@
-# Schema (settled design — implemented in schema.sql)
+# Schema
 
-Status: design final as of 2026-07-06; schema.sql and ingest.py implement it.
-2026-07-08: films gains original_title + runtime_minutes (IMDb enrichment).
-Categories redesigned 2026-07-06: curated seed data, no longer discovered
-from the source file (see "Category hierarchy" below).
+The design is settled: `schema.sql` is the authority, and this file explains
+the *why*. Don't change the schema without discussing first (see CLAUDE.md).
+For the tables and how they connect at a glance, see the diagram in the
+README; this file goes column-by-column.
+
+**Changelog**
+
+- 2026-07-06 — Design finalized. Categories redesigned as curated seed data,
+  no longer discovered from the source file (see "Category hierarchy" below).
+- 2026-07-08 — `films` gained `original_title` + `runtime_minutes` (IMDb).
+- 2026-07-09 — `film_directors` junction added (IMDb crew data).
+- 2026-07-14 — `film_countries`/`person_countries` junctions removed
+  (country/language enrichment dropped; see CLAUDE.md).
 
 ## Tables
 
@@ -60,6 +69,10 @@ nominations                               -- main table; one row per source row
 
 nomination_films   (nomination_id FK, film_id FK)
 nomination_people  (nomination_id FK, person_id FK)
+film_directors     (film_id FK, person_id FK)   -- from IMDb crew data,
+                                                 -- independent of nomination
+                                                 -- history; see data_notes.md
+                                                 -- Source 4
 
 ## Category hierarchy
 

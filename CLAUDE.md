@@ -66,6 +66,49 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   reports (not writes) title/name divergence from primaryTitle/
   primaryName — currently 0 for both.
 
+## Roadmap
+
+**Active**
+
+1. Interface demos (chat after that): canned queries, small CLI,
+   text-to-SQL LLM demo. GUI = VS Code SQLite Viewer extension. Respect
+   the Titanic disambiguation rule above. User wants this framed as a
+   lecture + demo, not just a code drop.
+2. Remaining enrichment: name_zh, douban_id (title_zh done — see history).
+
+**History** (one line each; full detail in "Resolved data quirks" below
+and data/data_notes.md)
+
+- 2026-07-08 — Done: original_title + runtime_minutes columns from IMDb;
+  enrich_release_year.py generalized into enrich_imdb.py; data_notes.md
+  rewritten around the sources.
+- 2026-07-09 — Done: people enrichment — birth_year/death_year from
+  name.basics; name follows primaryName; ~180 ids recovered, 25 duplicate
+  rows merged, 230 orgs reclassified company, 13 wrong ids hand-fixed.
+- 2026-07-09 — Done: film_directors junction from title.crew.tsv.gz —
+  6,400 links / 5,189 films / 3,213 directors; 1,508 never-nominated
+  directors added to people (3 of 4 crew-file gaps hand-fixed, 74
+  genuinely-unknown directors left as-is).
+- 2026-07-09 — Dropped: rebuild/merge tooling — the live db is the
+  durable artifact; new data (e.g. a future ceremony) is added against it,
+  not via a fresh TSV rebuild.
+- 2026-07-11 Paused → 2026-07-14 Closed: roadmap item 1 (people/company
+  imdb_id enrichment) retired as a bulk effort. 5 ids resolved with
+  independent confirmation, 10 studio rows reclassified company; ~26
+  elimination-only matches reverted. Lesson: profession/era elimination
+  without independent confirmation isn't trusted here. Remaining gaps
+  (736 persons, 237 companies) left NULL, accepted as permanent.
+- 2026-07-14 — Dropped: country/language enrichment via title.akas — no
+  independently-verifiable region/language signal survives in this
+  catalog (checked empirically; the film_countries/person_countries
+  junctions were dropped from schema.sql and oscars.db).
+- 2026-07-17 — Done: title_zh from title.akas region='CN' — 1,324 of
+  5,264 films filled (1,017 single-row + 294 imdbDisplay tie-break + 13
+  hand-picked); the remaining 3,940 a permanent, expected gap.
+- 2026-07-17 — Cleanup: removed the retired people_id_review worklist +
+  its generator script; moved oscars.db from data/ to the repo root (it's
+  the product, not a data input).
+
 ## Resolved data quirks (reference, all handled)
 
 - film_id 764 "Letter from Livingston": only film with no imdb_id
@@ -253,121 +296,3 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   with no real CJK text) — same permanent-gap posture as the person/
   company imdb_id gaps closed 2026-07-14, not being pursued further as
   a bulk technique.
-
-## Roadmap
-
-1. Interface demos (chat after that): canned queries, small CLI,
-   text-to-SQL LLM demo. GUI = VS Code SQLite Viewer extension. Respect
-   the Titanic disambiguation rule above. User wants this framed as a
-   lecture + demo, not just a code drop.
-2. Remaining enrichment: name_zh, douban_id (title_zh done 2026-07-17,
-   see below).
-
-Rebuild/merge tooling (previously a possible future item): dropped by
-agreement 2026-07-09 — the db itself is the durable artifact going
-forward, not the ingest pipeline; next new data (e.g. a future
-ceremony) will be added directly against the live db, not via a fresh
-TSV rebuild.
-
-Done 2026-07-08: original_title + runtime_minutes columns, enriched
-from IMDb (enrich_release_year.py generalized into enrich_imdb.py);
-data_notes.md rewritten around the sources; README db-structure
-subsection.
-
-Done 2026-07-09: people enrichment (was roadmap item 1) — birth_year/
-death_year columns synced from name.basics; enrich_imdb.py split into
-sync_films/sync_people; name follows primaryName; ~180 ids recovered,
-25 duplicate rows merged, 230 orgs reclassified as companies, 13 wrong
-ids hand-fixed; src/people_id_review.py added.
-
-Done 2026-07-09: film_directors junction (film_id, person_id), from
-title.crew.tsv.gz via enrich_imdb.py's new sync_film_directors — 6,400
-links, 5,189 films, 3,213 directors; 1,508 directors never personally
-nominated INSERTed into people (kind='person', named/dated from
-name.basics); pinned counts in verify.py/data_notes/README updated. 3
-of 4 IMDb crew-file gaps hand-fixed (see "Resolved data quirks"); 74
-films with a genuinely-unknown-to-IMDb director confirmed by spot-check,
-left as-is.
-
-Paused 2026-07-11: first real pass at roadmap item 1 (ambiguous-name
-imdb_id review). Net result: 6 more studio/company nominees
-reclassified kind='company' (10 total across the session, see
-"Resolved data quirks"), 5 imdb_ids resolved with independent
-confirmation (John Neary, Isaac Reuben, Thomas Knoll, Jonathan Moulin,
-Carl Ludwig merge), 1 duplicate-person merge kept without an id (Ruben
-Avila). The larger finding was methodological, not numerical: matching
-by elimination alone (sole candidate left after excluding wrong-era/
-wrong-profession namesakes) produced 26+ plausible-looking but
-unconfirmed ids, all reverted on review rather than trusted — see the
-2026-07-11 entry in "Resolved data quirks" for the full account. People
-enrichment coverage barely moved (imdb_id 10,096 → 10,100 of 10,836
-persons) but the review file (data/people_no_imdb_id.txt) is now
-better organized (profession/plausibility-narrowed, sorted
-easiest-first) for whoever picks this up again.
-
-Closed 2026-07-14: roadmap item 1 (people/company imdb_id enrichment)
-retired as a bulk effort, by user decision — not worth further time.
-Remaining gaps left NULL permanently: 736 persons without an imdb_id
-(606 pure no-match, mostly obscure pre-1960s Sci-Tech honorees
-genuinely absent from IMDb; 123 ambiguous, narrowed but never
-confirmed; 7 no-match company-looking rows), and 237 of 308 companies
-(an entirely separate, never-tooled gap — people_id_review.py is
-persons-only and never looked at companies). Both are accepted,
-expected, permanent gaps, not bugs. Revisit only per-row if there's a
-specific reason (e.g. researching one person/company for another
-purpose) — not resuming as a bulk technique. The 71 companies that do
-have an imdb_id got it "for free" from DLu's original bootstrap TSV:
-early-era Best Picture nominations sometimes credited the production
-company itself, and DLu's scrape carried IMDb's `co`-prefixed company
-ids for those rows; `ingest.py`'s `derive_kind()` auto-classifies any
-id starting with "co" as kind='company' at bootstrap. The other 237
-were reclassified by hand later (name-pattern review, 2026-07-09/10)
-from DLu rows that had no id at all — not autodetected, and never
-imdb-matched.
-
-Cleanup 2026-07-17: with roadmap item 1 closed and not being revisited
-as a bulk technique, `data/people_no_imdb_id.txt` (the worklist) and
-`src/people_id_review.py` (its sole generator) were both removed — the
-history above still stands as the record of what was found. `oscars.db`
-also moved from `data/` to the repo root (it's the product, not a data
-input); `data/` now holds only true inputs and docs (`oscars.tsv`,
-`categories_seed.tsv`, `data_notes.md`).
-
-Done 2026-07-17: title_zh (roadmap item 2, first half) from
-title.akas.tsv.gz region='CN', via enrich_imdb.py's new sync_title_zh —
-1,324 of 5,264 films filled (1,017 single-CN-row + 294 imdbDisplay
-tie-break, algorithmic; 13 hand-picked after review). 3,940 remain NULL
-as a permanent, expected gap (no CN row, or no real CJK text among the
-candidate rows) — see "Resolved data quirks" for the full accounting
-and the Crouching Tiger/Maleficent edge cases. name_zh and douban_id
-still open.
-
-Dropped 2026-07-14: country/language enrichment via title.akas.tsv.gz,
-the approach roadmap item 3 had proposed 2026-07-09 (isOriginalTitle=1
-row -> region/language). Downloaded the file (~480MB) and checked
-empirically, as the roadmap note said to: 0 of 5,264 films' isOriginalTitle=1
-row carries a non-null region or language — that row only ever holds
-title text, never provenance, with no exceptions found. Tried a second
-angle (match the original-title *text* against all akas rows, original
-flag or not, and treat the matched rows' regions as a country signal):
-still unreliable, and worse than merely ambiguous. English-titled films
-(the majority of the catalog, since most nominees are American) match
-2+ regions ~79% of the time because the same English text is reused
-verbatim across every English-speaking market (e.g. "The Graduate"
-matches AU/CA/GB/IE/IN/NL/NZ/PH/SG/US/ZA), so text overlap tracks
-shared language, not country of production. Restricting to non-English/
-distinctive titles helps (48% still 2+ regions, down from 79%) but
-surfaces a worse failure: silent wrong answers, not just ambiguity —
-tt5607714 (Testről és lélekről, Hungarian) resolves to a clean single
-match on MX only because IMDb's own isOriginalTitle=1 row has a
-transliteration slip (ö for ő) that happens to coincide with a Mexican
-listing's identical slip, while the correctly-spelled Hungarian row
-(region=HU) doesn't string-match at all. No independently-verifiable
-signal for country/language survives in title.akas for this catalog;
-per the same standard applied to the ambiguous-name person-id batch
-(elimination/inference without independent confirmation isn't trusted
-here), this is being dropped rather than written speculatively. The
-`film_countries`/`person_countries` junction tables (always empty)
-were dropped from schema.sql and oscars.db; title_zh remains
-planned (straightforward from title.akas: rows with region='CN'), but
-country/language is not being pursued further absent a better source.

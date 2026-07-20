@@ -27,39 +27,61 @@ matched to IMDb).
 
 ### Database structure
 
-Five entity tables plus junctions (full DDL in `schema.sql`, rationale
-in `schema.md`, per-source details in `data/data_notes.md`):
+Five entity tables joined by three junction tables (full DDL in
+`schema.sql`, rationale in `schema.md`, per-source details in
+`data/data_notes.md`):
+
+```
+   [ceremonies]                        [categories]
+        \                                  /
+         \______________ [nominations] ___/
+                          /          \
+            (nomination_films)  (nomination_people)
+                        /              \
+                   [films] ---------- [people]
+                          \          /
+                        (film_directors)
+
+   [entity table]      (junction table = many-to-many link)
+```
+
+`ceremonies → nominations` and `categories → nominations` are direct
+one-to-many foreign keys; the three `(junctions)` carry the many-to-many
+links.
+
+**Entity tables**
 
 - **`ceremonies`** (98) — ceremony ordinal and honored-year label
-  (`"1927/28"`). The label is the *honored* year, not the event year.
-- **`categories`** (66, curated, seeded from
-  `data/categories_seed.tsv`) — one row per historical category
-  name, with a hierarchy for grouping: `source_name` (66, e.g. `SOUND
-  RECORDING`) → `award_group` (37, the official site's facets, e.g.
-  Sound Mixing) → `class` (8 coarse groups, e.g. Music). Query on
-  `award_group` or `class`; use `nominations.raw_category` for the
-  name as written that year.
+  (`"1927/28"`, the *honored* year, not the event year).
+- **`categories`** (66, curated, seeded from `data/categories_seed.tsv`)
+  — one row per historical category name, with a hierarchy for grouping:
+  `source_name` (66, e.g. `SOUND RECORDING`) → `award_group` (37, the
+  official site's facets, e.g. Sound Mixing) → `class` (8 coarse groups,
+  e.g. Music). Query on `award_group` or `class`; use
+  `nominations.raw_category` for the name as written that year.
 - **`films`** (5,265) — `title` (follows IMDb's primaryTitle),
-  `original_title` (IMDb's originalTitle, verbatim), `release_year`,
-  `runtime_minutes`, `imdb_id`; `title_zh` (Simplified Chinese, from
-  IMDb's title.akas where unambiguous — 1,324 of 5,264 filled) and
-  `douban_id` (reserved for planned enrichment).
+  `original_title` (verbatim), `release_year`, `runtime_minutes`,
+  `imdb_id`; `title_zh` (Simplified Chinese, from IMDb's title.akas where
+  unambiguous — 1,324 of 5,264 filled) and `douban_id` (reserved).
 - **`people`** (11,144 = 10,836 persons + 308 companies) — nominees,
   plus directors linked via `film_directors` who were never nominated
-  themselves; `kind` distinguishes persons from companies and other
+  themselves. `kind` distinguishes persons from companies and other
   organizations (early Best Picture went to studios; Sci-Tech awards go
   to firms; wartime documentaries credited government agencies). `name`
   follows IMDb's primaryName; `birth_year`/`death_year` from IMDb
   (`NULL` death year means unknown *or* still alive). `name_zh` and
   `douban_id` reserved.
-- **`nominations`** (12,137) — one row per nomination, with
-  `is_winner`, category links, and verbatim `detail`/`note`/`citation`
-  text. Honorary and Sci-Tech awards are citation-based and often link
-  to no film — that's by design, not missing data.
-- **Junctions** — `nomination_films` and `nomination_people` (a
-  nomination can span several films/people and vice versa);
-  `film_directors` (5,189 films → 3,213 directors, from IMDb crew data,
-  independent of nomination history).
+- **`nominations`** (12,137) — one row per nomination, with `is_winner`,
+  category links, and verbatim `detail`/`note`/`citation` text. Honorary
+  and Sci-Tech awards are citation-based and often link to no film —
+  that's by design, not missing data.
+
+**Junction tables** (many-to-many)
+
+- `nomination_films`, `nomination_people` — a nomination can span several
+  films/people and vice versa.
+- `film_directors` (5,189 films → 3,213 directors) — from IMDb crew data,
+  independent of nomination history.
 
 Conventions: `NULL` always means unknown/absent — there are no
 sentinel values. `imdb_id` is the stable external key (`tt...` films,
@@ -83,9 +105,9 @@ LIMIT 5;
 
 ### To be updated
 
-- Enrichment: Chinese names (name_zh), douban_id (title_zh done)
 - Query interfaces, built as learning demos: canned queries, small CLI,
   text-to-SQL LLM demo
+- Enrichment: Chinese names (`name_zh`), `douban_id` (`title_zh` done)
 
 ## Installation
 

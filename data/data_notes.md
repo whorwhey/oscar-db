@@ -1,19 +1,24 @@
 # Data Notes (Sources & Data Dictionary)
 
-The database draws on two sources with distinct authority boundaries:
+The database draws on **two authorities, across five files**:
 
-1. **DLu's TSV** (`data/oscars.tsv`): which ceremonies/nominations/films/
-   people exist and how they connect. Bootstrap-only.
-2. **IMDb non-commercial datasets** (`data/title.basics.tsv.gz`,
-   `data/name.basics.tsv.gz`, `data/title.crew.tsv.gz`): film titles,
-   original titles, release years, runtimes; people names, birth/death
-   years; film-director links. Re-runnable sync.
+1. **DLu's TSV** (`data/oscars.tsv`) — the authority for which
+   ceremonies/nominations/films/people exist and how they connect.
+   Bootstrap-only (ingested once, never routinely reloaded).
+2. **IMDb non-commercial datasets** — the authority for enrichment,
+   re-runnable via `src/enrich_imdb.py`. Four gitignored, re-downloadable
+   files:
+   - `title.basics.tsv.gz` — film titles, original titles, release years, runtimes
+   - `name.basics.tsv.gz` — people names, birth/death years
+   - `title.crew.tsv.gz` — film-director links
+   - `title.akas.tsv.gz` — Chinese titles (rows where `region='CN'`)
 
 Categories are not sourced at all — we author them (see "Categories:
 curated by us" below).
 
 Working rules and the authority summary live in CLAUDE.md; schema rationale
-in schema.md. This file is the deeper reference on each source.
+in schema.md. This file is the deeper reference — each source file gets its
+own section below.
 
 ## Source 1: DLu's TSV (bootstrap)
 
