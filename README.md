@@ -105,8 +105,9 @@ LIMIT 5;
 
 ### To be updated
 
-- Query interfaces, built as learning demos: canned queries, small CLI,
-  text-to-SQL LLM demo
+- Query interfaces, built as learning demos: a SQL tutorial notebook is
+  done (`notebooks/oscar_sql_tutorial.ipynb`); `.sql` extraction, a small
+  CLI, and a text-to-SQL LLM demo are next.
 - Enrichment: Chinese names (`name_zh`), `douban_id` (`title_zh` done)
 
 ## Installation
@@ -121,11 +122,15 @@ uv sync
 
 ## Usage
 
-TBD — no query interface yet. In the meantime:
+The database is a single SQLite file — query it with any SQLite client.
 
-- `uv run src/verify.py` runs correctness checks against `oscars.db`.
+- **Guided tour:** `notebooks/oscar_sql_tutorial.ipynb` is a 19-query
+  SQL tutorial that builds from `SELECT` up through joins, aggregates,
+  subqueries, and CTEs against `oscars.db`. Open it in VS Code or Jupyter
+  (`uv sync` installs the notebook kernel).
 - Browse the db directly with any SQLite client (e.g. the VS Code
   SQLite Viewer extension).
+- `uv run src/verify.py` runs correctness checks against `oscars.db`.
 
 ## Contributing
 
