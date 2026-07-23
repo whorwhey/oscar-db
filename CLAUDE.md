@@ -72,13 +72,10 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
 
 1. Interface demos (interface_plan.md has the full Phase 5a–6 build
    order: query collection → CLI → Datasette → text-to-SQL). Phase 5a
-   query collection is content-complete — notebooks/oscar_sql_tutorial.ipynb,
-   19 tested queries organized by syntax family; still pending: `.sql`
-   extraction to queries/ (dir exists, empty) and refreshing
-   interface_plan.md's Phase-5a query list (still the original 12-query
-   plan, not the 19 built). GUI = VS Code SQLite Viewer extension. Respect
-   the Titanic disambiguation rule above. User wants this framed as a
-   lecture + demo, not just a code drop.
+   (tutorial notebook) and Phase 5b (src/query.py CLI) both done — see
+   history. Next: Phase 5c Datasette, then Phase 6 text-to-SQL. GUI = VS
+   Code SQLite Viewer extension. Respect the Titanic disambiguation rule
+   above. User wants this framed as a lecture + demo, not just a code drop.
 2. Remaining enrichment: name_zh, douban_id (title_zh done — see history).
 
 **History** (one line each; full detail in "Resolved data quirks" below
@@ -116,10 +113,19 @@ and data/data_notes.md)
 - 2026-07-22 — Done: Phase 5a query collection — notebooks/oscar_sql_
   tutorial.ipynb, 19 tested queries in Parts 0–8 (SELECT/ORDER BY/WHERE/
   LIKE/params/JOIN/LEFT JOIN/GROUP BY/aggregates/HAVING/subqueries/CTEs/
-  COALESCE/CASE); pandas (runtime) + ipykernel (dev) deps added. Still
-  pending: `.sql` extraction to queries/ (dir exists, empty) and the
-  interface_plan.md Phase-5a query-list refresh (still the original
-  12-query plan). Interface_plan.md itself added this session.
+  COALESCE/CASE); pandas (runtime) + ipykernel (dev) deps added;
+  interface_plan.md added.
+- 2026-07-23 — Done: Phase 5b CLI — src/query.py, a thin runner loading
+  queries/*.sql and running them vs oscars.db (pandas output, manual
+  sys.argv, no argparse). Two parameterized lookups extracted from the
+  tutorial: queries/person_history.sql, queries/title_search.sql. Scoped
+  to parameterized lookups only (canned reports deferred to Datasette).
+  Match-quality feedback: separator-loosening LIKE pattern (build_pattern),
+  a "loose match" note when the term isn't a literal substring of any hit,
+  and difflib did-you-mean (n=2) on empty results. interface_plan.md
+  Phase-5a rewritten target-list→as-built, Phase-5b marked done. queries/
+  now holds 2 files; the tutorial's other queries not bulk-extracted
+  (CLI scope is deliberately narrow).
 
 ## Resolved data quirks (reference, all handled)
 

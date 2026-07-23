@@ -105,9 +105,10 @@ LIMIT 5;
 
 ### To be updated
 
-- Query interfaces, built as learning demos: a SQL tutorial notebook is
-  done (`notebooks/oscar_sql_tutorial.ipynb`); `.sql` extraction, a small
-  CLI, and a text-to-SQL LLM demo are next.
+- Query interfaces, built as learning demos: a SQL tutorial notebook
+  (`notebooks/oscar_sql_tutorial.ipynb`) and a small lookup CLI
+  (`src/query.py`) are done; a Datasette web UI and a text-to-SQL LLM
+  demo are next.
 - Enrichment: Chinese names (`name_zh`), `douban_id` (`title_zh` done)
 
 ## Installation
@@ -128,6 +129,11 @@ The database is a single SQLite file — query it with any SQLite client.
   SQL tutorial that builds from `SELECT` up through joins, aggregates,
   subqueries, and CTEs against `oscars.db`. Open it in VS Code or Jupyter
   (`uv sync` installs the notebook kernel).
+- **Quick lookups:** a small CLI runs parameterized queries from
+  `queries/` — e.g. `uv run src/query.py person-history "Daniel Day-Lewis"`
+  or `uv run src/query.py title-search "Titanic"`. Name/title search is
+  forgiving about spacing and punctuation, notes when a match is loose,
+  and suggests close alternatives when nothing matches.
 - Browse the db directly with any SQLite client (e.g. the VS Code
   SQLite Viewer extension).
 - `uv run src/verify.py` runs correctness checks against `oscars.db`.
