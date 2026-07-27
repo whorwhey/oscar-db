@@ -106,9 +106,9 @@ LIMIT 5;
 ### To be updated
 
 - Query interfaces, built as learning demos: a SQL tutorial notebook
-  (`notebooks/oscar_sql_tutorial.ipynb`) and a small lookup CLI
-  (`src/query.py`) are done; a Datasette web UI and a text-to-SQL LLM
-  demo are next.
+  (`notebooks/oscar_sql_tutorial.ipynb`), a small lookup CLI
+  (`src/query.py`), and a Datasette web UI (`metadata.yaml`) are done;
+  a text-to-SQL LLM demo is next.
 - Enrichment: Chinese names (`name_zh`), `douban_id` (`title_zh` done)
 
 ## Installation
@@ -134,6 +134,11 @@ The database is a single SQLite file — query it with any SQLite client.
   or `uv run src/query.py title-search "Titanic"`. Name/title search is
   forgiving about spacing and punctuation, notes when a match is loose,
   and suggests close alternatives when nothing matches.
+- **Browse reports:** `uv run datasette oscars.db -m metadata.yaml`
+  starts a local web UI at `http://127.0.0.1:8001` with 7 canned
+  queries (most-awarded films, most nominations without a win, category
+  name history, youngest/oldest acting winners, and more), plus an
+  ad-hoc SQL box for anything else.
 - Browse the db directly with any SQLite client (e.g. the VS Code
   SQLite Viewer extension).
 - `uv run src/verify.py` runs correctness checks against `oscars.db`.

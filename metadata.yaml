@@ -1,0 +1,134 @@
+title: Oscar Nominations Database
+description: Curated SQLite database of Academy Award nominations, 1927-2024.
+
+databases:
+  oscars:
+    queries:
+      most_awarded_films:
+        title: Most-awarded films
+        description: The 10 films with the most Oscar wins of all time.
+        sql: |
+          SELECT f.title, f.release_year, COUNT(*) AS wins
+          FROM films f
+          JOIN nomination_films nf ON f.film_id = nf.film_id
+          JOIN nominations n ON nf.nomination_id = n.nomination_id
+          WHERE n.is_winner = 1
+          GROUP BY f.film_id
+          ORDER BY wins DESC
+          LIMIT 10;
+
+      most_nominations_no_win:
+        title: Most nominations without a win
+        description: The 10 people with the most Oscar nominations who never won.
+        sql: |
+          SELECT p.name, COUNT(*) AS nominations, SUM(n.is_winner) AS wins
+          FROM people p
+          JOIN nomination_people np ON p.person_id = np.person_id
+          JOIN nominations n ON np.nomination_id = n.nomination_id
+          WHERE p.kind = 'person'
+          GROUP BY p.person_id
+          HAVING SUM(n.is_winner) = 0
+          ORDER BY nominations DESC
+          LIMIT 10;
+
+      most_categories_won:
+        title: Most distinct categories won
+        description: The 10 people who have won across the most different Oscar categories.
+        sql: |
+          SELECT p.name,
+                 COUNT(*) AS wins,
+                 COUNT(DISTINCT n.category_id) AS distinct_categories,
+                 GROUP_CONCAT(DISTINCT cat.award_group) AS categories
+          FROM people p
+          JOIN nomination_people np ON p.person_id = np.person_id
+          JOIN nominations n ON np.nomination_id = n.nomination_id
+          JOIN categories cat ON n.category_id = cat.category_id
+          WHERE p.kind = 'person'
+            AND n.is_winner = 1
+          GROUP BY p.person_id
+          ORDER BY distinct_categories DESC, wins DESC
+          LIMIT 10;
+
+      category_history:
+        title: Category name history
+        description: >-
+          How a category's raw, per-year name changed over time. Enter a
+          categories.source_name value, e.g. "ACTOR IN A LEADING ROLE".
+        sql: |
+          SELECT n.raw_category, MIN(n.ceremony) AS first_ceremony,
+                 MAX(n.ceremony) AS last_ceremony, COUNT(*) AS times_used
+          FROM nominations n
+          JOIN categories cat ON n.category_id = cat.category_id
+          WHERE cat.source_name = :source_name
+          GROUP BY n.raw_category
+          ORDER BY first_ceremony;
+
+      youngest_acting_winners:
+        title: Youngest acting winners
+        description: >-
+          The 5 youngest Oscar acting winners, by approximate age at the
+          film's release year.
+        sql: |
+          SELECT p.name, p.birth_year, f.title, f.release_year,
+                 (f.release_year - p.birth_year) AS approx_age_at_win
+          FROM nominations n
+          JOIN categories cat ON n.category_id = cat.category_id
+          JOIN nomination_people np ON n.nomination_id = np.nomination_id
+          JOIN people p ON np.person_id = p.person_id
+          JOIN nomination_films nf ON n.nomination_id = nf.nomination_id
+          JOIN films f ON nf.film_id = f.film_id
+          WHERE n.is_winner = 1
+            AND cat.class = 'Acting'
+            AND p.birth_year IS NOT NULL
+          ORDER BY approx_age_at_win ASC
+          LIMIT 5;
+
+      oldest_acting_winners:
+        title: Oldest acting winners
+        description: >-
+          The 5 oldest Oscar acting winners, by approximate age at the
+          film's release year.
+        sql: |
+          SELECT p.name, p.birth_year, f.title, f.release_year,
+                 (f.release_year - p.birth_year) AS approx_age_at_win
+          FROM nominations n
+          JOIN categories cat ON n.category_id = cat.category_id
+          JOIN nomination_people np ON n.nomination_id = np.nomination_id
+          JOIN people p ON np.person_id = p.person_id
+          JOIN nomination_films nf ON n.nomination_id = nf.nomination_id
+          JOIN films f ON nf.film_id = f.film_id
+          WHERE n.is_winner = 1
+            AND cat.class = 'Acting'
+            AND p.birth_year IS NOT NULL
+          ORDER BY approx_age_at_win DESC
+          LIMIT 5;
+
+      acting_wins_by_age_bracket:
+        title: Acting wins by age bracket
+        description: >-
+          How many acting wins fall into each rough age bracket at time of
+          the film's release.
+        sql: |
+          SELECT
+              CASE
+                  WHEN (f.release_year - p.birth_year) < 30 THEN 'Under 30'
+                  WHEN (f.release_year - p.birth_year) < 50 THEN '30-49'
+                  ELSE '50 and over'
+              END AS age_bracket,
+              COUNT(*) AS wins
+          FROM nominations n
+          JOIN categories cat ON n.category_id = cat.category_id
+          JOIN nomination_people np ON n.nomination_id = np.nomination_id
+          JOIN people p ON np.person_id = p.person_id
+          JOIN nomination_films nf ON n.nomination_id = nf.nomination_id
+          JOIN films f ON nf.film_id = f.film_id
+          WHERE n.is_winner = 1
+            AND cat.class = 'Acting'
+            AND p.birth_year IS NOT NULL
+          GROUP BY age_bracket
+          ORDER BY
+              CASE age_bracket
+                  WHEN 'Under 30' THEN 1
+                  WHEN '30-49' THEN 2
+                  WHEN '50 and over' THEN 3
+              END;

@@ -119,17 +119,46 @@ searched table+column, which powers this):
 
 Tool: Claude Code (Sonnet).
 
-### Phase 5c — Datasette
+### Phase 5c — Datasette — done
 
-`pip install datasette`, write `metadata.yaml` with canned queries
-(referencing the `.sql` files from 5a), run `datasette oscars.db`.
-Mostly configuration, little code.
+Built as `metadata.yaml` (repo root, alongside `oscars.db`), plus
+`datasette` added to `[dependency-groups] dev` in `pyproject.toml`
+(`uv add --group dev datasette`). Run via `uv run datasette oscars.db
+-m metadata.yaml`.
 
-Why Datasette over Flask/sql.js: zero code, native canned-query support,
-Python-native, teaches the "introspect schema → auto-generate UI"
-pattern. Free, local, no hosting needed.
+7 canned queries, adapted from the notebook's report-style questions
+that Phase 5b deliberately left out of the CLI: `most_awarded_films`
+(4.1), `most_nominations_no_win` (4.2), `most_categories_won` (4.3),
+`category_history` (4.4, parameterized), `youngest_acting_winners` /
+`oldest_acting_winners` (8.1, split into two — a Datasette canned query
+is fixed SQL, no runtime ASC/DESC toggle), and `acting_wins_by_age_
+bracket` (8.3).
 
-Tool: Claude Code or solo.
+Differences from the original outline: `metadata.yaml`'s canned
+queries only accept literal inline SQL, not a reference to a file path
+— so they couldn't "reference the `.sql` files from 5a" as originally
+sketched; the SQL is copied in, adapted from the notebook cells
+directly, not read from `queries/*.sql`. `category_history` uses
+Datasette's own `:name` named-parameter style (vs. the CLI's positional
+`?`) — Datasette renders a text-box input for it automatically.
+Deliberately did **not** add `queries/person_history.sql` /
+`title_search.sql` (the CLI's two lookups) as canned queries too: doing
+so would mean a second, driftable copy of the same SQL, since
+`metadata.yaml` can't reference the file directly. Ad-hoc lookups
+inside Datasette's UI use its built-in "Execute SQL" box instead —
+clean split preserved: CLI = parameterized lookups, Datasette = canned
+reports.
+
+Why Datasette over Flask/sql.js: zero code, native canned-query
+support, Python-native, teaches the "introspect schema → auto-generate
+UI" pattern. Free, local, no hosting needed. All 7 canned queries
+verified against the notebook's own output (e.g. Titanic/LOTR tied at
+11 wins each in `most_awarded_films`). Confirmed in practice:
+`oscars.db` changes are reflected live (Datasette queries the file
+fresh per request); `metadata.yaml` changes need a server restart (read
+once at startup, not watched).
+
+Tool: Claude Code (Sonnet).
 
 ### Phase 6 — Text-to-SQL LLM demo (Chat → Claude Code)
 
