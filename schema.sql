@@ -6,8 +6,12 @@
 -- NOTE: run PRAGMA foreign_keys = ON; in every connection
 
 CREATE TABLE ceremonies (
-    ceremony INTEGER PRIMARY KEY,   -- ordinal, 98th for year 2026
-    year_label TEXT NOT NULL        -- e.g. "2026" "1927/1928"
+    ceremony INTEGER PRIMARY KEY,   -- ordinal; the Nth ceremony
+    year_label TEXT NOT NULL        -- ELIGIBILITY year (the films' year), NOT
+                                    -- the year the ceremony was held. Ceremony
+                                    -- 96 = year_label '2023' = films of 2023,
+                                    -- ceremony held in 2024. Early ceremonies
+                                    -- span two years: '1927/28'.
 );
 
 CREATE TABLE categories (
@@ -47,11 +51,16 @@ CREATE TABLE nominations (
     ceremony INTEGER NOT NULL REFERENCES ceremonies(ceremony),
     category_id INTEGER NOT NULL REFERENCES categories(category_id),
     raw_category TEXT NOT NULL,          -- category name as written that year
-    official_name TEXT,                  -- official name as written from source
+    official_name TEXT,                  -- nominee name as written by the source; DISPLAY
+                                         -- ONLY, not a join key. Use nomination_people for
+                                         -- person lookups.
     is_winner INTEGER NOT NULL DEFAULT 0 CHECK (is_winner IN (0, 1)),
-    detail TEXT, 
-    note TEXT, 
-    citation TEXT
+    detail TEXT,                         -- meaning varies by category: character name for
+                                         -- acting (multiple roles pipe-separated); technical
+                                         -- domain for Sci-Tech awards
+    note TEXT,                           -- editorial annotation; some flag non-official or
+                                         -- withdrawn nominations
+    citation TEXT                        -- prose award text for honorary and Sci-Tech awards
 );
 
 CREATE TABLE nomination_films (     -- junction table between nominations and films
