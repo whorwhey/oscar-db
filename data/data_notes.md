@@ -83,6 +83,24 @@ enrichment (ingest.py refuses to run on an enriched db without --force).
   synced to IMDb's primaryTitle (2026-07-07). verify.py's round-trip
   therefore checks film *linkage* counts, not title text.
 
+### Known gap: `kind` classification is still incomplete
+
+Found 2026-08-05, incidentally, during Phase 6 text-to-SQL eval work (not
+a systematic audit) — see `phase6_prompt_draft.md`, eval case 6: person_id
+1925, `ROY C. STEWART AND SONS`, is stored with `kind = 'person'` despite
+being obviously a business name ("AND SONS"). This is the same class of
+defect as the 230 id-less organizations reclassified to `kind = 'company'`
+2026-07-09 and the 4 more caught 2026-07-10 (see CLAUDE.md "Resolved data
+quirks") — this one just wasn't caught by either pass. Since both of those
+passes were manual/regex-assisted review rather than exhaustive
+verification, at least one more row slipping through means the
+`kind = 'person'` set has not been fully audited and likely still contains
+other undetected company rows. Not fixed here — flagging for a future
+`kind`-audit pass, scoped like the earlier ones (review id-less
+`kind = 'person'` rows for company-like naming patterns: "AND SONS",
+"INC", "CORP", "STUDIOS", "PICTURES", etc., beyond the keywords the
+2026-07-09/07-10 regex already covered).
+
 ## Source 2: IMDb title.basics (enrichment)
 
 `title.basics.tsv.gz` from datasets.imdbws.com (IMDb non-commercial
