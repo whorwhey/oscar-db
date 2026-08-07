@@ -54,11 +54,18 @@ Directing themselves — a `film_directors` + `nominations` multi-join)
 was dropped, not built or folded in anywhere; the closest thing that
 exists is 3.3's simpler "never-nominated directors" via LEFT JOIN.
 
-**Still pending (not yet started):** extract proven queries to
-`queries/*.sql` (dir exists, empty). Open decisions: naming convention,
-how to represent the `?` parameters used in 2.2/3.2/5.1, and whether
-Part 7's alternative-syntax variants (7.1/7.2) get their own files or
-are dropped since they answer the same questions as 6.1/6.4.
+**Dropped 2026-08-06:** extracting the rest of the notebook's proven
+queries to `queries/*.sql` as a standalone collection. Every consumer
+that would have read from it already got what it needed a different
+way — Phase 5b extracted the 2 parameterized lookups it uses
+(`person_history.sql`, `title_search.sql`); Phase 5c needed 7 more but
+`metadata.yaml` can't reference a file path, so those got inlined into
+`metadata.yaml` directly instead. That leaves ~10 of the notebook's ~20
+queries (the plain JOIN/subquery/CTE teaching examples) with no
+consumer in the repo at all — extracting them now would just be a
+second, driftable copy of code already tested and documented in the
+notebook, for nothing to read it. Same "no second copy" reasoning
+Phase 5c itself used to justify not re-extracting the CLI's 2 files.
 
 Tool used: Claude Chat (Sonnet), schema.sql uploaded per session.
 
@@ -160,15 +167,63 @@ once at startup, not watched).
 
 Tool: Claude Code (Sonnet).
 
-### Phase 6 — Text-to-SQL LLM demo (Chat → Claude Code)
+### Phase 6 — Text-to-SQL LLM demo (Chat → Claude Code) — done
 
-Design the prompt in Chat (Opus): what schema context to send the LLM,
-how to handle ambiguity (duplicate titles, fuzzy names), safety checks.
-Test by hand against known-good queries from 5a. Then build wiring in
-Claude Code (Sonnet).
+Prompt designed and eval-looped in Chat (Opus) per plan: `prompts/
+system_prompt.txt` (v0.8), iterated over all 11 original test cases +
+4 stretch cases from `phase6_plan.md` against `phase6_prompt_draft.md`'s
+eval log — schema context, data-scale summary, rule clusters for
+category hierarchy / identifying films & people / JOIN paths /
+answering behavior, safety constraints, output format. 7 fix rounds
+(v0.1 → v0.8), each triggered by a concrete eval failure, not
+speculative hardening; full changelog + per-case SQL/result/verdict is
+in `phase6_prompt_draft.md`.
+
+Wiring built as `src/text_to_sql.py`: argument parsing (manual
+`sys.argv`, matching `src/query.py`'s convention, no argparse), schema +
+prompt assembly, API call, regex SQL-block extraction, a validator
+(SELECT/WITH-only, single-statement), then read-only execution against
+`oscars.db` with pandas output.
+
+Differences from the original sketch:
+- **Gateway is CBORG, not direct Anthropic.** The plan specified
+  `ANTHROPIC_API_KEY` against `api.anthropic.com`; built against CBORG
+  (LBNL's LiteLLM proxy, `https://api.cborg.lbl.gov`) instead, reading
+  `CBORG_API_KEY`. The `anthropic` Python SDK works unmodified — only
+  `base_url`/`api_key` differ — so the planned dependency didn't change.
+  Full config recorded in `phase6_plan.md`'s "CBORG configuration"
+  section (added after this was rediscovered from scratch twice across
+  session restarts).
+- **`--model NAME` flag**, not in the original plan. Needed because
+  CBORG meters commercial Claude calls against a $50/month budget
+  (~85% spent by the time this was wired in); the flag lets eval runs
+  target CBORG's free `lbl/*`-prefixed on-prem models (`lbl/cborg-chat`
+  etc.) and reserves commercial calls for real use. Default stays
+  `claude-sonnet-5`.
+- **No `--explain` flag.** The plan floated one as optional polish; not
+  needed — the script shows the generated SQL by default, with
+  `--quiet` to suppress it instead of a flag to opt in.
+- **Missing SQL block is a designed refusal, not an error** — the plan's
+  Part 3/response-format section originally treated "no code block
+  found" as an error case; corrected once the eval log's stretch case 1
+  (an intentionally unanswerable question) confirmed the prompt's
+  refusal path is meant to reach the user as plain explanation text,
+  exit 0, not an error message. `phase6_plan.md` updated to match.
+- **Zero-row handling is aggregate-shape-dependent**, not something the
+  code fully controls: a `COUNT()`-style question (e.g. "how many
+  Oscars did Pixar win?") still returns one row valued `0`, printed
+  normally; the script's dedicated "0 rows." + explanation path only
+  fires for a plain `SELECT` that returns no rows at all. Both shapes
+  verified working end-to-end.
+
+Verified end-to-end (2026-08-06, via `--model lbl/cborg-chat`, $0 cost —
+confirmed no change in CBORG spend across the run): normal ranked query,
+the Japanese-films refusal case, a true zero-row case, and a CTE
+(`WITH`) query all behaved as designed; `CBORG_API_KEY` unset fails
+fast with a clear message before any API call.
 
 Tool: Claude Chat (Opus) for prompt design, Claude Code (Sonnet) for
-implementation.
+implementation and the CBORG migration.
 
 ## Key decisions
 

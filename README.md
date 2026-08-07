@@ -105,10 +105,6 @@ LIMIT 5;
 
 ### To be updated
 
-- Query interfaces, built as learning demos: a SQL tutorial notebook
-  (`notebooks/oscar_sql_tutorial.ipynb`), a small lookup CLI
-  (`src/query.py`), and a Datasette web UI (`metadata.yaml`) are done;
-  a text-to-SQL LLM demo is next.
 - Enrichment: Chinese names (`name_zh`), `douban_id` (`title_zh` done)
 
 ## Installation
@@ -139,6 +135,13 @@ The database is a single SQLite file — query it with any SQLite client.
   queries (most-awarded films, most nominations without a win, category
   name history, youngest/oldest acting winners, and more), plus an
   ad-hoc SQL box for anything else.
+- **Ask a question in plain English:**
+  `uv run src/text_to_sql.py "Which films won the most Oscars?"` sends
+  the question plus schema context to an LLM, prints the generated SQL,
+  and runs it read-only against `oscars.db`. Requires a `CBORG_API_KEY`
+  — [CBORG](https://cborg.lbl.gov) is Lawrence Berkeley National Lab's
+  internal LLM gateway, so this one demo isn't usable outside LBL; the
+  notebook, CLI, and Datasette above need no API key and work for anyone.
 - Browse the db directly with any SQLite client (e.g. the VS Code
   SQLite Viewer extension).
 - `uv run src/verify.py` runs correctness checks against `oscars.db`.

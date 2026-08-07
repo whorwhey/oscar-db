@@ -26,14 +26,17 @@ abstraction layer. Thin pipeline:
 ```
 user question (string)
   → prompt assembly (schema context + question + instructions)
-    → Anthropic API call (Claude Sonnet)
+    → CBORG API call (Claude model, via LBNL's gateway — see "CBORG
+      configuration" below; not a direct api.anthropic.com call)
       → SQL extraction from response
         → execute against oscars.db (read-only)
           → format + print results (pandas or plain)
 ```
 
-Dependencies to add: `anthropic` (Python SDK). Everything else
-(`sqlite3`, `pandas`) is already available.
+Dependencies to add: `anthropic` (Python SDK) — still the right SDK;
+CBORG is Anthropic-API-compatible, so only the `base_url`/`api_key`
+change, not the client library. Everything else (`sqlite3`, `pandas`)
+is already available.
 
 ### Key design choice: stateless
 
@@ -135,8 +138,11 @@ Ask the LLM to respond with:
    that way
 
 Extract the SQL from the code block programmatically (regex or string
-parsing). If no code block is found, treat the whole response as an
-error and show it to the user.
+parsing). If no code block is found, that's the designed refusal path
+(the prompt tells the model to emit no SQL when a question is
+unanswerable from this schema) — print the model's explanation text and
+exit 0, not an error. Confirmed working as intended: stretch case 1 in
+`phase6_prompt_draft.md`'s eval log.
 
 ### Safety constraints
 
@@ -218,8 +224,10 @@ it to `text_to_sql.py`, and compare:
    working.
 3. **Eval loop** (Claude Code or manual) — run all 12 test cases,
    compare results, tune the prompt rules based on failures.
-4. **Polish** — error handling, help text, maybe a `--explain` flag
-   that shows the generated SQL before executing.
+4. **Polish** — error handling, help text. As built: the SQL is shown
+   by default before executing (no `--explain` flag needed); `--quiet`
+   suppresses it instead. A `--model NAME` flag overrides the default
+   model.
 
 ## Files the Code agent needs
 
@@ -236,9 +244,44 @@ it to `text_to_sql.py`, and compare:
 uv add anthropic
 ```
 
-API key: set as `ANTHROPIC_API_KEY` environment variable. Do not
-hardcode. The script should fail with a clear message if the key is
-missing.
+API key: set as `CBORG_API_KEY` environment variable (not
+`ANTHROPIC_API_KEY` — see "CBORG configuration" below for why). Do not
+hardcode. The script fails with a clear message before any API call if
+the key is missing.
+
+## CBORG configuration (as built)
+
+Confirmed working 2026-08-06. Recorded here because this has been
+re-derived from scratch after session restarts twice already — read
+this section first next time, don't rediscover it.
+
+- **Gateway:** CBORG, LBNL's LiteLLM proxy — not a direct
+  `api.anthropic.com` call. Config lives in `src/text_to_sql.py` as
+  module-level constants `CBORG_BASE_URL` and `DEFAULT_MODEL`.
+- **Env var:** `CBORG_API_KEY`. `ANTHROPIC_API_KEY` is unset in this
+  environment and unused by the script.
+- **Base URL:** `https://api.cborg.lbl.gov`
+- **SDK:** the `anthropic` Python SDK works unmodified against CBORG —
+  `anthropic.Anthropic(api_key=<CBORG_API_KEY>, base_url=CBORG_BASE_URL)`.
+  Confirmed by direct test; no need for the `openai` SDK (not installed
+  in this project) even though CBORG also exposes an OpenAI-compatible
+  surface.
+- **Default model:** `claude-sonnet-5` — a bare CBORG alias, confirmed
+  present in `GET /v1/models`. Coincidentally identical to the direct-
+  Anthropic model string, but it's a CBORG-specific routing name (also
+  available prefixed, e.g. `anthropic/claude-sonnet`, `google/claude-
+  sonnet-5`), not guaranteed to stay aligned with Anthropic's own naming.
+- **Free on-prem alternatives for eval runs** (don't count against the
+  commercial budget): `lbl/cborg-chat` (confirmed working via the
+  Anthropic SDK — backed by Gemma 4; needs `max_tokens` comfortably
+  above ~200 or its reasoning burns the whole budget with empty visible
+  `content`), plus `lbl/cborg-coder`, `lbl/cborg-mini`, `lbl/gpt-oss-20b`
+  and others under the `lbl/` prefix. Select any of these with
+  `--model NAME`.
+- **Budget:** $50/month, resets the 1st (`budget_duration: "1mo"`, per
+  `GET /user/info`). $42.64 spent as of 2026-07-27 — use the free
+  `lbl/*` models for eval loops and prompt iteration; reserve commercial
+  Claude calls for real use until the reset.
 
 ## What this is NOT
 

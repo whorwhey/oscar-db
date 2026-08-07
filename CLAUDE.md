@@ -65,18 +65,15 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   kind='person' only); never overwrites db values with IMDb NULLs;
   reports (not writes) title/name divergence from primaryTitle/
   primaryName — currently 0 for both.
+- src/text_to_sql.py needs `CBORG_API_KEY` (not `ANTHROPIC_API_KEY`) —
+  full gateway/model/budget config in phase6_plan.md's "CBORG
+  configuration" section; read that before re-deriving it again.
 
 ## Roadmap
 
 **Active**
 
-1. Interface demos (interface_plan.md has the full Phase 5a–6 build
-   order: query collection → CLI → Datasette → text-to-SQL). Phase 5a
-   (tutorial notebook) and Phase 5b (src/query.py CLI) both done — see
-   history. Next: Phase 5c Datasette, then Phase 6 text-to-SQL. GUI = VS
-   Code SQLite Viewer extension. Respect the Titanic disambiguation rule
-   above. User wants this framed as a lecture + demo, not just a code drop.
-2. Remaining enrichment: name_zh, douban_id (title_zh done — see history).
+1. Remaining enrichment: name_zh, douban_id (title_zh done — see history).
 
 **History** (one line each; full detail in "Resolved data quirks" below
 and data/data_notes.md)
@@ -126,6 +123,37 @@ and data/data_notes.md)
   Phase-5a rewritten target-list→as-built, Phase-5b marked done. queries/
   now holds 2 files; the tutorial's other queries not bulk-extracted
   (CLI scope is deliberately narrow).
+- 2026-07-27 — Done: Phase 5c Datasette — metadata.yaml (repo root) +
+  `datasette` added to `[dependency-groups] dev`; run via `uv run
+  datasette oscars.db -m metadata.yaml`. 7 canned queries adapted from
+  the notebook's report-style cells (most_awarded_films,
+  most_nominations_no_win, most_categories_won, category_history
+  parameterized, youngest/oldest_acting_winners split in two,
+  acting_wins_by_age_bracket); SQL inlined directly in metadata.yaml
+  since canned queries can't reference a `queries/*.sql` file path — not
+  re-extracted from the CLI's 2 lookup files either, to avoid a second
+  driftable copy of the same SQL.
+- 2026-08-06 — Done: Phase 6 text-to-SQL — closes the full
+  interface_plan.md build order (5a query collection → 5b CLI → 5c
+  Datasette → 6 text-to-SQL), all done; interface demos retired as a
+  roadmap item. `prompts/system_prompt.txt` (v0.8) iterated in Chat
+  (Opus) over 11 test cases + 4 stretch cases, 7 fix rounds, full
+  changelog and per-case SQL/result/verdict in `phase6_prompt_draft.md`.
+  `src/text_to_sql.py` built against CBORG (LBNL's LiteLLM gateway,
+  `CBORG_API_KEY`, `https://api.cborg.lbl.gov`) rather than direct
+  Anthropic — the `anthropic` SDK works unmodified, only `base_url`/
+  `api_key` differ. CBORG's $50/month budget meters commercial Claude
+  calls (~85% spent when this was wired in), so a `--model NAME` flag
+  lets eval runs target CBORG's free `lbl/*`-prefixed on-prem models
+  instead of the default `claude-sonnet-5`; full config recorded in
+  `phase6_plan.md`'s "CBORG configuration" section after being
+  re-derived from scratch twice across session restarts — check there
+  first before rediscovering it a third time. Also dropped: extracting
+  the notebook's remaining ~10 queries to `queries/*.sql` as a
+  standalone collection (Phase 5a leftover) — every consumer that would
+  read from it already got what it needed a different way (5b's 2
+  files, 5c's 7 inlined into metadata.yaml), so it would only be a
+  second, driftable copy of code already tested in the notebook.
 
 ## Resolved data quirks (reference, all handled)
 
