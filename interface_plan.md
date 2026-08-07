@@ -171,13 +171,13 @@ Tool: Claude Code (Sonnet).
 
 Prompt designed and eval-looped in Chat (Opus) per plan: `prompts/
 system_prompt.txt` (v0.8), iterated over all 11 original test cases +
-4 stretch cases from `phase6_plan.md` against `phase6_prompt_draft.md`'s
+4 stretch cases from `phase6_notes.md` against `phase6_prompt_log.md`'s
 eval log — schema context, data-scale summary, rule clusters for
 category hierarchy / identifying films & people / JOIN paths /
 answering behavior, safety constraints, output format. 7 fix rounds
 (v0.1 → v0.8), each triggered by a concrete eval failure, not
 speculative hardening; full changelog + per-case SQL/result/verdict is
-in `phase6_prompt_draft.md`.
+in `phase6_prompt_log.md`.
 
 Wiring built as `src/text_to_sql.py`: argument parsing (manual
 `sys.argv`, matching `src/query.py`'s convention, no argparse), schema +
@@ -191,7 +191,7 @@ Differences from the original sketch:
   (LBNL's LiteLLM proxy, `https://api.cborg.lbl.gov`) instead, reading
   `CBORG_API_KEY`. The `anthropic` Python SDK works unmodified — only
   `base_url`/`api_key` differ — so the planned dependency didn't change.
-  Full config recorded in `phase6_plan.md`'s "CBORG configuration"
+  Full config recorded in `phase6_notes.md`'s "CBORG configuration"
   section (added after this was rediscovered from scratch twice across
   session restarts).
 - **`--model NAME` flag**, not in the original plan. Needed because
@@ -208,7 +208,7 @@ Differences from the original sketch:
   found" as an error case; corrected once the eval log's stretch case 1
   (an intentionally unanswerable question) confirmed the prompt's
   refusal path is meant to reach the user as plain explanation text,
-  exit 0, not an error message. `phase6_plan.md` updated to match.
+  exit 0, not an error message. `phase6_notes.md` updated to match.
 - **Zero-row handling is aggregate-shape-dependent**, not something the
   code fully controls: a `COUNT()`-style question (e.g. "how many
   Oscars did Pixar win?") still returns one row valued `0`, printed

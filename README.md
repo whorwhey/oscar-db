@@ -117,6 +117,20 @@ cd oscar-db
 uv sync
 ```
 
+### Environment variables
+
+Everything works out of the box except the text-to-SQL demo
+(`src/text_to_sql.py`), which needs `CBORG_API_KEY` — an LBNL-internal
+LLM gateway key not available outside LBL. If you have one:
+
+```sh
+export CBORG_API_KEY="your-key-here"
+```
+
+That only lasts the current terminal session. To persist it, add the
+same line to your shell's startup file (`~/.zshrc` for zsh, macOS's
+default shell).
+
 ## Usage
 
 The database is a single SQLite file — query it with any SQLite client.
@@ -138,10 +152,9 @@ The database is a single SQLite file — query it with any SQLite client.
 - **Ask a question in plain English:**
   `uv run src/text_to_sql.py "Which films won the most Oscars?"` sends
   the question plus schema context to an LLM, prints the generated SQL,
-  and runs it read-only against `oscars.db`. Requires a `CBORG_API_KEY`
-  — [CBORG](https://cborg.lbl.gov) is Lawrence Berkeley National Lab's
-  internal LLM gateway, so this one demo isn't usable outside LBL; the
-  notebook, CLI, and Datasette above need no API key and work for anyone.
+  and runs it read-only against `oscars.db`. Needs `CBORG_API_KEY` — see
+  "Environment variables" above; the notebook, CLI, and Datasette above
+  need no API key and work for anyone.
 - Browse the db directly with any SQLite client (e.g. the VS Code
   SQLite Viewer extension).
 - `uv run src/verify.py` runs correctness checks against `oscars.db`.

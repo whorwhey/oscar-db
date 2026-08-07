@@ -86,7 +86,7 @@ enrichment (ingest.py refuses to run on an enriched db without --force).
 ### Known gap: `kind` classification is still incomplete
 
 Found 2026-08-05, incidentally, during Phase 6 text-to-SQL eval work (not
-a systematic audit) — see `phase6_prompt_draft.md`, eval case 6: person_id
+a systematic audit) — see `phase6_prompt_log.md`, eval case 6: person_id
 1925, `ROY C. STEWART AND SONS`, is stored with `kind = 'person'` despite
 being obviously a business name ("AND SONS"). This is the same class of
 defect as the 230 id-less organizations reclassified to `kind = 'company'`

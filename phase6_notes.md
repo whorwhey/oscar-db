@@ -1,10 +1,11 @@
-# Phase 6 Plan — Text-to-SQL LLM Demo
+# Phase 6 Notes — Text-to-SQL LLM Demo
 
-Spec for `src/text_to_sql.py`. Written as a reference for Claude Code
-sessions building this phase. Add `@phase6_plan.md` to CLAUDE.md when
-starting Phase 6 work.
+Design notes and reference for `src/text_to_sql.py`. Originally written
+as the spec before building Phase 6; kept afterward for the sections
+that are still load-bearing (the CBORG configuration below) and as a
+record of what was decided and why.
 
-Depends on: Phase 5a queries (proven, in `queries/*.sql`), Phase 5b CLI
+Depended on: Phase 5a queries (proven, in `queries/*.sql`), Phase 5b CLI
 (`src/query.py`), working `oscars.db`.
 
 ## Goal
@@ -142,7 +143,7 @@ parsing). If no code block is found, that's the designed refusal path
 (the prompt tells the model to emit no SQL when a question is
 unanswerable from this schema) — print the model's explanation text and
 exit 0, not an error. Confirmed working as intended: stretch case 1 in
-`phase6_prompt_draft.md`'s eval log.
+`phase6_prompt_log.md`'s eval log.
 
 ### Safety constraints
 
@@ -236,7 +237,7 @@ it to `text_to_sql.py`, and compare:
 - `src/query.py` — existing CLI runner (reference for db connection
   patterns, output formatting)
 - `oscars.db` — the database itself
-- This file (`phase6_plan.md`) — the spec
+- This file (`phase6_notes.md`) — the spec
 
 ## Dependencies
 

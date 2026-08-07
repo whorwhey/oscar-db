@@ -66,7 +66,7 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   reports (not writes) title/name divergence from primaryTitle/
   primaryName — currently 0 for both.
 - src/text_to_sql.py needs `CBORG_API_KEY` (not `ANTHROPIC_API_KEY`) —
-  full gateway/model/budget config in phase6_plan.md's "CBORG
+  full gateway/model/budget config in phase6_notes.md's "CBORG
   configuration" section; read that before re-deriving it again.
 
 ## Roadmap
@@ -138,7 +138,7 @@ and data/data_notes.md)
   Datasette → 6 text-to-SQL), all done; interface demos retired as a
   roadmap item. `prompts/system_prompt.txt` (v0.8) iterated in Chat
   (Opus) over 11 test cases + 4 stretch cases, 7 fix rounds, full
-  changelog and per-case SQL/result/verdict in `phase6_prompt_draft.md`.
+  changelog and per-case SQL/result/verdict in `phase6_prompt_log.md`.
   `src/text_to_sql.py` built against CBORG (LBNL's LiteLLM gateway,
   `CBORG_API_KEY`, `https://api.cborg.lbl.gov`) rather than direct
   Anthropic — the `anthropic` SDK works unmodified, only `base_url`/
@@ -146,7 +146,7 @@ and data/data_notes.md)
   calls (~85% spent when this was wired in), so a `--model NAME` flag
   lets eval runs target CBORG's free `lbl/*`-prefixed on-prem models
   instead of the default `claude-sonnet-5`; full config recorded in
-  `phase6_plan.md`'s "CBORG configuration" section after being
+  `phase6_notes.md`'s "CBORG configuration" section after being
   re-derived from scratch twice across session restarts — check there
   first before rediscovering it a third time. Also dropped: extracting
   the notebook's remaining ~10 queries to `queries/*.sql` as a
