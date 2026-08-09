@@ -95,14 +95,22 @@ schema rules.
   instructions to a coding agent, not reference material). The CBORG
   configuration section referenced above is now at
   `docs/text_to_sql.md`, not `phase6_notes.md`.
-- 2026-08-09 — Cleanup: this file split out of CLAUDE.md — the History
-  and Resolved data quirks sections moved here verbatim, CLAUDE.md
-  trimmed to active scope/data-authority/schema/roadmap content only.
-  Motivation: a stranger browsing the repo root was hitting a 22KB
-  AI-agent work log before any human-facing doc; splitting keeps
-  CLAUDE.md's root-level auto-load (Claude Code loads CLAUDE.md from
-  the project root every session) while moving the bulk of stale detail
-  to a reference doc alongside schema.md and data/data_notes.md.
+- 2026-08-09 — Cleanup: repo review pass. Added a zero-setup "Quick
+  look" sqlite3 example to README (previously buried 100 lines behind
+  the schema/ERD deep-dive); fixed metadata.yaml's stale "1927-2024"
+  description (db covers through the 98th ceremony, 2025), a dead
+  `align_ids` import in verify.py, and a stale docs/text_to_sql.md
+  reference to `queries/*.sql` as the proven-query source (it's
+  actually notebooks/oscar_sql_tutorial.ipynb — queries/ only holds
+  the 2 CLI lookup files). Also split this file out of CLAUDE.md — the
+  History and Resolved data quirks sections moved here verbatim,
+  CLAUDE.md trimmed to active scope/data-authority/schema/roadmap
+  content only. Motivation: a stranger browsing the repo root was
+  hitting a 22KB AI-agent work log before any human-facing doc;
+  splitting keeps CLAUDE.md's root-level auto-load (Claude Code loads
+  CLAUDE.md from the project root every session) while moving the bulk
+  of stale detail to a reference doc alongside schema.md and
+  data/data_notes.md.
 
 ## Resolved data quirks (reference, all handled)
 
