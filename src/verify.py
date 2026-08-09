@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from ingest import parse_row, to_null, parse_winner, split_pipe, align_ids
+from ingest import parse_row, to_null, parse_winner, split_pipe
 
 DB_PATH = "oscars.db"
 TSV_PATH = "data/oscars.tsv"

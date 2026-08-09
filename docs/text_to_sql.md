@@ -5,8 +5,9 @@ as the spec before the script was built; kept afterward for the
 sections that are still load-bearing (the CBORG configuration below)
 and as a record of what was decided and why.
 
-Builds on the SQL query collection (proven, in `queries/*.sql`) and the
-CLI (`src/query.py`), against the working `oscars.db`.
+Builds on the SQL query collection (proven, in
+`notebooks/oscar_sql_tutorial.ipynb`) and the CLI (`src/query.py`),
+against the working `oscars.db`.
 
 ## Goal
 

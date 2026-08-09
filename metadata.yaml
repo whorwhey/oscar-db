@@ -1,5 +1,5 @@
 title: Oscar Nominations Database
-description: Curated SQLite database of Academy Award nominations, 1927-2024.
+description: Curated SQLite database of Academy Award nominations, 1927-2025.
 
 databases:
   oscars:

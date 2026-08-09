@@ -7,6 +7,20 @@ corrected and enriched against IMDb's datasets. A personal project for
 learning SQL, database design, and data curation — shared in case it's
 useful to others.
 
+## Quick look
+
+No setup beyond `git` and `sqlite3` — `oscars.db` is a plain SQLite
+file, tracked in this repo.
+
+```sh
+git clone https://github.com/whorwhey/oscar-db.git
+cd oscar-db
+sqlite3 oscars.db "SELECT title, release_year, imdb_id FROM films WHERE title LIKE '%Parasite%';"
+```
+
+See "Usage" below for a CLI, a browsable web GUI, and a natural-language
+query interface, all built on this same file.
+
 ## Description
 
 The database itself (`oscars.db`) is the maintained artifact — not
