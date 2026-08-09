@@ -12,7 +12,7 @@
 #             ambiguous after that (zero CN rows, a non-CJK lone row, or
 #             0/2+ qualifying imdbDisplay rows) is left NULL and counted;
 #             15 such films were hand-reviewed and hand-fixed 2026-07-17,
-#             see "Resolved data quirks" in CLAUDE.md.
+#             see "Resolved data quirks" in docs/project_history.md.
 #   people <- name.basics:  birth_year, death_year (kind='person' only;
 #             companies are absent from name.basics by design);
 #             reports (does not write) name divergence from primaryName;

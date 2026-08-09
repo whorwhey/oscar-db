@@ -90,8 +90,8 @@ a systematic audit) — see `docs/text_to_sql_prompt_log.md`, eval case 6: perso
 1925, `ROY C. STEWART AND SONS`, is stored with `kind = 'person'` despite
 being obviously a business name ("AND SONS"). This is the same class of
 defect as the 230 id-less organizations reclassified to `kind = 'company'`
-2026-07-09 and the 4 more caught 2026-07-10 (see CLAUDE.md "Resolved data
-quirks") — this one just wasn't caught by either pass. Since both of those
+2026-07-09 and the 4 more caught 2026-07-10 (see docs/project_history.md
+"Resolved data quirks") — this one just wasn't caught by either pass. Since both of those
 passes were manual/regex-assisted review rather than exhaustive
 verification, at least one more row slipping through means the
 `kind = 'person'` set has not been fully audited and likely still contains
@@ -136,7 +136,7 @@ imdb_id at all — release_year 1943 hand-set, IMDb columns NULL.
 
 Hand fixes: individual corrections where neither source is right (stale
 imdb_id, missing release_year, …) — the running list is "Resolved data
-quirks" in CLAUDE.md.
+quirks" in docs/project_history.md.
 
 ## Source 3: IMDb name.basics (enrichment)
 
@@ -164,12 +164,12 @@ name.basics row; 6,785 have birth_year, 4,087 death_year. The 736 ID-less
 persons — mostly pre-1960s SciTech honorees with no IMDb record — were
 a bulk review effort (roadmap item 1, closed 2026-07-14, not resumed as
 a bulk technique; its worklist and generator script were removed
-2026-07-17). ~180 IDs were recovered 2026-07-09 by
-exact-name matching verified against knownForTitles, and 5 more
-2026-07-11 by individual research, see CLAUDE.md "Resolved data
-quirks"; a further ~26 recovered the same way were reverted after
-review — elimination-only matching without independent confirmation
-isn't trusted here).
+2026-07-17). ~180 IDs were recovered 2026-07-09 by exact-name matching
+verified against knownForTitles, and 5 more 2026-07-11 by individual
+research, see docs/project_history.md "Resolved data quirks"; a
+further ~26 recovered the same way were reverted after review —
+elimination-only matching without independent confirmation isn't
+trusted here).
 
 ## Source 4: IMDb title.crew (enrichment)
 
@@ -198,9 +198,10 @@ further 74 are matched but list no directors. Spot-checking a range of the
 shorts/newsreels/documentaries, 1930-1989); for the 4 fully-missing titles,
 3 were hand-verified online and fixed directly (San Francisco → W.S. Van
 Dyke, Mrs. Miniver → William Wyler, 7 Faces of Dr. Lao → George Pal, all
-already `people` rows from their own nominations — see CLAUDE.md "Resolved
-data quirks"); Wings (tt0018578) remains unresolved. 5,189 films end up
-with >=1 director linked, 6,400 links across 3,213 distinct directors.
+already `people` rows from their own nominations — see
+docs/project_history.md "Resolved data quirks"); Wings (tt0018578)
+remains unresolved. 5,189 films end up with >=1 director linked, 6,400
+links across 3,213 distinct directors.
 
 ## Source 5: IMDb title.akas (enrichment)
 
@@ -210,8 +211,8 @@ language, ...) alternate-title combination; `titleId` = `films.imdb_id`.
 Rows filtered to `region = 'CN'` — the source for `films.title_zh` (a
 different angle on this same file, matching original-title text across
 all regions to infer country/language, was tried and dropped 2026-07-14,
-see CLAUDE.md; that finding doesn't apply here since this is a direct
-region filter, not text matching).
+see docs/project_history.md; that finding doesn't apply here since
+this is a direct region filter, not text matching).
 
 Not every film has a CN row, and CN rows aren't reliably real Chinese
 text — IMDb tags some pinyin/English rows `region=CN` too (e.g. Solo:
@@ -223,18 +224,19 @@ Written to `films.title_zh` (`src/enrich_imdb.py`, `sync_title_zh`) when:
    text — the CJK check applies here too, since a lone imdbDisplay row
    can itself be pinyin (Crouching Tiger, Hidden Dragon's only imdbDisplay
    row is "Wo hu cang long"; the real title, 卧虎藏龙, is typed
-   `alternative` and had to be hand-picked — see CLAUDE.md).
+   `alternative` and had to be hand-picked — see
+   docs/project_history.md).
 
 Anything left ambiguous by those two rules (no CN row, a lone non-CJK
 row, or 0/2+ qualifying imdbDisplay rows) is left NULL. 1,311 films were
 written algorithmically 2026-07-17 (1,017 + 294); 13 more were reviewed
 and hand-picked from their candidate rows (data/title_zh_review.md,
-CLAUDE.md "Resolved data quirks"), one of them (Maleficent: Mistress of
-Evil) with a value that isn't in title.akas at all — a genuine hand
-entry, not IMDb-sourced. films.title_zh filled: 1,324 of 5,264 films
-with an imdb_id; the remaining 3,940 are a permanent, expected gap, not
-being pursued further as a bulk technique (same posture as the person/
-company imdb_id gaps closed 2026-07-14).
+docs/project_history.md "Resolved data quirks"), one of them
+(Maleficent: Mistress of Evil) with a value that isn't in title.akas at
+all — a genuine hand entry, not IMDb-sourced. films.title_zh filled:
+1,324 of 5,264 films with an imdb_id; the remaining 3,940 are a
+permanent, expected gap, not being pursued further as a bulk technique
+(same posture as the person/company imdb_id gaps closed 2026-07-14).
 
 ## Categories: curated by us
 

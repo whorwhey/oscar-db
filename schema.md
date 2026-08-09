@@ -12,7 +12,7 @@ README; this file goes column-by-column.
 - 2026-07-08 — `films` gained `original_title` + `runtime_minutes` (IMDb).
 - 2026-07-09 — `film_directors` junction added (IMDb crew data).
 - 2026-07-14 — `film_countries`/`person_countries` junctions removed
-  (country/language enrichment dropped; see CLAUDE.md).
+  (country/language enrichment dropped; see docs/project_history.md).
 
 ## Tables
 

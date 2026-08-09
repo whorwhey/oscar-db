@@ -181,7 +181,7 @@ def imdb_enrichment(cur):
     """).fetchall()
     expected_people = [
         ("nm0000031", "Katharine Hepburn", 1907, 2003),
-        ("nm2353419", "Al Mayer Jr.", 1966, None),   # id swap fix, see CLAUDE.md
+        ("nm2353419", "Al Mayer Jr.", 1966, None),   # id swap fix, see docs/project_history.md
         ("nm4869190", "Al Mayer Sr.", 1936, 2018),
     ]
     check("birth/death spot checks (Hepburn, Al Mayer Sr./Jr.)",
@@ -193,9 +193,10 @@ def film_directors_checks(cur):
 
     # Coverage: 5,264 films have an imdb_id; 4 were missing from the 2026-07
     # title.crew snapshot entirely (3 hand-fixed after online verification,
-    # see CLAUDE.md "Resolved data quirks"; Wings unresolved) and a further
-    # 74 are matched but list no directors (IMDb \N, confirmed genuinely
-    # unknown to IMDb, not an export gap) -- both are gaps in IMDb's data.
+    # see docs/project_history.md "Resolved data quirks"; Wings
+    # unresolved) and a further 74 are matched but list no directors
+    # (IMDb \N, confirmed genuinely unknown to IMDb, not an export gap)
+    # -- both are gaps in IMDb's data.
     coverage = cur.execute("""
         SELECT COUNT(*), COUNT(DISTINCT person_id) FROM film_directors
     """).fetchone()
@@ -314,8 +315,9 @@ def round_trip(cur, sample_stride=1000):
 
         # film_id linkage (count), not title text: enrichment now legitimately
         # rewrites some titles to match IMDb's primaryTitle (see
-        # data/title_review_*.txt / CLAUDE.md), so exact text fidelity to the
-        # TSV is no longer the invariant post-enrichment -- only linkage is.
+        # data/title_review_*.txt / docs/project_history.md), so exact text
+        # fidelity to the TSV is no longer the invariant post-enrichment --
+        # only linkage is.
         film_names = split_pipe(row["Film"])
         if film_names:
             (linked_count,) = cur.execute("""

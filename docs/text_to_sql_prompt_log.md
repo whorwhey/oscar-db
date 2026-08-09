@@ -616,9 +616,9 @@ phrasing, not between the prompt's rules.
 **Aside, unrelated to the prompt:** `ROY C. STEWART AND SONS` (person_id
 1925) is classified `kind = 'person'` despite being obviously a business
 name ("AND SONS") — a pre-existing data-quality gap in the underlying
-`kind` classification (see CLAUDE.md's history of similar id-less-company
-reclassification passes), not something a text-to-SQL prompt rule could
-catch or should try to.
+`kind` classification (see docs/project_history.md's history of similar
+id-less-company reclassification passes), not something a text-to-SQL
+prompt rule could catch or should try to.
 
 **Gaps found:** none.
 
