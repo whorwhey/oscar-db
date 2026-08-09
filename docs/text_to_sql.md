@@ -1,12 +1,12 @@
-# Phase 6 Notes — Text-to-SQL LLM Demo
+# Text-to-SQL Demo — Design Notes
 
 Design notes and reference for `src/text_to_sql.py`. Originally written
-as the spec before building Phase 6; kept afterward for the sections
-that are still load-bearing (the CBORG configuration below) and as a
-record of what was decided and why.
+as the spec before the script was built; kept afterward for the
+sections that are still load-bearing (the CBORG configuration below)
+and as a record of what was decided and why.
 
-Depended on: Phase 5a queries (proven, in `queries/*.sql`), Phase 5b CLI
-(`src/query.py`), working `oscars.db`.
+Builds on the SQL query collection (proven, in `queries/*.sql`) and the
+CLI (`src/query.py`), against the working `oscars.db`.
 
 ## Goal
 
@@ -50,7 +50,7 @@ the initial build.
 
 ## Prompt design
 
-This section is the core of Phase 6. The prompt sent to the API has
+This section is the core of the design. The prompt sent to the API has
 three parts: schema context, database-specific rules, and the user's
 question.
 
@@ -143,7 +143,7 @@ parsing). If no code block is found, that's the designed refusal path
 (the prompt tells the model to emit no SQL when a question is
 unanswerable from this schema) — print the model's explanation text and
 exit 0, not an error. Confirmed working as intended: stretch case 1 in
-`phase6_prompt_log.md`'s eval log.
+`docs/text_to_sql_prompt_log.md`'s eval log.
 
 ### Safety constraints
 
@@ -213,31 +213,6 @@ it to `text_to_sql.py`, and compare:
 - "What's the longest Best Picture winner?" (tests `runtime_minutes`)
 - "Show me all Japanese films that won an Oscar" (tests
   `original_title` or lack of country data — should note limitation)
-
-## Build sequence
-
-1. **Prompt design session** (Chat, Opus) — finalize the system prompt
-   text, test it by hand against 3–4 questions, iterate. Output: the
-   prompt template as a string ready to paste into code.
-2. **Scaffold** (Claude Code, Sonnet) — `src/text_to_sql.py` with:
-   argument parsing, schema loading, prompt assembly, API call, SQL
-   extraction, execution, output formatting. Get one end-to-end query
-   working.
-3. **Eval loop** (Claude Code or manual) — run all 12 test cases,
-   compare results, tune the prompt rules based on failures.
-4. **Polish** — error handling, help text. As built: the SQL is shown
-   by default before executing (no `--explain` flag needed); `--quiet`
-   suppresses it instead. A `--model NAME` flag overrides the default
-   model.
-
-## Files the Code agent needs
-
-- `schema.sql` — the DDL, included verbatim in the LLM prompt
-- `queries/*.sql` — proven queries for evaluation comparison
-- `src/query.py` — existing CLI runner (reference for db connection
-  patterns, output formatting)
-- `oscars.db` — the database itself
-- This file (`phase6_notes.md`) — the spec
 
 ## Dependencies
 

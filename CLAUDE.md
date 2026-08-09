@@ -66,7 +66,7 @@ raw_category (per-year text) → source_name (66, DLu's CanonicalCategory)
   reports (not writes) title/name divergence from primaryTitle/
   primaryName — currently 0 for both.
 - src/text_to_sql.py needs `CBORG_API_KEY` (not `ANTHROPIC_API_KEY`) —
-  full gateway/model/budget config in phase6_notes.md's "CBORG
+  full gateway/model/budget config in docs/text_to_sql.md's "CBORG
   configuration" section; read that before re-deriving it again.
 
 ## Roadmap
@@ -154,6 +154,17 @@ and data/data_notes.md)
   read from it already got what it needed a different way (5b's 2
   files, 5c's 7 inlined into metadata.yaml), so it would only be a
   second, driftable copy of code already tested in the notebook.
+- 2026-08-08 — Done: repo restructure for external readability now that
+  the interface-demo build order is closed. `interface_plan.md` deleted
+  (a superseded planning journal — its decisions are already condensed
+  into this History section). `phase6_notes.md` → `docs/text_to_sql.md`
+  and `phase6_prompt_log.md` → `docs/text_to_sql_prompt_log.md`,
+  renamed off the phase-numbered names and moved out of the root;
+  `docs/text_to_sql.md` additionally pruned of its now-stale "Build
+  sequence" and "Files the Code agent needs" sections (build-time
+  instructions to a coding agent, not reference material). The CBORG
+  configuration section referenced above is now at
+  `docs/text_to_sql.md`, not `phase6_notes.md`.
 
 ## Resolved data quirks (reference, all handled)
 

@@ -1,4 +1,4 @@
-# Phase 6 — System Prompt Changelog & Eval Log
+# Text-to-SQL System Prompt — Changelog & Eval Log
 
 **Status:** v0.8 extracted to `prompts/system_prompt.txt` and wired into
 `src/text_to_sql.py`. This file is now changelog + eval log only — the
@@ -6,8 +6,8 @@ prompt text itself lives in the extracted file, not here.
 
 **Version:** v0.8 (2026-08-05)
 
-Companion to `phase6_notes.md`. Where the two disagree, this file wins —
-`phase6_notes.md` was written before the schema probe.
+Companion to `docs/text_to_sql.md`. Where the two disagree, this file
+wins — `docs/text_to_sql.md` was written before the schema probe.
 
 ---
 
@@ -158,8 +158,8 @@ reads `schema.sql` from disk at runtime and substitutes it in.
 **Question:** Best Picture winners whose director was never nominated for
 Directing.
 
-**Note:** `phase6_notes.md` maps this to Phase 5a query 9, but that query was
-never built (see `interface_plan.md`). No ground truth — verified by hand.
+**Note:** `docs/text_to_sql.md` maps this to Phase 5a query 9, but that
+query was never built. No ground truth — verified by hand.
 
 **Result:** 5 rows — CODA (Sian Heder), Green Book (Peter Farrelly), Argo
 (Ben Affleck), Slumdog Millionaire (Loveleen Tandan), Grand Hotel (Edmund
@@ -304,7 +304,7 @@ per the counting rule (not strictly required here since `nomination_people`'s
 PK already prevents duplicate person-nomination pairs, but not wrong
 either); `person_id` + `birth_year` disambiguation; `LIMIT 20`.
 
-**Compare:** `phase6_notes.md`'s mapped ground truth is notebook 4.3, "who
+**Compare:** `docs/text_to_sql.md`'s mapped ground truth is notebook 4.3, "who
 has won across the most different Oscar categories" — `COUNT(DISTINCT
 category_id)` breadth, not total win count. Ran both: rank-1 agrees (Walt
 Disney), but the rest diverges hard — e.g. Iain Neil ranks #3 by total
@@ -1037,7 +1037,7 @@ on.
 
 ## Remaining cases
 
-All 11 numbered cases and all 4 stretch cases from `phase6_notes.md` are
+All 11 numbered cases and all 4 stretch cases from `docs/text_to_sql.md` are
 done. No queued cases remain — see the end-of-run report for regression
 results and next steps.
 
@@ -1046,7 +1046,7 @@ results and next steps.
 ## Method
 
 The model generating SQL must see **only** the system prompt above and the
-question. Not this file's eval log, not `phase6_notes.md`, not the notebook.
+question. Not this file's eval log, not `docs/text_to_sql.md`, not the notebook.
 Rule gaps only surface when the model is working from the prompt alone.
 
 Comparison targets, where they exist: `notebooks/oscar_sql_tutorial.ipynb`

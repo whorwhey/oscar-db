@@ -133,31 +133,81 @@ default shell).
 
 ## Usage
 
-The database is a single SQLite file — query it with any SQLite client.
+The database is a single SQLite file (`oscars.db`) — every interface
+below just queries it a different way. Four ways in, roughly in order
+of "how much SQL you want to write yourself."
+
+### SQL
 
 - **Guided tour:** `notebooks/oscar_sql_tutorial.ipynb` is a 19-query
   SQL tutorial that builds from `SELECT` up through joins, aggregates,
-  subqueries, and CTEs against `oscars.db`. Open it in VS Code or Jupyter
-  (`uv sync` installs the notebook kernel).
-- **Quick lookups:** a small CLI runs parameterized queries from
-  `queries/` — e.g. `uv run src/query.py person-history "Daniel Day-Lewis"`
-  or `uv run src/query.py title-search "Titanic"`. Name/title search is
-  forgiving about spacing and punctuation, notes when a match is loose,
-  and suggests close alternatives when nothing matches.
-- **Browse reports:** `uv run datasette oscars.db -m metadata.yaml`
-  starts a local web UI at `http://127.0.0.1:8001` with 7 canned
-  queries (most-awarded films, most nominations without a win, category
-  name history, youngest/oldest acting winners, and more), plus an
-  ad-hoc SQL box for anything else.
-- **Ask a question in plain English:**
-  `uv run src/text_to_sql.py "Which films won the most Oscars?"` sends
-  the question plus schema context to an LLM, prints the generated SQL,
-  and runs it read-only against `oscars.db`. Needs `CBORG_API_KEY` — see
-  "Environment variables" above; the notebook, CLI, and Datasette above
-  need no API key and work for anyone.
-- Browse the db directly with any SQLite client (e.g. the VS Code
-  SQLite Viewer extension).
-- `uv run src/verify.py` runs correctness checks against `oscars.db`.
+  subqueries, and CTEs against `oscars.db`. Open it in VS Code or
+  Jupyter (`uv sync` installs the notebook kernel).
+- **Quick lookups:** a small CLI runs two parameterized queries from
+  `queries/`:
+  ```sh
+  uv run src/query.py person-history "Daniel Day-Lewis"
+  uv run src/query.py title-search "Titanic"
+  ```
+  It loads the matching `.sql` file and runs it with your search term
+  substituted in as a `LIKE` parameter. The matching is forgiving about
+  spacing and punctuation (`"Daniel Day Lewis"` still finds
+  `Daniel Day-Lewis`), prints a `note:` when a hit was only found this
+  loose way, and on zero results suggests close spellings from the
+  database itself.
+- **Anything else:** open `oscars.db` directly in any SQLite client
+  (e.g. the VS Code SQLite Viewer extension, or plain `sqlite3
+  oscars.db` on the command line).
+
+### Web GUI
+
+```sh
+uv run datasette oscars.db -m metadata.yaml
+```
+
+Starts [Datasette](https://datasette.io/) at `http://127.0.0.1:8001`.
+Datasette introspects the schema on startup and gives you a browsable
+site for every table, plus 7 **canned queries** defined in
+`metadata.yaml` — fixed reports like most-awarded films, most
+nominations without a win, and category-name history over time (one of
+the seven takes a category name as a text-box parameter). There's also
+a free-form "Execute SQL" box for anything not covered by those seven.
+No code, no API key, works for anyone who clones the repo.
+
+### Natural language (LLM)
+
+```sh
+uv run src/text_to_sql.py "Which films won the most Oscars?"
+```
+
+Sends your question, `schema.sql`, and a set of database-specific rules
+(`prompts/system_prompt.txt` — things like "film titles aren't unique,
+group by `film_id`") to a Claude model via CBORG. The model responds
+with SQL in a fenced code block plus a short explanation; the script
+extracts the SQL, checks it's a single read-only `SELECT`/`WITH`
+statement (rejecting anything else before it touches the database),
+runs it against a read-only connection to `oscars.db`, and prints the
+result. If your question isn't answerable from this schema (e.g. asking
+about genre, which isn't tracked), the model says so instead of
+guessing — that's a designed behavior, not an error. Needs
+`CBORG_API_KEY` — see "Environment variables" above; every other
+interface here needs no API key. Design rationale and the full prompt
+changelog are in `docs/text_to_sql.md` and
+`docs/text_to_sql_prompt_log.md`.
+
+### Correctness checks
+
+```sh
+uv run src/verify.py
+```
+
+Run this after any change to `oscars.db`. It checks structural
+integrity (foreign keys, orphan rows), aggregate sanity (row counts and
+distributions in expected ranges), known-fact spot checks (specific
+nominations/wins that must still be true), and a round-trip sample
+against `data/oscars.tsv` — the round-trip checks linkage counts, not
+title text, since titles are legitimately enriched away from the TSV
+toward IMDb's spelling.
 
 ## Contributing
 
